@@ -144,7 +144,7 @@ class CfgWorlds
 
 class ACE_Tags {
 	class OT_goHome {
-		displayName = "NATO Go Home";
+		displayName = "OTAN id a casa";
 		requiredItem = "ACE_SpraypaintBlack";
 		textures[] = {"\overthrow_main\ui\tags\gohome.paa"};
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
@@ -156,7 +156,7 @@ class ACE_Tags {
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
 	};
 	class OT_fuckNATO {
-		displayName = "Fuck NATO";
+		displayName = "OTAN Jódete";
 		requiredItem = "ACE_SpraypaintBlack";
 		textures[] = {"\overthrow_main\ui\tags\fucknato.paa"};
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
