@@ -40,6 +40,23 @@ OT_priceData = [
 ['ACE_Cellphone',[50,0,0,1]],
 ['V_RebreatherIA',[75,0,0,1]],
 
+//ACE Food
+['ACE_WaterBottle',[50,0,0,0]],
+['ACE_Canteen',[50,0,0,0]],
+['ACE_MRE_SteakVegetables',[50,0,0,0]],
+['ACE_WaterBottle',[50,0,0,0]],
+['ACE_Can_Franta',[50,0,0,0]],
+['ACE_Can_RedGull',[50,0,0,0]],
+['ACE_Can_Spirit',[50,0,0,0]],
+['ACE_MRE_MeatballsPasta',[50,0,0,0]],
+['ACE_MRE_BeefStew',[50,0,0,0]],
+['ACE_MRE_LambCurry',[50,0,0,0]],
+['ACE_MRE_ChickenHerbDumplings',[50,0,0,0]],
+['ACE_MRE_ChickenTikkaMasala',[50,0,0,0]],
+['ACE_MRE_CreamChickenSoup',[50,0,0,0]],
+['ACE_MRE_CreamTomatoSoup',[50,0,0,0]],
+['ACE_Humanitarian_Ration',[50,0,0,0]],
+
 //New v0.7.8.0
 ['ACE_tourniquet',[15,0,0,0.1]],
 ['ACE_personalAidKit',[25,0,0,2]],

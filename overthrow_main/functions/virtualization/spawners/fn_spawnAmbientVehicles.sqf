@@ -22,7 +22,7 @@ if(_town isEqualTo (server getVariable "spawntown")) then {
 	_numVeh = 12;
 };
 if(_numVeh > 12) then {_numVeh = 12};
-if(count(vehicles) > 200) then {_numVeh = 3};
+if(count(vehicles) > 20) then {_numVeh = 3};
 private _loops = 0;
 while {(_count < _numVeh) && (_loops < 50)} do {
 	private _start = [[[_posTown,_mSize]]] call BIS_fnc_randomPos;

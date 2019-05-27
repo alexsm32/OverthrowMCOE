@@ -1,4 +1,3 @@
-#include "BIS_AddonInfo.hpp"
 #include "script_mod.hpp"
 #include "headers\config_macros.hpp"
 
