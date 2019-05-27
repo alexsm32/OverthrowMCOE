@@ -35,7 +35,7 @@ class OT_dialog_name
 		class RscStructuredText_1100: RscOverthrowStructuredText
 		{
 			idc = 1100;
-			text = "Enter a name for your new base"; //--- ToDo: Localize;
+			text = "Añade nombre a la nueva base"; //--- ToDo: Localize;
 			x = 0.37625 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.195937 * safezoneW;
@@ -45,7 +45,7 @@ class OT_dialog_name
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Done"; //--- ToDo: Localize;
+			text = "Hecho"; //--- ToDo: Localize;
 			x = 0.577344 * safezoneW + safezoneX;
 			y = 0.478 * safezoneH + safezoneY;
 			w = 0.04125 * safezoneW;
@@ -149,72 +149,72 @@ class OT_dialog_place
 			idc = 1600;
 			action = "closeDialog 0;'Sandbags' spawn OT_fnc_place";
 
-			text = "Sandbags"; //--- ToDo: Localize;
+			text = "Sacos terreros"; //--- ToDo: Localize;
 			x = 0.551562 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Light defense"; //--- ToDo: Localize;
+			tooltip = "Defensa ligera"; //--- ToDo: Localize;
 		};
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
 			action = "closeDialog 0;'Camo Nets' spawn OT_fnc_place";
 
-			text = "Camo Nets"; //--- ToDo: Localize;
+			text = "Redes de camuflaje"; //--- ToDo: Localize;
 			x = 0.7475 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Hide from the helicopters"; //--- ToDo: Localize;
+			tooltip = "Escóndete de los helicópteros"; //--- ToDo: Localize;
 		};
 		class RscButton_1602: RscOverthrowButton
 		{
 			idc = 1602;
 			action = "closeDialog 0;'Barriers' spawn OT_fnc_place";
 
-			text = "Barriers"; //--- ToDo: Localize;
+			text = "Barreras"; //--- ToDo: Localize;
 			x = 0.649531 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Medium defense"; //--- ToDo: Localize;
+			tooltip = "Defensa media"; //--- ToDo: Localize;
 		};
 		class RscButton_1603: RscOverthrowButton
 		{
 			idc = 1603;
 			action = "closeDialog 0;'Camp' spawn OT_fnc_place";
 
-			text = "Camp"; //--- ToDo: Localize;
+			text = "Plantar Campamento"; //--- ToDo: Localize;
 			x = 0.0617187 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Creates a fast travel destination"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje rápido"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
 			action = "closeDialog 0;'Ammobox' spawn OT_fnc_place";
 
-			text = "Ammobox"; //--- ToDo: Localize;
+			text = "Caja de munición"; //--- ToDo: Localize;
 			x = 0.355625 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "An empty ammobox"; //--- ToDo: Localize;
+			tooltip = "Una caja de munición vacía"; //--- ToDo: Localize;
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
 			idc = 1605;
 			action = "closeDialog 0;'Misc' spawn OT_fnc_place";
 
-			text = "Misc"; //--- ToDo: Localize;
+			text = "Varios"; //--- ToDo: Localize;
 			x = 0.845469 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Miscellaneous (but useful) items"; //--- ToDo: Localize;
+			tooltip = "Objetos varios (muy útiles)"; //--- ToDo: Localize;
 		};
 		class RscButton_1606: RscOverthrowButton
 		{
@@ -226,31 +226,31 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Creates a fast travel destination, allows building of light military structures"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje rápido y permite construir instalaciones militares ligeras"; //--- ToDo: Localize;
 		};
 		class RscButton_1607: RscOverthrowButton
 		{
 			idc = 1607;
 			action = "closeDialog 0;'Map' spawn OT_fnc_place";
 
-			text = "Map"; //--- ToDo: Localize;
+			text = "Mapa"; //--- ToDo: Localize;
 			x = 0.257656 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "A map"; //--- ToDo: Localize;
+			tooltip = "Un mapa"; //--- ToDo: Localize;
 		};
 		class RscButton_1608: RscOverthrowButton
 		{
 			idc = 1608;
 			action = "closeDialog 0;'Safe' spawn OT_fnc_place";
 
-			text = "Safe"; //--- ToDo: Localize;
+			text = "Caja Fuerte"; //--- ToDo: Localize;
 			x = 0.453594 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Store and retrieve money"; //--- ToDo: Localize;
+			tooltip = "Almacena y retira dinero"; //--- ToDo: Localize;
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END

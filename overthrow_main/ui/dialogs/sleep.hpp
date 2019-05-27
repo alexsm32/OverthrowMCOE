@@ -38,7 +38,7 @@ class OT_sleep_dialog {
       style = 0x02;
       font = "PuristaBold";
       sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-    	text = "HOW LONG WOULD YOU LIKE TO SLEEP?"; //--- ToDo: Localize;
+    	text = "¿Cuanto tiempo quieres dormir?"; //--- ToDo: Localize;
     	x = 0.386562 * safezoneW + safezoneX;
     	y = 0.456 * safezoneH + safezoneY;
     	w = 0.237187 * safezoneW;
@@ -59,7 +59,7 @@ class OT_sleep_dialog {
     {
     	idc = -1;
       fade = 1;
-    	text = "SLEEP"; //--- ToDo: Localize;
+    	text = "DORMIR"; //--- ToDo: Localize;
     	x = 0.494844 * safezoneW + safezoneX;
     	y = 0.533 * safezoneH + safezoneY;
     	w = 0.134062 * safezoneW;
@@ -72,7 +72,7 @@ class OT_sleep_dialog {
     	idc = 10;
       fade = 1;
       style = 0x02;
-    	text = "X Hour(s)"; //--- ToDo: Localize;
+    	text = "X Hora(s)"; //--- ToDo: Localize;
     	x = 0.386563 * safezoneW + safezoneX;
     	y = 0.533 * safezoneH + safezoneY;
     	w = 0.0928125 * safezoneW;

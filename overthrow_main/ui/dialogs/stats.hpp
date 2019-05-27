@@ -46,7 +46,7 @@ class RscTitles {
 			class RscButton_1600: RscOverthrowButton
 			{
 				idc = 1600;
-				text = "Buy"; //--- ToDo: Localize;
+				text = "Comprar"; //--- ToDo: Localize;
 				x = 0.752656 * safezoneW + safezoneX;
 				y = 0.676 * safezoneH + safezoneY;
 				w = 0.139219 * safezoneW;

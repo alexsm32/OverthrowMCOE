@@ -27,7 +27,7 @@ private _actualMission = {
             //give waypoint
             [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-            format["There doesnt seem to be any wrecks nearby. Head to %1, you should be able to find some there. It's marked on your map",_town] call OT_fnc_notifyMinor;
+            format["Parece que no hay chatarra cerca. Vete a %1, deberías encontrar algo por allí. está marcado en tu mapa",_town] call OT_fnc_notifyMinor;
 
             [
                 {
@@ -47,7 +47,7 @@ private _actualMission = {
         };
     };
 
-    "There is a wreck nearby. Use the toolkit to salvage it" call OT_fnc_notifyMinor;
+    "Hay chatarra por aquí. usa las herramientas para desguazarla" call OT_fnc_notifyMinor;
 
     private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
     private _veh = _sorted select 0;
@@ -60,9 +60,9 @@ private _actualMission = {
         params["_loopCode","_veh"];
         if(player distance _veh < 10 && "ToolKit" in items player) then {
             _reached = true;
-            "Use your interaction key on the wreck to talk to salvage it.
-            The items you get can be sold at any Hardware store,
-            just drive up to it and press 'Y'" call OT_fnc_notifyMinor;
+            "Usa la tecla de interacción sobre la chatarra.
+            Lo que saques puede ser vendido en las tiendas de herramientas,
+            solo conduce hasta allí y pulsa 'Y'" call OT_fnc_notifyMinor;
             call OT_fnc_clearPlayerWaypoint;
         } else {
             [_loopCode,_this,0.5] call CBA_fnc_waitAndExecute;
@@ -74,8 +74,8 @@ private _actualMission = {
 
 //First do we have a toolkit?
 if !("ToolKit" in items player) then {
-    "Go and grab the toolkit from your ammobox at home,
-    you'll need a backpack to carry it" call OT_fnc_notifyMinor;
+    "COge las herramientas de la caja de munición de tu casa,
+    necesitarás una mochila" call OT_fnc_notifyMinor;
     private _home = player getVariable "home";
     private _wp = [player,_home,"Grab Toolkit"] call OT_fnc_givePlayerWaypoint;
     private _loop = {

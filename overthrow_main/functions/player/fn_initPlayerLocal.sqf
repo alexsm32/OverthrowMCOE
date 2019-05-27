@@ -233,7 +233,7 @@ if (_newplayer) then {
     _clothes = (OT_clothes_guerilla call BIS_fnc_selectRandom);
 	player forceAddUniform _clothes;
     player setVariable ["uniform",_clothes,true];
-	private _money = 100;
+	private _money = 500;
 	private _diff = server getVariable ["OT_difficulty",1];
 	if(_diff isEqualTo 0) then {
 		_money = 1000;
@@ -264,11 +264,11 @@ if (_newplayer) then {
     _light setLightAmbient[.9, .9, .6];
     _light setLightColor[.5, .5, .4];
 
-	//Free quad
-	_pos = _housepos findEmptyPosition [5,100,"C_Quadbike_01_F"];
+	//Free vehicle
+	_pos = _housepos findEmptyPosition [5,100,"C_Offroad_02_unarmed_F"];
 
 	if (count _pos > 0) then {
-		_veh = "C_Quadbike_01_F" createVehicle _pos;
+		_veh = "C_Offroad_02_unarmed_F" createVehicle _pos;
 		[_veh,getPlayerUID player] call OT_fnc_setOwner;
 		clearWeaponCargoGlobal _veh;
 		clearMagazineCargoGlobal _veh;

@@ -44,7 +44,7 @@ class OT_dialog_recruits
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Dismiss"; //--- ToDo: Localize;
+			text = "Despedir"; //--- ToDo: Localize;
 			x = 0.711406 * safezoneW + safezoneX;
 			y = 0.599 * safezoneH + safezoneY;
 			w = 0.0825 * safezoneW;

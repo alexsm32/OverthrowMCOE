@@ -45,7 +45,7 @@ class OT_dialog_buy
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Buy"; //--- ToDo: Localize;
+			text = "Comprar"; //--- ToDo: Localize;
 			x = 0.752656 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.139219 * safezoneW;
@@ -107,7 +107,7 @@ class OT_dialog_sell
 			idc = 1600;
 			action = "[] call OT_fnc_sell;";
 
-			text = "Sell 1"; //--- ToDo: Localize;
+			text = "Vender 1"; //--- ToDo: Localize;
 			x = 0.515469 * safezoneW + safezoneX;
 			y = 0.786 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
@@ -118,7 +118,7 @@ class OT_dialog_sell
 			idc = 1601;
 			action = "closeDialog 0;";
 
-			text = "Close"; //--- ToDo: Localize;
+			text = "Cerrar"; //--- ToDo: Localize;
 			x = 0.29375 * safezoneW + safezoneX;
 			y = 0.786 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
@@ -129,7 +129,7 @@ class OT_dialog_sell
 			idc = 1600;
 			action = "[] call OT_fnc_sellAll;";
 
-			text = "Sell All"; //--- ToDo: Localize;
+			text = "Vender todo"; //--- ToDo: Localize;
 			x = 0.613437 * safezoneW + safezoneX;
 			y = 0.786 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
@@ -191,7 +191,7 @@ class OT_dialog_workshop
 			idc = 1600;
 			action = "[] call OT_fnc_workshopAdd;";
 
-			text = "Add"; //--- ToDo: Localize;
+			text = "Añadir"; //--- ToDo: Localize;
 			x = 0.752656 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.139219 * safezoneW;
@@ -211,7 +211,7 @@ class OT_dialog_workshop
 		class RscStructuredText_1101: RscOverthrowStructuredText
 		{
 			idc = 1101;
-			text = "<t size=""2"" align=""center"">Workshop</t>"; //--- ToDo: Localize;
+			text = "<t size=""2"" align=""center"">Taller</t>"; //--- ToDo: Localize;
 			x = 0.2525 * safezoneW + safezoneX;
 			y = 0.159 * safezoneH + safezoneY;
 			w = 0.391875 * safezoneW;
@@ -295,7 +295,7 @@ class OT_dialog_warehouse
 			idc = 1600;
 			action = "[-1] call OT_fnc_warehouseTake;";
 
-			text = "Take All"; //--- ToDo: Localize;
+			text = "Coger todo"; //--- ToDo: Localize;
 			x = 0.840312 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -317,7 +317,7 @@ class OT_dialog_warehouse
 			idc = 1600;
 			action = "[100] call OT_fnc_warehouseTake;";
 
-			text = "Take 100"; //--- ToDo: Localize;
+			text = "Coger 100"; //--- ToDo: Localize;
 			x = 0.778437 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -329,7 +329,7 @@ class OT_dialog_warehouse
 			idc = 1600;
 			action = "[10] call OT_fnc_warehouseTake;";
 
-			text = "Take 10"; //--- ToDo: Localize;
+			text = "Coger 10"; //--- ToDo: Localize;
 			x = 0.716563 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -341,7 +341,7 @@ class OT_dialog_warehouse
 			idc = 1600;
 			action = "[1] call OT_fnc_warehouseTake;";
 
-			text = "Take 1"; //--- ToDo: Localize;
+			text = "Coger 1"; //--- ToDo: Localize;
 			x = 0.654688 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -404,7 +404,7 @@ class OT_dialog_import
 			idc = 1600;
 			action = "[1000] call OT_fnc_import;";
 
-			text = "Import 1000"; //--- ToDo: Localize;
+			text = "Importar 1000"; //--- ToDo: Localize;
 			x = 0.840312 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -426,7 +426,7 @@ class OT_dialog_import
 			idc = 1600;
 			action = "[100] call OT_fnc_import;";
 
-			text = "Import 100"; //--- ToDo: Localize;
+			text = "Importar 100"; //--- ToDo: Localize;
 			x = 0.778437 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -438,7 +438,7 @@ class OT_dialog_import
 			idc = 1600;
 			action = "[10] call OT_fnc_import;";
 
-			text = "Import 10"; //--- ToDo: Localize;
+			text = "Importar 10"; //--- ToDo: Localize;
 			x = 0.716563 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -467,7 +467,7 @@ class OT_dialog_loadout
 			idc = 1600;
 			action = "[player,OT_context,lbData [1500,lbCurSel 1500]] call OT_fnc_restoreLoadout";
 
-			text = "Restore"; //--- ToDo: Localize;
+			text = "Restaurar"; //--- ToDo: Localize;
 			x = 0.12875 * safezoneW + safezoneX;
 			y = 0.511 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
@@ -479,7 +479,7 @@ class OT_dialog_loadout
 			idc = 1601;
 			action = "[lbData [1500,lbCurSel 1500]] call OT_fnc_removeLoadout";
 
-			text = "Delete"; //--- ToDo: Localize;
+			text = "Borrar"; //--- ToDo: Localize;
 			x = 0.12875 * safezoneW + safezoneX;
 			y = 0.61 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;

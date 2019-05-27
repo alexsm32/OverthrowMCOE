@@ -1,4 +1,4 @@
-//Let's find some bandits to shoot
+//Vamos a disparar a algunos bandidos
 
 private _done = player getVariable ["OT_tutesDone",[]];
 player setVariable ["OT_tutesDone",_done+["CRIM"],true];
@@ -7,14 +7,14 @@ private _targets = [];
 private _destination = [];
 private _thistown = (getposATL player) call OT_fnc_nearestTown;
 
-//Is there some already spawned within spawn distance?
+//Ha spawneado alguien cerca?
 {
     if(side _x isEqualTo east) then {
         _targets pushback _x;
     };
 }foreach(player nearEntities ["CAManBase", OT_spawnDistance]);
 
-//No? well where is a town with an active gang
+//No? Veamos donde hay un pueblo con una banda activa
 if(count _targets isEqualTo 0) exitWith {
     private _towns = [OT_townData,[],{(_x select 0) distance player},"ASCEND"] call BIS_fnc_SortBy;
     private _town = "";
@@ -42,7 +42,7 @@ if(count _targets isEqualTo 0) exitWith {
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
         format[
-            "There doesnt seem to be any gangs nearby. Head to %1, you should be able to find some there. It's marked on your map",
+            "Parece que no hay bandas cerca. Dirigete a %1, Deberías encontrar alguna por allí. Está marcada en el mapa",
             _town
         ] call OT_fnc_notifyMinor;
 
@@ -53,7 +53,7 @@ if(count _targets isEqualTo 0) exitWith {
             {
                 //If the player fast travelled, give time to spawn
                 [{
-                    //loop and hope we find a target
+                    //espero encontrar un objetivo
                     [] call (OT_tutorialMissions select 1);
                 },0,10] call CBA_fnc_waitAndExecute;
             },
@@ -61,11 +61,11 @@ if(count _targets isEqualTo 0) exitWith {
         ] call CBA_fnc_waitUntilAndExecute;
 
     }else{
-        //I guess resistance controls the entire map, gg
+        //Me temo que la resistencia controla todo el mapa,XD
     };
 };
 
-"There is a gang nearby, locals are sick and tired of them so there might be a few dollars in it if you made them go away." call OT_fnc_notifyMinor;
+"Hay una banda por aquí cerca,puede que los lugareños te den algo de pasta si les invitas a irse" call OT_fnc_notifyMinor;
 
 //pick the first group and reveal
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;

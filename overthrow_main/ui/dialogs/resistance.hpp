@@ -25,7 +25,7 @@ class OT_dialog_resistance
         class RscStructuredText_1101: RscOverthrowStructuredText
         {
             idc = 1101;
-            text = "<t align='center' size='2'>Resistance</t>"; //--- ToDo: Localize;
+            text = "<t align='center' size='2'>Resistencia</t>"; //--- ToDo: Localize;
             x = 0.242187 * safezoneW + safezoneX;
             y = 0.181 * safezoneH + safezoneY;
             w = 0.515625 * safezoneW;
@@ -55,7 +55,7 @@ class OT_dialog_resistance
         class RscButton_1600: RscOverthrowButton
         {
             idc = 1600;
-            text = "Make General"; //--- ToDo: Localize;
+            text = "Ascender a General"; //--- ToDo: Localize;
             x = 0.628906 * safezoneW + safezoneX;
             y = 0.357 * safezoneH + safezoneY;
             w = 0.0721875 * safezoneW;
@@ -65,7 +65,7 @@ class OT_dialog_resistance
         class RscButton_1601: RscOverthrowButton
         {
             idc = 1601;
-            text = "Transfer funds"; //--- ToDo: Localize;
+            text = "Transferir fondos"; //--- ToDo: Localize;
             x = 0.546406 * safezoneW + safezoneX;
             y = 0.357 * safezoneH + safezoneY;
             w = 0.0721875 * safezoneW;
@@ -75,7 +75,7 @@ class OT_dialog_resistance
         class RscStructuredText_1103: RscOverthrowStructuredText
         {
             idc = 1103;
-            text = "<t align='center' size='1.2'>Businesses</t>"; //--- ToDo: Localize;
+            text = "<t align='center' size='1.2'>Negocios</t>"; //--- ToDo: Localize;
             x = 0.242187 * safezoneW + safezoneX;
             y = 0.412 * safezoneH + safezoneY;
             w = 0.515625 * safezoneW;
@@ -105,7 +105,7 @@ class OT_dialog_resistance
         class RscButton_1602: RscOverthrowButton
         {
             idc = 1602;
-            text = "Fire"; //--- ToDo: Localize;
+            text = "Despedir empleado"; //--- ToDo: Localize;
             x = 0.546406 * safezoneW + safezoneX;
             y = 0.566 * safezoneH + safezoneY;
             w = 0.0721875 * safezoneW;
@@ -115,7 +115,7 @@ class OT_dialog_resistance
         class RscButton_1603: RscOverthrowButton
         {
             idc = 1603;
-            text = "Hire"; //--- ToDo: Localize;
+            text = "Contratar empleado"; //--- ToDo: Localize;
             x = 0.628906 * safezoneW + safezoneX;
             y = 0.566 * safezoneH + safezoneY;
             w = 0.0721875 * safezoneW;
@@ -136,7 +136,7 @@ class OT_dialog_resistance
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
-			text = "Give funds"; //--- ToDo: Localize;
+			text = "Donar fondos"; //--- ToDo: Localize;
 			x = 0.402031 * safezoneW + safezoneX;
 			y = 0.643 * safezoneH + safezoneY;
 			w = 0.0979687 * safezoneW;
@@ -146,7 +146,7 @@ class OT_dialog_resistance
 		class RscButton_1605: RscOverthrowButton
 		{
 			idc = 1605;
-			text = "Take funds"; //--- ToDo: Localize;
+			text = "Retirar fondos"; //--- ToDo: Localize;
 			x = 0.510313 * safezoneW + safezoneX;
 			y = 0.643 * safezoneH + safezoneY;
 			w = 0.0979687 * safezoneW;
@@ -208,7 +208,7 @@ class OT_dialog_garrison
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "+1 Rifleman"; //--- ToDo: Localize;
+			text = "+1 Fusilero"; //--- ToDo: Localize;
 			x = 0.37625 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -218,7 +218,7 @@ class OT_dialog_garrison
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
-			text = "+1 Autorifleman"; //--- ToDo: Localize;
+			text = "+1 Fusilero Automático"; //--- ToDo: Localize;
 			x = 0.438125 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -228,7 +228,7 @@ class OT_dialog_garrison
 		class RscButton_1602: RscOverthrowButton
 		{
 			idc = 1602;
-			text = "+1 Grenadier"; //--- ToDo: Localize;
+			text = "+1 Granadero"; //--- ToDo: Localize;
 			x = 0.5 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -238,7 +238,7 @@ class OT_dialog_garrison
 		class RscButton_1603: RscOverthrowButton
 		{
 			idc = 1603;
-			text = "+1 Medic"; //--- ToDo: Localize;
+			text = "+1 Medico"; //--- ToDo: Localize;
 			x = 0.561875 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -248,7 +248,7 @@ class OT_dialog_garrison
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
-			text = "+1 Anti-Tank"; //--- ToDo: Localize;
+			text = "+1 Anti-Tanque"; //--- ToDo: Localize;
 			x = 0.37625 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -258,7 +258,7 @@ class OT_dialog_garrison
 		class RscButton_1605: RscOverthrowButton
 		{
 			idc = 1605;
-			text = "+1 Anti-Air"; //--- ToDo: Localize;
+			text = "+1 Anti-Aéreo"; //--- ToDo: Localize;
 			x = 0.438125 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -268,7 +268,7 @@ class OT_dialog_garrison
 		class RscButton_1606: RscOverthrowButton
 		{
 			idc = 1606;
-			text = "+1 HMG"; //--- ToDo: Localize;
+			text = "+1 Ametrallador"; //--- ToDo: Localize;
 			x = 0.5 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -278,7 +278,7 @@ class OT_dialog_garrison
 		class RscButton_1607: RscOverthrowButton
 		{
 			idc = 1607;
-			text = "+1 GMG"; //--- ToDo: Localize;
+			text = "+1 Granadero-ametrallador"; //--- ToDo: Localize;
 			x = 0.561875 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -347,7 +347,7 @@ class OT_dialog_jobs
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Set Waypoint"; //--- ToDo: Localize;
+			text = "Establecer waypoint"; //--- ToDo: Localize;
 			x = 0.840312 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -358,7 +358,7 @@ class OT_dialog_jobs
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
-			text = "Clear Waypoint"; //--- ToDo: Localize;
+			text = "Limpiar waypoint"; //--- ToDo: Localize;
 			x = 0.778437 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;

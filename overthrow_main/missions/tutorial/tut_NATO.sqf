@@ -34,7 +34,7 @@ if(count _targets isEqualTo 0) exitWith {
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
         format[
-            "There doesnt seem to be any NATO nearby. Head to %1, you should be able to find some NATO there. It's marked on your map",
+            "Parece que no hay fuerzas OTAN cerca. vete a %1, deberias encontrar fuerzas OTAN allí. mira en el mapa",
             _town
         ] call OT_fnc_notifyMinor;
 
@@ -57,7 +57,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"There is a group of NATO nearby, their position has been marked on your map. Let's show them we've had enough." call OT_fnc_notifyMinor;
+"Hay un grupo de la OTAN cerca, enseñémosles que ya estamos hartos" call OT_fnc_notifyMinor;
 //pick the closest group and reveal
 
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;

@@ -1,4 +1,4 @@
-//Let's find some civs to sell drugs to
+//Vamos a venderle buena mierda a los civiles
 
 private _done = player getVariable ["OT_tutesDone",[]];
 player setVariable ["OT_tutesDone",_done+["Drugs"],true];
@@ -26,7 +26,7 @@ if(count _targets isEqualTo 0) exitWith {
         //give waypoint
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-        format["There doesnt seem to be any civilians nearby. Head to %1, you should be able to find some there. It's marked on your map",_town] call OT_fnc_notifyMinor;
+        format["Parece que no hay clientes por aquí. Dirígete a %1, deberias encontrar alguno por allí. Está marcado en el mapa",_town] call OT_fnc_notifyMinor;
 
         [
             {
@@ -44,7 +44,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"There is a civilian nearby, their position has been marked on your map." call OT_fnc_notifyMinor;
+"THay un civil cerca, mira su posición en tu mapa" call OT_fnc_notifyMinor;
 //pick the closest group and reveal
 
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
@@ -62,10 +62,9 @@ private _loopCode = {
         _wp setWaypointPosition [OT_missionMarker, 0];
     };
     if(player distance (leader _group) < 30) then {
-        "Use your interaction key on the civilian to talk to them
-        and see if they wanna buy your Ganja.
-        Not everyone is into the sweet herb,
-        but just keep trying until you get lucky." call OT_fnc_notifyMinor;
+        "Usa la tecla de interacción sobre el civil a ver si quiere comprarte algo de ganja.
+        No todo el mundo le pega a la hierba,
+        pero sigue intentádolo a ver si hay suerte." call OT_fnc_notifyMinor;
         
         call OT_fnc_clearPlayerWaypoint;
     } else {
