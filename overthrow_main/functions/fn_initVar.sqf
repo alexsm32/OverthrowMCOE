@@ -241,12 +241,13 @@ if (isServer) then {
 OT_boats = [
 	["C_Scooter_Transport_01_F",150,1,0,1],
 	["C_Boat_Civil_01_rescue_F",300,1,1,1],
+	["sab_boat",300,1,1,1],
 	["C_Boat_Transport_02_F",600,1,0,1]
 ];
 OT_vehicles = [];
 OT_helis = [];
 OT_allVehicles = [];
-OT_allBoats = ["B_Boat_Transport_01_F"];
+OT_allBoats = ["B_Boat_Transport_01_F","sab_boat"];
 OT_allWeapons = [];
 OT_allOptics = [];
 OT_allMagazines = [OT_ammo_50cal];
