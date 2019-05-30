@@ -1,7 +1,8 @@
 //Vamos a disparar a algunos bandidos
 
 private _done = player getVariable ["OT_tutesDone",[]];
-player setVariable ["OT_tutesDone",_done+["CRIM"],true];
+_done pushBackUnique "CRIM";
+player setVariable ["OT_tutesDone",_done,true];
 
 private _targets = [];
 private _destination = [];
@@ -42,7 +43,7 @@ if(count _targets isEqualTo 0) exitWith {
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
         format[
-            "Parece que no hay bandas cerca. Dirigete a %1, Deber√≠as encontrar alguna por all√≠. Est√° marcada en el mapa",
+            "Parece que no hay bandas cerca. Dirigete a %1, DeberÌas encontrar alguna por allÌ. Est· marcada en el mapa",
             _town
         ] call OT_fnc_notifyMinor;
 
@@ -65,7 +66,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"Hay una banda por aqu√≠ cerca,puede que los lugare√±os te den algo de pasta si les invitas a irse" call OT_fnc_notifyMinor;
+"Hay una banda por aquÌ cerca,puede que los lugareÒos te den algo de pasta si les invitas a irse" call OT_fnc_notifyMinor;
 
 //pick the first group and reveal
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;

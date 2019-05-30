@@ -64,7 +64,7 @@ _doTransfer = {
 	}else{
 		{
 			private _count = 0;
-			params ["_cls","_num"];
+			_x params ["_cls","_num"];
 			if(_cls in OT_allItems) then {
 				while {_count < _num} do {
 					if(!(_veh canAdd [_cls,_count+1])) exitWith {_full = true;};
@@ -90,7 +90,7 @@ if(count _objects isEqualTo 1) then {
 }else{
 	private _options = [];
 	{
-		_options pushback [format["%1 (%2m)",(typeof _x) call OT_fnc_vehicleGetName,round (_x distance player)],{[] spawn _doTransfer;},_x];
+		_options pushback [format["%1 (%2m)",(typeof _x) call OT_fnc_vehicleGetName,round (_x distance player)],_doTransfer,_x];
 	}foreach(_objects);
 	"Transfer legal items from which container?" call OT_fnc_notifyBig;
 	_options call OT_fnc_playerDecision;

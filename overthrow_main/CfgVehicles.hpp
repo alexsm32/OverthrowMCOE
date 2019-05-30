@@ -16,6 +16,11 @@
 				displayName = "Salvage"; \
 				statement = "_target spawn OT_fnc_salvageWreck"; \
 			}; \
+			class OT_Unflip { \
+				condition = "!(canMove _target) && (alive _target) && ((vehicle player) isEqualTo player)"; \
+				displayName = "Unflip"; \
+				statement = "_target call OT_fnc_unflipVehicle"; \
+			}; \
 		}; \
 	};
 
@@ -23,6 +28,7 @@
 class CfgVehicles {
 	class Item_Base_F;
 	class ThingX;
+	class CargoNet_01_ammo_base_F;
 
 	//Overthrow Vehicles
 	class I_Truck_02_box_F;
@@ -33,7 +39,8 @@ class CfgVehicles {
 		};
 	};
 
-	//ACE actions
+	//ACE actions----
+	//Map
 	class Land_MapBoard_F : ThingX {
 		class ACE_Actions {
 			class ACE_MainActions {
@@ -55,6 +62,27 @@ class CfgVehicles {
 			};
 		};
 	};
+	//ammobox
+	class B_CargoNet_01_ammo_F : CargoNet_01_ammo_base_F {
+		class ACE_Actions {
+			class ACE_MainActions {
+				displayName = "Interactions";
+				distance = 6;
+
+				class arsenal {
+					displayName = "Open Arsenal (This Ammobox)";
+					condition = "!(call OT_fnc_playerIsAtWarehouse)";
+	                statement = "[_target,_player] call OT_fnc_openArsenal;";
+				};
+				class warehouse {
+					displayName = "Open Arsenal (Warehouse)";
+					condition = "(call OT_fnc_playerIsAtWarehouse)";
+	                statement = "['WAREHOUSE',_player,_target] call OT_fnc_openArsenal;";
+				};
+			};
+		};
+	};
+	//END ACE actions----
 	class Mapboard_tanoa_F: Land_MapBoard_F {
 		displayName = "Map (Tanoa)";
 		hiddenSelectionsTextures[] = {"\overthrow_main\ui\maptanoa.paa"};
@@ -87,7 +115,7 @@ class CfgVehicles {
         class ACE_Actions {
             class ACE_MainActions {
                 class OT_InteractionActions {
-                    condition = "(alive _target) && (!isplayer _target) && !(side _target isEqualTo west) && (!(_player getVariable ['ot_tute',true]) || !(_player getVariable ['OT_tute_inProgress', false]))";
+                    condition = "(alive _target) && (!isplayer _target) && !(side _target isEqualTo west)";
                     selection = "pelvis";
                     distance = 4;
                     displayName = "Talk";

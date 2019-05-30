@@ -21,6 +21,8 @@ private _group = spawner getVariable [format["resgarrison%1",_code],grpNull];
 private _doinit = false;
 if(isNull _group) then {
     _group = creategroup resistance;
+    _group setVariable ["VCM_TOUGHSQUAD",true,true];
+	_group setVariable ["VCM_NORESCUE",true,true];
     spawner setVariable [format["resgarrison%1",_code],_group,true];
     _doinit = true;
 };
@@ -46,7 +48,7 @@ if(_create isEqualType 1) then {
     if(_charge) then {
         _loadout = getUnitLoadout _civ;
         _garrison = server getVariable [format["resgarrison%1",_code],[]];
-        _garrison pushback [_create,_loadout];
+        _garrison pushback [_cls,_loadout];
         server setVariable [format["resgarrison%1",_code],_garrison,true];
     };
 }else{

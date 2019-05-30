@@ -7,10 +7,10 @@ private _params = [_destinationName,_faction];
 private _markerPos = server getVariable [_destinationName,[]];
 private _factionName = server getvariable format["factionname%1",_faction];
 
-private _effect = format["El pueblo dar√° impulso a la estabilidad %1 ayundando a calmar a la poblaci√≥n.<br/><t size='0.9'>Recompensa: $2,500 fondos para la resistencia, +10 (%1)</t>",_factionName];
+private _effect = format["El pueblo dar· impulso a la estabilidad %1 ayundando a calmar a la poblaciÛn.<br/><t size='0.9'>Recompensa: $2,500 fondos para la resistencia, +10 (%1)</t>",_factionName];
 
 //Build a mission description and title
-private _description = format["%1 preferir√≠a que %2 fuese controlado por la resistencia. Baja la estabilidad haciendo trabajos o matando gendarmes hasta 0%. <br/><br/>%3",_factionName,_destinationName,_effect];
+private _description = format["%1 preferirÌa que %2 fuese controlado por la resistencia. Baja la estabilidad haciendo trabajos o matando gendarmes hasta 0%. <br/><br/>%3",_factionName,_destinationName,_effect];
 private _title = format["Capture %1 for %2",_destinationName,_factionName];
 
 //The data below is what is returned to the gun dealer/faction rep, _markerPos is where to put the mission marker, the code in {} brackets is the actual mission code, only run if the player accepts
@@ -44,7 +44,7 @@ private _title = format["Capture %1 for %2",_destinationName,_factionName];
                     server setVariable [format["standing%1",_faction],(server getVariable [format["standing%1",_faction],0]) + 10,true];
 
                     private _factionName = server getvariable format["factionname%1",_faction];
-                    format ["Mensaje de %1: %2 captured. Donados $2500 a la resistencia ayudar√° a los esfuerzos de la bloblaci√≥n civil. (+10 stabilidad, +10 %1)",_factionName,_destinationName] remoteExec ["OT_fnc_notifyMinor",0,false];
+                    format ["Mensaje de %1: %2 captured. Donados $2500 a la resistencia ayudar· a los esfuerzos de la bloblaciÛn civil. (+10 stabilidad, +10 %1)",_factionName,_destinationName] remoteExec ["OT_fnc_notifyMinor",0,false];
                 },
                 [_faction,_destinationName],
                 2

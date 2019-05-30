@@ -1,7 +1,8 @@
 //Let's find some wrecks to salvage
 
 private _done = player getVariable ["OT_tutesDone",[]];
-player setVariable ["OT_tutesDone",_done+["Economy"],true];
+_done pushBackUnique "Economy";
+player setVariable ["OT_tutesDone",_done,true];
 
 private _actualMission = {
     private _targets = [];
@@ -27,7 +28,7 @@ private _actualMission = {
             //give waypoint
             [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-            format["Parece que no hay chatarra cerca. Vete a %1, deber√≠as encontrar algo por all√≠. est√° marcado en tu mapa",_town] call OT_fnc_notifyMinor;
+            format["Parece que no hay chatarra cerca. Vete a %1, deberÌas encontrar algo por allÌ. est· marcado en tu mapa",_town] call OT_fnc_notifyMinor;
 
             [
                 {
@@ -47,7 +48,7 @@ private _actualMission = {
         };
     };
 
-    "Hay chatarra por aqu√≠. usa las herramientas para desguazarla" call OT_fnc_notifyMinor;
+    "Hay chatarra por aquÌ. usa las herramientas para desguazarla" call OT_fnc_notifyMinor;
 
     private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
     private _veh = _sorted select 0;
@@ -60,9 +61,9 @@ private _actualMission = {
         params["_loopCode","_veh"];
         if(player distance _veh < 10 && "ToolKit" in items player) then {
             _reached = true;
-            "Usa la tecla de interacci√≥n sobre la chatarra.
+            "Usa la tecla de interacciÛn sobre la chatarra.
             Lo que saques puede ser vendido en las tiendas de herramientas,
-            solo conduce hasta all√≠ y pulsa 'Y'" call OT_fnc_notifyMinor;
+            solo conduce hasta allÌ y pulsa 'Y'" call OT_fnc_notifyMinor;
             call OT_fnc_clearPlayerWaypoint;
         } else {
             [_loopCode,_this,0.5] call CBA_fnc_waitAndExecute;
@@ -74,8 +75,8 @@ private _actualMission = {
 
 //First do we have a toolkit?
 if !("ToolKit" in items player) then {
-    "COge las herramientas de la caja de munici√≥n de tu casa,
-    necesitar√°s una mochila" call OT_fnc_notifyMinor;
+    "Coge las herramientas de la caja de municiÛn de tu casa,
+    necesitar·s una mochila" call OT_fnc_notifyMinor;
     private _home = player getVariable "home";
     private _wp = [player,_home,"Grab Toolkit"] call OT_fnc_givePlayerWaypoint;
     private _loop = {

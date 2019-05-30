@@ -19,17 +19,29 @@ if !(_byair) then {
 sleep 0.5;
 private _allunits = [];
 private _veh = false;
-
+private _pos = false;
 
 //Transport
 private _tgroup = creategroup blufor;
+private _dir = 0;
 
-private _pos = _frompos findEmptyPosition [15,100,_vehtype];
-if(count _pos == 0) then {
-	_pos = [_frompos,0,75,false,[0,0],[120,_vehtype]] call SHK_pos_fnc_pos;
+if(_byair) then {
+	//find helipads
+	private _helipads = (_frompos nearObjects ["Land_HelipadCircle_F", 400]) + (_frompos nearObjects ["Land_HelipadSquare_F", 400]);
+	{
+		//check if theres anything on it
+		private _on = ASLToAGL getPosASL _x nearEntities ["Air",15];
+		if((count _on) isEqualTo 0) exitWith {_pos = getPosASL _x;_dir = getDir _x};
+	}foreach(_helipads);
 };
 
-private _dir = [_frompos,_ao] call BIS_fnc_dirTo;
+if !(_pos isEqualType []) then {
+	_pos = _frompos findEmptyPosition [15,100,_vehtype];
+	if(count _pos == 0) then {
+		_pos = [_frompos,0,75,false,[0,0],[120,_vehtype]] call SHK_pos_fnc_pos;
+	};
+	_dir = [_frompos,_ao] call BIS_fnc_dirTo;
+};
 
 _veh = _vehtype createVehicle _pos;
 _veh setVariable ["garrison","HQ",false];
@@ -64,17 +76,8 @@ _tgroup deleteGroupWhenEmpty true;
 	_x setVariable ["garrison","HQ",false];
 	_x setVariable ["VCOM_NOPATHING_Unit",true,false];
 
-	//NATO would not use titans when they arent going up against armor
-	if(secondaryWeapon _x isEqualTo "launch_B_Titan_short_F") then {
-		_x removeWeapon "launch_B_Titan_short_F";
-		_x addWeapon "launch_NLAW_F";
-	};
-	if(((typeof _x) find "_AAT_") > -1) then {
-		_x addWeapon "launch_NLAW_F";
-	};
-	if(secondaryWeapon _x isEqualTo "launch_NLAW_F") then {
-		removeBackpack _x;
-	};
+	[_x] call OT_fnc_initMilitary;
+
 }foreach(units _group1);
 
 {
@@ -92,17 +95,8 @@ if !(_byair) then {
 		_x setVariable ["VCOM_NOPATHING_Unit",true,false];
 		_allunits pushback _x;
 		_x setVariable ["garrison","HQ",false];
+		[_x] call OT_fnc_initMilitary;
 
-		if(secondaryWeapon _x isEqualTo "launch_B_Titan_short_F") then {
-			_x removeWeapon "launch_B_Titan_short_F";
-			_x addWeapon "launch_NLAW_F";
-		};
-		if(((typeof _x) find "_AAT_") > -1) then {
-			_x addWeapon "launch_NLAW_F";
-		};
-		if(secondaryWeapon _x isEqualTo "launch_NLAW_F") then {
-			removeBackpack _x;
-		};
 	}foreach(units _group2);
 	{
 		_x addCuratorEditableObjects [units _group2,true];
@@ -136,26 +130,19 @@ if(_byair && _tgroup isEqualType grpNull) then {
 	_wp setWaypointBehaviour "CARELESS";
 	_wp setWaypointStatements ["true","(vehicle this) AnimateDoor ['Door_rear_source', 0, false];"];
 	_wp setWaypointTimeout [20,20,20];
-
-
-	_wp = _tgroup addWaypoint [_frompos,2000];
-	_wp setWaypointType "MOVE";
-	_wp setWaypointBehaviour "COMBAT";
-	_wp setWaypointSpeed "FULL";
-	_wp setWaypointCompletionRadius 2000;
-
-	_wp = _tgroup addWaypoint [_frompos,2000];
-	_wp setWaypointType "SCRIPTED";
-	_wp setWaypointStatements ["true","[vehicle this] call OT_fnc_cleanup"];
 }else{
 	if(typename _tgroup isEqualTo "GROUP") then {
 		_veh setdamage 0;
 		_dir = [_attackpos,_frompos] call BIS_fnc_dirTo;
 		_roads = _ao nearRoads 150;
 		private _dropos = _ao;
-		if(count _roads > 0) then {
-			_dropos = getpos(_roads select (count _roads - 1));
-		};
+
+		//Try to make sure drop position is on a bigger road
+		{
+			private _pos = getpos _x;
+			if(isOnRoad _pos) exitWith {_dropos = _pos};
+		}foreach(_roads);
+
 		_move = _tgroup addWaypoint [_dropos,0];
 		_move setWaypointBehaviour "CARELESS";
 		_move setWaypointType "MOVE";
@@ -174,8 +161,6 @@ if(_byair && _tgroup isEqualType grpNull) then {
 		_wp setWaypointType "SCRIPTED";
 		_wp setWaypointCompletionRadius 25;
 		_wp setWaypointStatements ["true","[vehicle this] call OT_fnc_cleanup"];
-
-
 	};
 };
 sleep 10;
@@ -187,9 +172,9 @@ _wp setWaypointSpeed "FULL";
 
 if(typename _tgroup isEqualTo "GROUP") then {
 
-	[_veh,_tgroup,_frompos] spawn {
+	[_veh,_tgroup,_frompos,_byair] spawn {
 		//Ejects crew from vehicles when they take damage or stay relatively still for too long (you know, like when they ram a tree for 4 hours)
-		params ["_veh","_tgroup","_frompos"];
+		params ["_veh","_tgroup","_frompos","_byair"];
 		private _done = false;
 		private _stillfor = 0;
 		private _lastpos = getpos _veh;
@@ -198,7 +183,7 @@ if(typename _tgroup isEqualTo "GROUP") then {
 			if(isNull _tgroup) exitWith {};
 			if(!alive _veh) exitWith {};
 			private _eject = false;
-			if((damage _veh) > 0 && ((getpos _veh) select 2) < 2) then {
+			if((damage _veh) > 0.5 && ((getpos _veh) select 2) < 2) then {
 				//Vehicle damaged (and on the ground)
 				_eject = true;
 			};
@@ -211,7 +196,7 @@ if(typename _tgroup isEqualTo "GROUP") then {
 			}else{
 				_stillfor = 0;
 			};
-			if(_eject) then {
+			if(_eject) exitWith {
 				while {(count (waypoints _tgroup)) > 0} do {
 				 	deleteWaypoint ((waypoints _tgroup) select 0);
 				};
@@ -219,7 +204,7 @@ if(typename _tgroup isEqualTo "GROUP") then {
 				{
 					unassignVehicle _x;
 					commandGetOut _x;
-				}foreach((crew _veh) - (units _tgroup));
+				}foreach(crew _veh);
 				_done = true;
 
 				_wp = _tgroup addWaypoint [_frompos,0];
@@ -230,8 +215,13 @@ if(typename _tgroup isEqualTo "GROUP") then {
 				_wp = _tgroup addWaypoint [_frompos,0];
 				_wp setWaypointType "SCRIPTED";
 				_wp setWaypointCompletionRadius 50;
-				_wp setWaypointStatements ["true","[vehicle this] call OT_fnc_cleanup"];
+				_wp setWaypointStatements ["true","this call OT_fnc_cleanup"];
 			};
+			if(_byair && (_veh getVariable ["OT_deployedTroops",false])) exitWith {
+				[_veh,_frompos,_tgroup] spawn OT_fnc_landAndCleanupHelicopter;
+				_done = true;
+			};
+
 		};
 	};
 };

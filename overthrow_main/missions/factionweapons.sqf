@@ -12,17 +12,17 @@ if(count _roads > 0) then {
 
 private _items = [];
 
-private _itemcls = selectRandom OT_allCheapRifles;
+private _itemcls = selectRandom (OT_allBLURifles + OT_allBLUGLRifles + OT_allBLUMachineGuns);
 private _itemName = _itemcls call OT_fnc_weaponGetName;
 private _cost = (cost getVariable [_itemcls,[1]]) select 0;
-private _numitems = floor(5 + random 5);
+private _numitems = floor(5 + random 15);
 
 private _params = [_destination,_faction,_itemcls,_numitems];
 private _markerPos = _destination;
 private _factionName = server getvariable format["factionname%1",_faction];
 
 //Build a mission description and title
-private _description = format["%1 solicita %2 x %3. Lleva la mercancia en un veh√≠culo a la posici√≥n acordada, conduce con las armas en el inventario del veh√≠culo y te pagar√°n. Tambi√©n te pagar√°n cualquier unidad extra que lelves. </t><br/><br/><t size='0.9'>Recompensa: +5 (%1), Valor de exportaci√≥n de las armas",_factionName,_numitems,_itemName];
+private _description = format["%1 solicita %2 x %3. Lleva la mercancia en un vehÌculo a la posiciÛn acordada, conduce con las armas en el inventario del vehÌculo y te pagar·n. TambiÈn te pagar·n cualquier unidad extra que lelves. </t><br/><br/><t size='0.9'>Recompensa: +5 (%1), Valor de exportaciÛn de las armas",_factionName,_numitems,_itemName];
 private _title = format["%1 solicita %2 x %3",_factionName,_numitems,_itemName];
 
 //The data below is what is returned to the gun dealer/faction rep, _markerPos is where to put the mission marker, the code in {} brackets is the actual mission code, only run if the player accepts

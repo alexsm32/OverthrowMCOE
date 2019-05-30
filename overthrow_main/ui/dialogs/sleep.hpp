@@ -38,7 +38,7 @@ class OT_sleep_dialog {
       style = 0x02;
       font = "PuristaBold";
       sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-    	text = "Â¿Cuanto tiempo quieres dormir?"; //--- ToDo: Localize;
+    	text = "¿Cuanto tiempo quieres dormir?"; //--- ToDo: Localize;
     	x = 0.386562 * safezoneW + safezoneX;
     	y = 0.456 * safezoneH + safezoneY;
     	w = 0.237187 * safezoneW;

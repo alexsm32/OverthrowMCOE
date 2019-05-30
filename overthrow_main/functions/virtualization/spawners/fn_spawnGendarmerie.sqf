@@ -21,12 +21,14 @@ spawner setVariable [format["spawnid%1",_town],_spawnid];
 while {_count < _numNATO} do {
 
 	private _home = _town call OT_fnc_getRandomRoadPosition;
-	private _pos = _home findEmptyPosition [0,50];
+	private _pos = _home findEmptyPosition [2,50];
 
 	if !(_pos isEqualTo []) then {
 
 		private _groupcount = 0;
 		private _group = createGroup west;
+		_group setVariable ["VCM_TOUGHSQUAD",true,true];
+		_group setVariable ["VCM_NORESCUE",true,true];
 		_group deleteGroupWhenEmpty true;
 		_groups pushBack _group;
 

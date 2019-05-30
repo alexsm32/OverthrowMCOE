@@ -1,7 +1,8 @@
 //Vamos a venderle buena mierda a los civiles
 
 private _done = player getVariable ["OT_tutesDone",[]];
-player setVariable ["OT_tutesDone",_done+["Drugs"],true];
+_done pushBackUnique "Drugs";
+player setVariable ["OT_tutesDone",_done,true];
 
 private _targets = [];
 private _destination = [];
@@ -26,7 +27,7 @@ if(count _targets isEqualTo 0) exitWith {
         //give waypoint
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-        format["Parece que no hay clientes por aqu√≠. Dir√≠gete a %1, deberias encontrar alguno por all√≠. Est√° marcado en el mapa",_town] call OT_fnc_notifyMinor;
+        format["Parece que no hay clientes por aquÌ. DirÌgete a %1, deberias encontrar alguno por allÌ. Est· marcado en el mapa",_town] call OT_fnc_notifyMinor;
 
         [
             {
@@ -44,7 +45,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"THay un civil cerca, mira su posici√≥n en tu mapa" call OT_fnc_notifyMinor;
+"Hay un civil cerca, mira su posiciÛn en tu mapa" call OT_fnc_notifyMinor;
 //pick the closest group and reveal
 
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
@@ -62,10 +63,10 @@ private _loopCode = {
         _wp setWaypointPosition [OT_missionMarker, 0];
     };
     if(player distance (leader _group) < 30) then {
-        "Usa la tecla de interacci√≥n sobre el civil a ver si quiere comprarte algo de ganja.
+        "Usa la tecla de interacciÛn sobre el civil a ver si quiere comprarte algo de ganja.
         No todo el mundo le pega a la hierba,
-        pero sigue intent√°dolo a ver si hay suerte." call OT_fnc_notifyMinor;
-        
+        pero sigue intent·dolo a ver si hay suerte." call OT_fnc_notifyMinor;
+
         call OT_fnc_clearPlayerWaypoint;
     } else {
         [_loopCode,_this,0.5] call CBA_fnc_waitAndExecute;

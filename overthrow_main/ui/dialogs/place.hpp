@@ -35,7 +35,7 @@ class OT_dialog_name
 		class RscStructuredText_1100: RscOverthrowStructuredText
 		{
 			idc = 1100;
-			text = "A帽ade nombre a la nueva base"; //--- ToDo: Localize;
+			text = "A馻de nombre a la nueva base"; //--- ToDo: Localize;
 			x = 0.37625 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.195937 * safezoneW;
@@ -166,7 +166,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Esc贸ndete de los helic贸pteros"; //--- ToDo: Localize;
+			tooltip = "Esc髇dete de los helic髉teros"; //--- ToDo: Localize;
 		};
 		class RscButton_1602: RscOverthrowButton
 		{
@@ -190,19 +190,19 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Crea un destino de viaje r谩pido"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje r醦ido"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
 			action = "closeDialog 0;'Ammobox' spawn OT_fnc_place";
 
-			text = "Caja de munici贸n"; //--- ToDo: Localize;
+			text = "Caja de munici髇"; //--- ToDo: Localize;
 			x = 0.355625 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Una caja de munici贸n vac铆a"; //--- ToDo: Localize;
+			tooltip = "Una caja de munici髇 vac韆"; //--- ToDo: Localize;
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
@@ -214,7 +214,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Objetos varios (muy 煤tiles)"; //--- ToDo: Localize;
+			tooltip = "Objetos varios (muy 鷗iles)"; //--- ToDo: Localize;
 		};
 		class RscButton_1606: RscOverthrowButton
 		{
@@ -226,7 +226,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Crea un destino de viaje r谩pido y permite construir instalaciones militares ligeras"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje r醦ido y permite construir instalaciones militares ligeras"; //--- ToDo: Localize;
 		};
 		class RscButton_1607: RscOverthrowButton
 		{

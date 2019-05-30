@@ -2,15 +2,18 @@ private ["_eh","_handler"];
 
 if(isMultiplayer) then {
 	addMissionEventHandler ["Draw3D", {
+		if !(OT_showPlayerMarkers) exitWith {};
 		{
 			if !(_x isEqualTo player) then {
 				private _dis = round(_x distance player);
-				private _t = "m";
-				if(_dis > 999) then {
-					_dis = round(_dis / 1000);
-					_t = "km";
+				if(_dis < 250) then {
+					private _t = "m";
+					if(_dis > 999) then {
+						_dis = round(_dis / 1000);
+						_t = "km";
+					};
+					drawIcon3D ["a3\ui_f\data\map\groupicons\selector_selectable_ca.paa", [1,1,1,0.3], getPosATLVisual _x, 1, 1, 0, format["%1 (%2%3)",name _x,_dis,_t], 0, 0.02, "TahomaB", "center", true];
 				};
-				drawIcon3D ["a3\ui_f\data\map\groupicons\selector_selectable_ca.paa", [1,1,1,0.3], getPosATLVisual _x, 1, 1, 0, format["%1 (%2%3)",name _x,_dis,_t], 0, 0.02, "TahomaB", "center", true];
 			};
 		}foreach([] call CBA_fnc_players);
 	}];
@@ -57,9 +60,9 @@ _handler = {
 			};
 		}foreach(_players);
 	};
-	_t = 1;
+	_t = 2;
 	{
-		if (!(isPlayer _x) && {(side _x isEqualTo resistance) || captive _x}) then {
+		if (!(isPlayer _x) && {(side _x isEqualTo resistance) || captive _x} && (_x getVariable ["polgarrison",""]) isEqualTo "") then {
 			_veh = vehicle _x;
 			if(_veh isEqualTo _x) then {
 				_color = [0,0.5,0,1];
@@ -374,26 +377,6 @@ _handler = {
 	//Draw restricted areas
 	private _abandoned = server getVariable ["NATOabandoned",[]];
 	private _attack = server getVariable ["NATOattacking",""];
-	if(_scale < 0.2) then {
-		{
-			_x params ["_obpos","_obname"];
-			if !(_obname in _abandoned || _obname isEqualTo _attack) then {
-				private _dist = _obname call {
-					if (_this in OT_allComms) exitWith {40};
-					if(_this in OT_NATO_priority) exitWith {500};
-					200
-				};
-				(_this select 0) drawEllipse [
-					_obpos,
-					_dist,
-					_dist,
-					0,
-					[0.7,0,0,0.6],
-					"\A3\ui_f\data\map\markerbrushes\bdiagonal_ca.paa"
-				];
-			};
-		}foreach(OT_objectiveData + OT_airportData + OT_commsData);
-	};
 
 	if((vehicle player) isKindOf "Air") then {
 		{

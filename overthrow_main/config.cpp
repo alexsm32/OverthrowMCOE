@@ -1,4 +1,3 @@
-#include "BIS_AddonInfo.hpp"
 #include "script_mod.hpp"
 #include "headers\config_macros.hpp"
 
@@ -124,6 +123,10 @@ class CfgMissions
 		{
 			directory="overthrow_main\campaign\missions\OverthrowMpMalden.Malden";
 		};
+		class OverthrowMpLivonia
+		{
+			directory="overthrow_main\campaign\missions\OverthrowMpLivonia.Enoch";
+		};
 	};
 };
 
@@ -135,7 +138,7 @@ class CfgWorlds
 		class Names
 		{
 			class RailwayDepot01 {
-				name = "FÃ¡brica";
+				name = "Fábrica";
 			};
 		};
 	};
@@ -162,7 +165,7 @@ class ACE_Tags {
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
 	};
 	class OT_join {
-		displayName = "Ãšnete";
+		displayName = "Únete";
 		requiredItem = "ACE_SpraypaintBlack";
 		textures[] = {"\overthrow_main\ui\tags\join.paa"};
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";

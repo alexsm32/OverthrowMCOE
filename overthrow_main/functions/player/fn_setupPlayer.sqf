@@ -8,3 +8,13 @@ player call OT_fnc_mapSystem;
 player setVariable ["player_uid",getPlayerUID player,true];
 
 disableUserInput false;
+
+//Scroll actions
+{
+    _x params ["_pos"];
+    private _base = _pos nearObjects [OT_flag_IND,5];
+    if((count _base) > 0) then {
+        _base = _base#0;
+        _base addAction ["Seleccionar como Casa", {player setVariable ["home",getpos (_this select 0),true];"Esta FOB es ahora tu casa" call OT_fnc_notifyMinor},nil,0,false,true];
+    };
+}foreach(server getVariable ["bases",[]]);

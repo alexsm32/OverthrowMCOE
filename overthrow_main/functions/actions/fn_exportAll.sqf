@@ -15,12 +15,12 @@ if(_town in (server getVariable ["NATOabandoned",[]])) then {
 [5,false] call OT_fnc_progressBar;
 sleep 5;
 
-private _combinedItems = OT_allItems + OT_allBackpacks + OT_Resources + OT_allClothing;
+private _combinedItems = OT_allItems + OT_allBackpacks + OT_Resources;
 private _total = 0;
 {
 	_x params ["_cls", "_num"];
 	private _count = 0;
-	if(_doillegal || _cls in _combinedItems) then {
+	if((_doillegal || _cls in _combinedItems) && !(_cls in OT_allClothing)) then {
 		private _baseprice = [OT_nation,_cls,0] call OT_fnc_getSellPrice;
 		private _costprice = round(_baseprice * 0.6); //The cost of export
 		if(_cls in OT_allDrugs) then {
@@ -42,7 +42,7 @@ private _total = 0;
 			if(_cls isKindOf ["Pistol",configFile >> "CfgWeapons"]) exitWith {
 				[_target, _cls, _num] call CBA_fnc_removeWeaponCargo;
 			};
-			if(_cls isKindOf ["CA_Magazine",configFile >> "CfgMagazines"]) exitWith {
+			if(_cls isKindOf ["Default",configFile >> "CfgMagazines"]) exitWith {
 				[_target, _cls, _num] call CBA_fnc_removeMagazineCargo;
 			};
 			if(_cls isKindOf "Bag_Base") exitWith {

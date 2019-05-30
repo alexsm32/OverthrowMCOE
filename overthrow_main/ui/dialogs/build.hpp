@@ -59,7 +59,7 @@ class OT_dialog_buildbase
 			y = 0.5 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Peque√±as estructuras defensivas"; //--- ToDo: Localize;
+			tooltip = "PequeÒas estructuras defensivas"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
@@ -71,7 +71,7 @@ class OT_dialog_buildbase
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Modifica veh√≠culos"; //--- ToDo: Localize;
+			tooltip = "Modifica vehÌculos"; //--- ToDo: Localize;
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
@@ -160,12 +160,12 @@ class OT_dialog_buildobjective
 			idc = 1602;
 			action = "'Observation Post' call build";
 
-			text = "Puesto de observaci√≥n"; //--- ToDo: Localize;
+			text = "Puesto de observaciÛn"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Una torre peque√±a para armas est√°ticas"; //--- ToDo: Localize;
+			tooltip = "Una torre pequeÒa para armas est·ticas"; //--- ToDo: Localize;
 		};
 		class RscButton_1603: RscOverthrowButton
 		{
@@ -177,14 +177,14 @@ class OT_dialog_buildobjective
 			y = 0.5 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Peque√±as estructuras defensivas"; //--- ToDo: Localize;
+			tooltip = "PequeÒas estructuras defensivas"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
 			action = "'Warehouse' call build";
 
-			text = "Almac√©n"; //--- ToDo: Localize;
+			text = "AlmacÈn"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
@@ -212,7 +212,7 @@ class OT_dialog_buildobjective
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Modifica veh√≠culos"; //--- ToDo: Localize;
+			tooltip = "Modifica vehÌculos"; //--- ToDo: Localize;
 		};
 		class RscButton_1607: RscOverthrowButton
 		{
@@ -294,7 +294,7 @@ class OT_dialog_buildtown
 			y = 0.588 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Modifica veh√≠culos"; //--- ToDo: Localize;
+			tooltip = "Modifica vehÌculos"; //--- ToDo: Localize;
 		};
 		class RscButton_1602: RscOverthrowButton
 		{
@@ -313,7 +313,7 @@ class OT_dialog_buildtown
 			idc = 1603;
 			action = "'Warehouse' call build";
 
-			text = "Almac√©n"; //--- ToDo: Localize;
+			text = "AlmacÈn"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.5 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
@@ -325,7 +325,7 @@ class OT_dialog_buildtown
 			idc = 1601;
 			action = "'Police Station' call build";
 
-			text = "Comisar√≠a"; //--- ToDo: Localize;
+			text = "ComisarÌa"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
@@ -349,7 +349,7 @@ class OT_dialog_police
 		{
 			idc = 1100;
 
-			text = "<t size=""2"" align=""center"">Blah Comisar√≠a</t>"; //--- ToDo: Localize;
+			text = "<t size=""2"" align=""center"">Blah ComisarÌa</t>"; //--- ToDo: Localize;
 			x = 0.288594 * safezoneW + safezoneX;
 			y = 0.214 * safezoneH + safezoneY;
 			w = 0.422812 * safezoneW;
@@ -373,7 +373,7 @@ class OT_dialog_police
 			y = 0.28 * safezoneH + safezoneY;
 			w = 0.4125 * safezoneW;
 			h = 0.033 * safezoneH;
-			colorBackground[] = {0,0,0,1};
+			colorBackground[] = {0,0,0,0.1};
 			colorActive[] = {0,0,0,1};
 		};
 		/*
@@ -391,7 +391,7 @@ class OT_dialog_police
 		{
 			idc = 1102;
 
-			text = "<t align=""center"">Transferir a otra estaci√≥n</t>"; //--- ToDo: Localize;
+			text = "<t align=""center"">Transferir a otra estaciÛn</t>"; //--- ToDo: Localize;
 			x = 0.288594 * safezoneW + safezoneX;
 			y = 0.335 * safezoneH + safezoneY;
 			w = 0.422812 * safezoneW;
@@ -403,7 +403,7 @@ class OT_dialog_police
 		{
 			idc = 1103;
 
-			text = "<t align=""center"">Contratar polic√≠a</t>"; //--- ToDo: Localize;
+			text = "<t align=""center"">Contratar policÌa</t>"; //--- ToDo: Localize;
 			x = 0.288594 * safezoneW + safezoneX;
 			y = 0.467 * safezoneH + safezoneY;
 			w = 0.422812 * safezoneW;
@@ -420,8 +420,19 @@ class OT_dialog_police
 			y = 0.632 * safezoneH + safezoneY;
 			w = 0.170156 * safezoneW;
 			h = 0.088 * safezoneH;
-			colorBackground[] = {0,0,0,1};
+			colorBackground[] = {0,0,0,0.1};
 			colorActive[] = {0,0,0,1};
+		};
+		class RscButton_1608: RscOverthrowButton
+		{
+			idc = 1608;
+
+			text = "Edit Loadout"; //--- ToDo: Localize;
+			x = 0.4175 * safezoneW + safezoneX;
+			y = 0.73 * safezoneH + safezoneY;
+			w = 0.170156 * safezoneW;
+			h = 0.033 * safezoneH;
+			action = "[] call OT_fnc_editPoliceLoadout";
 		};
 		/*
 		class RscButton_1601: RscOverthrowButton
