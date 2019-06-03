@@ -71,7 +71,7 @@ class OT_dialog_buildbase
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Modifica vehículos"; //--- ToDo: Localize;
+			tooltip = "Modifica vehiculos"; //--- ToDo: Localize;
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
@@ -165,7 +165,7 @@ class OT_dialog_buildobjective
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Una torre pequeña para armas estáticas"; //--- ToDo: Localize;
+			tooltip = "Una torre baja para armas estaticas"; //--- ToDo: Localize;
 		};
 		class RscButton_1603: RscOverthrowButton
 		{
@@ -177,7 +177,7 @@ class OT_dialog_buildobjective
 			y = 0.5 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Pequeñas estructuras defensivas"; //--- ToDo: Localize;
+			tooltip = "estructuras defensivas"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
@@ -294,7 +294,7 @@ class OT_dialog_buildtown
 			y = 0.588 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Modifica vehículos"; //--- ToDo: Localize;
+			tooltip = "Modifica vehiculos"; //--- ToDo: Localize;
 		};
 		class RscButton_1602: RscOverthrowButton
 		{
@@ -306,14 +306,14 @@ class OT_dialog_buildtown
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "4 paredes, un techo y una puerta si tienes suerte"; //--- ToDo: Localize;
+			tooltip = "cuatro paredes, un techo y una puerta si tienes suerte"; //--- ToDo: Localize;
 		};
 		class RscButton_1603: RscOverthrowButton
 		{
 			idc = 1603;
 			action = "'Warehouse' call build";
 
-			text = "Almacén"; //--- ToDo: Localize;
+			text = "Almacen"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.5 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
@@ -325,7 +325,7 @@ class OT_dialog_buildtown
 			idc = 1601;
 			action = "'Police Station' call build";
 
-			text = "Comisaría"; //--- ToDo: Localize;
+			text = "Comisaria"; //--- ToDo: Localize;
 			x = 0.0204687 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0876563 * safezoneW;
@@ -391,7 +391,7 @@ class OT_dialog_police
 		{
 			idc = 1102;
 
-			text = "<t align=""center"">Transferir a otra estación</t>"; //--- ToDo: Localize;
+			text = "<t align=""center"">Transferir a otra estacion</t>"; //--- ToDo: Localize;
 			x = 0.288594 * safezoneW + safezoneX;
 			y = 0.335 * safezoneH + safezoneY;
 			w = 0.422812 * safezoneW;
@@ -403,7 +403,7 @@ class OT_dialog_police
 		{
 			idc = 1103;
 
-			text = "<t align=""center"">Contratar policía</t>"; //--- ToDo: Localize;
+			text = "<t align=""center"">Contratar policia</t>"; //--- ToDo: Localize;
 			x = 0.288594 * safezoneW + safezoneX;
 			y = 0.467 * safezoneH + safezoneY;
 			w = 0.422812 * safezoneW;
@@ -427,7 +427,7 @@ class OT_dialog_police
 		{
 			idc = 1608;
 
-			text = "Edit Loadout"; //--- ToDo: Localize;
+			text = "Editar equipamiento"; //--- ToDo: Localize;
 			x = 0.4175 * safezoneW + safezoneX;
 			y = 0.73 * safezoneH + safezoneY;
 			w = 0.170156 * safezoneW;

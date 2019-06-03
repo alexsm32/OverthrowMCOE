@@ -10,7 +10,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\ganja_x_ca.paa";
         displayName = "Ganja";
-        descriptionShort = "1/2 oz. of the finest bud around.";
+        descriptionShort = "150g. de la mejor hierba de tanoa";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 2;
@@ -20,7 +20,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\blow_x_ca.paa";
         displayName = "Blow";
-        descriptionShort = "A white powder that turns madmen into world leaders, or world leaders into madmen.";
+        descriptionShort = "Un polvo blanco que convierte a lideres mundiales en chusma y a chusma el lideres mundiales";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 2;
@@ -30,7 +30,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\wood_x_ca.paa";
         displayName = "Wood";
-        descriptionShort = "A porous and fibrous structural tissue found in the stems and roots of trees and other woody plants.";
+        descriptionShort = "Madera en tablones apta para la venta";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 250;
@@ -40,7 +40,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\steel_x_ca.paa";
         displayName = "Steel";
-        descriptionShort = "An alloy of iron and other elements, primarily carbon, that is widely used in construction and other applications because of its high tensile strength and low cost.";
+        descriptionShort = "Una aleacion de hierro y carbono";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 400;
@@ -50,7 +50,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\plastic_x_ca.paa";
         displayName = "Plastic";
-        descriptionShort = "A material consisting of any of a wide range of synthetic or semi-synthetic organic compounds that are malleable and can be molded into solid objects.";
+        descriptionShort = "Material polimerico procedente del petroleo";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 150;
@@ -60,7 +60,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\cane_x_ca.paa";
         displayName = "Sugarcane";
-        descriptionShort = "A perennial grass of the genus Saccharum used to produce Sugar.";
+        descriptionShort = "La planta de la que sale el azucar";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 50;
@@ -70,7 +70,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\sugar_x_ca.paa";
         displayName = "Sugar";
-        descriptionShort = "The generalized name for sweet, short-chain, soluble carbohydrates, many of which are used in food.";
+        descriptionShort = "Polvo dulce usado en reposteria, para el cafe y otros usos culinarios";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 30;
@@ -80,7 +80,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\cane_x_ca.paa";
         displayName = "Grapes";
-        descriptionShort = "A fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis. Can be turned into Wine.";
+        descriptionShort = "Una fruta, empleada para comer con queso, en nochevieja o para hacer vino";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 50;
@@ -90,7 +90,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\cane_x_ca.paa";
         displayName = "Wine";
-        descriptionShort = "An alcoholic beverage made from grapes, generally Vitis vinifera, fermented without the addition of sugars, acids, enzymes, water, or other nutrients.";
+        descriptionShort = "Una bebida alcoholica de gran calidad en Europa. En tanoa es un brevaje infecto";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 50;
@@ -100,7 +100,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\cane_x_ca.paa";
         displayName = "Olives";
-        descriptionShort = "A species of small tree in the family Oleaceae, found in the Mediterranean Basin from Portugal to the Levant, the Arabian Peninsula, and southern Asia as far east as China, as well as the Canary Islands, Mauritius, and Altis.";
+        descriptionShort = "Un pequeño arbol mediterraneo que se encuentra en Espana, Italia y Altis, de el se sacan las aceitunas para hacer aceite de oliva.";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 50;
@@ -110,7 +110,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\fertilizer_x_ca.paa";
         displayName = "Fertilizer";
-        descriptionShort = "A material of natural or synthetic origin that is applied to soils or to plant tissues (usually leaves) to supply one or more plant nutrients essential to the growth of plants.";
+        descriptionShort = "Un material sintetico o natural (mierda de animales), empleado para mejorar el rendimiento del los cultivos";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 80;
@@ -120,7 +120,7 @@ class CfgWeapons {
         scope = 2;
         picture = "\overthrow_main\ui\items\ammo50cal_x_ca.paa";
         displayName = "100 x 50 Cal BMG";
-        descriptionShort = "100 Rounds of .50 Calibre 660 grain FMJ xM33 ammunition for use in Static weapons";
+        descriptionShort = "100 Rounds of .50 Calibre 660 grain FMJ xM33 ammunition para armas estaticas";
         descriptionUse = "";
         class ItemInfo: InventoryItem_Base_F {
             mass = 25;

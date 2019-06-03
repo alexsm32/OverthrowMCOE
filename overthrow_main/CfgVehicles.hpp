@@ -3,22 +3,22 @@
 		class ACE_MainActions { \
 			class OT_Remove { \
 				condition = "!([player] call ace_repair_fnc_isInRepairFacility) && (_target call OT_fnc_hasOwner) && ((call OT_fnc_playerIsGeneral) || (_target call OT_fnc_playerIsOwner))"; \
-				displayName = "Remove"; \
+				displayName = "Eliminar"; \
 				statement = ""; \
 					class OT_Remove_Confirm { \
 						condition = "true"; \
-						displayName = "Confirm"; \
+						displayName = "Confirmar"; \
 						statement = "deleteVehicle _target"; \
 					}; \
 			}; \
 			class OT_Salvage { \
 				condition = "((damage _target) > 0.99 && ""ToolKit"" in (items player)) || [player] call ace_repair_fnc_isInRepairFacility"; \
-				displayName = "Salvage"; \
+				displayName = "Desguazar"; \
 				statement = "_target spawn OT_fnc_salvageWreck"; \
 			}; \
 			class OT_Unflip { \
 				condition = "!(canMove _target) && (alive _target) && ((vehicle player) isEqualTo player)"; \
-				displayName = "Unflip"; \
+				displayName = "Recolocar"; \
 				statement = "_target call OT_fnc_unflipVehicle"; \
 			}; \
 		}; \
@@ -33,9 +33,9 @@ class CfgVehicles {
 	//Overthrow Vehicles
 	class I_Truck_02_box_F;
 	class OT_I_Truck_recovery : I_Truck_02_box_F {
-		displayName = "KamAZ Recovery";
+		displayName = "KamAZ Recuperacion";
 		class Library {
-			libTextDesc = "The Field Assistance and Recovery Truck (FART) is a specialized heavy truck used for field repairs and gear recovery after a battle. It can recover all items and bodies within a 150m radius into it's cargohold.";
+			libTextDesc = "Vehiculo para hacer reparaciones y recuperar material tras la batalla";
 		};
 	};
 
@@ -44,11 +44,11 @@ class CfgVehicles {
 	class Land_MapBoard_F : ThingX {
 		class ACE_Actions {
 			class ACE_MainActions {
-				displayName = "Interactions";
+				displayName = "Interacciones";
 				distance = 6;
 
 				class mapinfo {
-					displayName = "Map Info";
+					displayName = "Informacion en el mapa";
 	                statement = "[] spawn OT_fnc_mapInfoDialog;";
 				};
 	      class resetui {
@@ -56,7 +56,7 @@ class CfgVehicles {
 	        statement = "[] spawn OT_fnc_setupPlayer;";
 				};
 	      class sleepAction {
-					displayName = "Sleep";
+					displayName = "Dormir";
 	        statement = "createDialog ""OT_sleep_dialog"";";
 				};
 			};
@@ -66,16 +66,16 @@ class CfgVehicles {
 	class B_CargoNet_01_ammo_F : CargoNet_01_ammo_base_F {
 		class ACE_Actions {
 			class ACE_MainActions {
-				displayName = "Interactions";
+				displayName = "Interacciones";
 				distance = 6;
 
 				class arsenal {
-					displayName = "Open Arsenal (This Ammobox)";
+					displayName = "Abrir arsenal(esta Ammobox)";
 					condition = "!(call OT_fnc_playerIsAtWarehouse)";
 	                statement = "[_target,_player] call OT_fnc_openArsenal;";
 				};
 				class warehouse {
-					displayName = "Open Arsenal (Warehouse)";
+					displayName = "Abrir Arsenal (El Almacen)";
 					condition = "(call OT_fnc_playerIsAtWarehouse)";
 	                statement = "['WAREHOUSE',_player,_target] call OT_fnc_openArsenal;";
 				};
@@ -84,13 +84,13 @@ class CfgVehicles {
 	};
 	//END ACE actions----
 	class Mapboard_tanoa_F: Land_MapBoard_F {
-		displayName = "Map (Tanoa)";
+		displayName = "Mapa (Tanoa)";
 		hiddenSelectionsTextures[] = {"\overthrow_main\ui\maptanoa.paa"};
 	};
     class OT_GanjaItem: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
-        displayName = "Ganja";
+        displayName = "Hierba";
         author = "ARMAzac";
         vehicleClass = "Items";
         class TransportItems {
@@ -100,7 +100,7 @@ class CfgVehicles {
 	class OT_BlowItem: Item_Base_F {
         scope = 2;
         scopeCurator = 2;
-        displayName = "Blow";
+        displayName = "Fariña";
         author = "ARMAzac";
         vehicleClass = "Items";
         class TransportItems {
@@ -118,7 +118,7 @@ class CfgVehicles {
                     condition = "(alive _target) && (!isplayer _target) && !(side _target isEqualTo west)";
                     selection = "pelvis";
                     distance = 4;
-                    displayName = "Talk";
+                    displayName = "Hablar";
                     statement = "_target call OT_fnc_talkToCiv";
                 };
             };
@@ -127,7 +127,7 @@ class CfgVehicles {
             class ACE_Equipment {
                 class OT_StartSpliff
                 {
-                    displayName = "Smoke a spliff";
+                    displayName = "Hacerse un peta";
                     condition = "('OT_Ganja' in (items player)) && (!(_player getVariable ['ot_isSmoking', false]))";
                     statement = "[_player] spawn ot_fnc_startSpliff";
                     showDisabled = 0;
@@ -136,7 +136,7 @@ class CfgVehicles {
                 };
                 class OT_StopSpliff
                 {
-                    displayName = "Ditch your spliff!";
+                    displayName = "Tirar el peta!";
                     condition = "(goggles _player) in OT_cigsArray && ((_player getVariable ['ot_isSmoking', false]))";
                     statement = "[_player] spawn ot_fnc_stopSpliff";
                     showDisabled = 0;
@@ -151,11 +151,11 @@ class CfgVehicles {
 	class Land_Workbench_01_F : Furniture_base_F {
 		class ACE_Actions {
 			class ACE_MainActions {
-				displayName = "Interactions";
+				displayName = "Interacciones";
 				distance = 4;
 				class OT_Craft {
 					condition = "true";
-					displayName = "Craft";
+					displayName = "Fabricar";
 					statement = "call OT_fnc_craftDialog";
 				};
 			};

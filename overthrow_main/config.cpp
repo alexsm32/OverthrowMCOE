@@ -159,13 +159,13 @@ class ACE_Tags {
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
 	};
 	class OT_fuckNATO {
-		displayName = "OTAN JÃ³dete";
+		displayName = "OTAN Jodete";
 		requiredItem = "ACE_SpraypaintBlack";
 		textures[] = {"\overthrow_main\ui\tags\fucknato.paa"};
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
 	};
 	class OT_join {
-		displayName = "Únete";
+		displayName = "Unete";
 		requiredItem = "ACE_SpraypaintBlack";
 		textures[] = {"\overthrow_main\ui\tags\join.paa"};
 		icon = "\z\ace\addons\tagging\UI\icons\iconTaggingBlack.paa";
