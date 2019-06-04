@@ -27,7 +27,7 @@ private _params = [_faction,_destination,_destinationName,_jobid];
 private _markerPos = _destination; //randomize the marker position a bit
 
 //Build a mission description and title
-private _description = format["Un traidor de %1 ha huido y se esconde en %2 bajo la protección de la OTAN. %1 pagaría gustoso una buena suma a quien lo haga, digamos....desaparecer. <br/><br/>Recompensa: +20 (%1), $2500",_factionName,_destinationName];
+private _description = format["Un traidor de %1 ha huido y se esconde en %2 bajo la proteccion de la OTAN. %1 pagaria gustoso una buena suma a quien lo haga, digamos....desaparecer. <br/><br/>Recompensa: +20 (%1), $2500",_factionName,_destinationName];
 private _title = format["%1 Traidor en %2",_factionName,_destinationName];
 
 //This next number multiplies the reward

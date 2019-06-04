@@ -8,22 +8,22 @@ class EditorData
 	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=2218;
+		nextID=2247;
 	};
 	class MarkerIDProvider
 	{
-		nextID=36;
+		nextID=37;
 	};
 	class LayerIndexProvider
 	{
-		nextID=376;
+		nextID=378;
 	};
 	class Camera
 	{
-		pos[]={8119.1323,324.95953,840.0163};
-		dir[]={0.56419402,-0.50613731,0.65231228};
-		up[]={0.33110163,0.86245304,0.38281462};
-		aside[]={0.75634533,1.02591e-008,-0.65417355};
+		pos[]={1758.9685,51.454533,12115.295};
+		dir[]={0.22561121,-0.76661301,-0.60118127};
+		up[]={0.26935604,0.64209956,-0.71774596};
+		aside[]={-0.93625289,-2.363231e-008,-0.35135704};
 	};
 };
 binarizationWanted=0;
@@ -67,13 +67,14 @@ addons[]=
 	"A3_Structures_F_Walls",
 	"A3_Props_F_Exp_Military_Camps",
 	"A3_Structures_F_Mil_Helipads",
-	"A3_Structures_F_EPA_Mil_Scrapyard"
+	"A3_Structures_F_EPA_Mil_Scrapyard",
+	"A3_Static_F_Sams_Radar_System_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=33;
+		items=34;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -302,6 +303,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item33
+		{
+			className="A3_Static_F_Sams";
+			name="Arma 3 Sams - Turrets";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -759,7 +767,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=136;
+		items=165;
 		class Item0
 		{
 			dataType="Marker";
@@ -10966,6 +10974,740 @@ class Mission
 			};
 			id=2216;
 			atlOffset=0.25000322;
+		};
+		class Item136
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11664.259,7.6189184,3056.801};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="jammer_1";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=2218;
+			type="B_Radar_System_01_F";
+		};
+		class Item137
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6926.7622,5.5889187,7502.2202};
+				angles[]={0,1.3446006,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="jammer_2";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=2219;
+			type="B_Radar_System_01_F";
+			atlOffset=2.3841858e-007;
+		};
+		class Item138
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11550.915,9.8789177,13168.367};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="jammer_3";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=2220;
+			type="B_Radar_System_01_F";
+			atlOffset=-4.7683716e-007;
+		};
+		class Item139
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2268.7649,16.378918,13440.491};
+				angles[]={0,2.9328883,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="jammer_4";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=2221;
+			type="B_Radar_System_01_F";
+			atlOffset=-9.5367432e-007;
+		};
+		class Item140
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2069.5562,15.884177,3432.1404};
+				angles[]={0.0026520467,0,0.0053265258};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="jammer_5";
+				reportRemoteTargets=1;
+				receiveRemoteTargets=1;
+				reportOwnPosition=1;
+				aiRadarUsage=1;
+			};
+			id=2222;
+			type="B_Radar_System_01_F";
+			atlOffset=-5.1498413e-005;
+		};
+		class Item141
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11516.472,12.690418,2716.9231};
+				angles[]={6.2007008,1.5640768,6.179565};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2223;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item142
+		{
+			dataType="Marker";
+			position[]={11516.469,11.312167,2716.875};
+			name="marker_36";
+			type="loc_Hospital";
+			id=2224;
+		};
+		class Item143
+		{
+			dataType="Trigger";
+			position[]={11520.748,10.93098,2717.0393};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2225;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.030308723;
+		};
+		class Item144
+		{
+			dataType="Trigger";
+			position[]={11512.412,11.723267,2716.8586};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2226;
+			type="EmptyDetectorAreaR50";
+			atlOffset=-0.043001175;
+		};
+		class Item145
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5814.9351,6.2525415,10159.01};
+				angles[]={6.2485328,1.5640768,0.015998369};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2227;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item146
+		{
+			dataType="Marker";
+			position[]={5814.9321,4.8762522,10158.961};
+			name="marker_37";
+			type="loc_Hospital";
+			id=2228;
+		};
+		class Item147
+		{
+			dataType="Trigger";
+			position[]={5819.2114,4.967916,10159.125};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2229;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.030308723;
+		};
+		class Item148
+		{
+			dataType="Trigger";
+			position[]={5810.8755,4.7451038,10158.945};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2230;
+			type="EmptyDetectorAreaR50";
+			atlOffset=-0.043001175;
+		};
+		class Item149
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12780.534,8.1412458,7236.1787};
+				angles[]={6.2698536,1.5640768,6.272521};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2231;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			atlOffset=4.7683716e-007;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item150
+		{
+			dataType="Marker";
+			position[]={12780.531,6.7660708,7236.1304};
+			name="marker_38";
+			type="loc_Hospital";
+			id=2232;
+			atlOffset=4.7683716e-007;
+		};
+		class Item151
+		{
+			dataType="Trigger";
+			position[]={12784.811,6.6935244,7236.2949};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2233;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.0303092;
+		};
+		class Item152
+		{
+			dataType="Trigger";
+			position[]={12776.475,7.0003295,7236.1143};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2234;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item153
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9626.1182,12.030269,13450.631};
+				angles[]={0.055941612,1.5640768,6.2751846};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2235;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item154
+		{
+			dataType="Marker";
+			position[]={9626.1152,10.658401,13450.583};
+			name="marker_39";
+			type="loc_Hospital";
+			id=2236;
+		};
+		class Item155
+		{
+			dataType="Trigger";
+			position[]={9630.3945,10.65108,13450.748};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2237;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.030308723;
+		};
+		class Item156
+		{
+			dataType="Trigger";
+			position[]={9622.0586,10.646955,13450.566};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2238;
+			type="EmptyDetectorAreaR50";
+			atlOffset=-0.043001175;
+		};
+		class Item157
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5404.1846,7.7893839,3947.0476};
+				angles[]={0.018663859,1.5640768,6.2671871};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2239;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			atlOffset=8.5830688e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item158
+		{
+			dataType="Marker";
+			position[]={5404.1816,6.4157701,3946.9995};
+			name="marker_40";
+			type="loc_Hospital";
+			id=2240;
+			atlOffset=8.5830688e-006;
+		};
+		class Item159
+		{
+			dataType="Trigger";
+			position[]={5408.4609,6.3835216,3947.1638};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2241;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.030317307;
+		};
+		class Item160
+		{
+			dataType="Trigger";
+			position[]={5400.125,6.4756784,3946.9832};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2242;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item161
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1769.1766,5.9275131,12079.671};
+				angles[]={0.042640556,1.5640768,6.2805109};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=2243;
+			type="Land_MedicalTent_01_white_IDAP_open_F";
+			atlOffset=9.0122223e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="MedSign_Hide";
+					expression="_this animateSource ['MedSign_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="SolarPanel2_Hide";
+					expression="_this animateSource ['SolarPanel2_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item162
+		{
+			dataType="Marker";
+			position[]={1769.1737,4.5550666,12079.622};
+			name="marker_41";
+			type="loc_Hospital";
+			id=2244;
+			atlOffset=9.0122223e-005;
+		};
+		class Item163
+		{
+			dataType="Trigger";
+			position[]={1773.453,4.5873599,12079.786};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0740995;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2245;
+			type="EmptyDetectorAreaR50";
+			atlOffset=0.030398369;
+		};
+		class Item164
+		{
+			dataType="Trigger";
+			position[]={1765.1171,4.5860553,12079.606};
+			class Attributes
+			{
+				condition="call{this}";
+				onActivation="call{{[_x,_x] call ACE_medical_fnc_treatmentAdvanced_fullHealLocal;} forEach thisList;}";
+				sizeA=0.70499998;
+				sizeB=4.0014677;
+				sizeC=3;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				isRectangle=1;
+			};
+			id=2246;
+			type="EmptyDetectorAreaR50";
 		};
 	};
 	class Connections

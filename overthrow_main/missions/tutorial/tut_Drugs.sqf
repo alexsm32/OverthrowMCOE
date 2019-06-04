@@ -27,7 +27,7 @@ if(count _targets isEqualTo 0) exitWith {
         //give waypoint
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-        format["Parece que no hay clientes por aquí. Dirígete a %1, deberias encontrar alguno por allí. Está marcado en el mapa",_town] call OT_fnc_notifyMinor;
+        format["Parece que no hay clientes por aqui. Dirigete a %1, deberias encontrar alguno por alli. Esta marcado en el mapa",_town] call OT_fnc_notifyMinor;
 
         [
             {
@@ -45,7 +45,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"Hay un civil cerca, mira su posición en tu mapa" call OT_fnc_notifyMinor;
+"Hay un civil cerca, mira su posicion en tu mapa" call OT_fnc_notifyMinor;
 //pick the closest group and reveal
 
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
@@ -63,9 +63,9 @@ private _loopCode = {
         _wp setWaypointPosition [OT_missionMarker, 0];
     };
     if(player distance (leader _group) < 30) then {
-        "Usa la tecla de interacción sobre el civil a ver si quiere comprarte algo de ganja.
+        "Usa la tecla de interaccion sobre el civil a ver si quiere comprarte algo de ganja.
         No todo el mundo le pega a la hierba,
-        pero sigue intentádolo a ver si hay suerte." call OT_fnc_notifyMinor;
+        pero sigue intentandolo a ver si hay suerte." call OT_fnc_notifyMinor;
 
         call OT_fnc_clearPlayerWaypoint;
     } else {

@@ -28,7 +28,7 @@ private _actualMission = {
             //give waypoint
             [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
-            format["Parece que no hay chatarra cerca. Vete a %1, deberías encontrar algo por allí. está marcado en tu mapa",_town] call OT_fnc_notifyMinor;
+            format["Parece que no hay chatarra cerca. Vete a %1, deberias encontrar algo por alli. esta marcado en tu mapa",_town] call OT_fnc_notifyMinor;
 
             [
                 {
@@ -48,7 +48,7 @@ private _actualMission = {
         };
     };
 
-    "Hay chatarra por aquí. usa las herramientas para desguazarla" call OT_fnc_notifyMinor;
+    "Hay chatarra por aqui. usa las herramientas para desguazarla" call OT_fnc_notifyMinor;
 
     private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
     private _veh = _sorted select 0;
@@ -61,9 +61,9 @@ private _actualMission = {
         params["_loopCode","_veh"];
         if(player distance _veh < 10 && "ToolKit" in items player) then {
             _reached = true;
-            "Usa la tecla de interacción sobre la chatarra.
+            "Usa la tecla de interaccion sobre la chatarra.
             Lo que saques puede ser vendido en las tiendas de herramientas,
-            solo conduce hasta allí y pulsa 'Y'" call OT_fnc_notifyMinor;
+            solo conduce hasta alli y pulsa 'Y'" call OT_fnc_notifyMinor;
             call OT_fnc_clearPlayerWaypoint;
         } else {
             [_loopCode,_this,0.5] call CBA_fnc_waitAndExecute;
@@ -75,8 +75,8 @@ private _actualMission = {
 
 //First do we have a toolkit?
 if !("ToolKit" in items player) then {
-    "Coge las herramientas de la caja de munición de tu casa,
-    necesitarás una mochila" call OT_fnc_notifyMinor;
+    "Coge las herramientas de la caja de municion de tu casa,
+    necesitaras una mochila" call OT_fnc_notifyMinor;
     private _home = player getVariable "home";
     private _wp = [player,_home,"Grab Toolkit"] call OT_fnc_givePlayerWaypoint;
     private _loop = {

@@ -43,7 +43,7 @@ if(count _targets isEqualTo 0) exitWith {
         [player,_destination,_town] call OT_fnc_givePlayerWaypoint;
 
         format[
-            "Parece que no hay bandas cerca. Dirigete a %1, Deberías encontrar alguna por allí. Está marcada en el mapa",
+            "Parece que no hay bandas cerca. Dirigete a %1, Deberias encontrar alguna por alli. Esta marcada en el mapa",
             _town
         ] call OT_fnc_notifyMinor;
 
@@ -66,7 +66,7 @@ if(count _targets isEqualTo 0) exitWith {
     };
 };
 
-"Hay una banda por aquí cerca,puede que los lugareños te den algo de pasta si les invitas a irse" call OT_fnc_notifyMinor;
+"Hay una banda por aqui cerca,puede que los lugareÃ±os te den algo de pasta si les invitas a irse" call OT_fnc_notifyMinor;
 
 //pick the first group and reveal
 private _sorted = [_targets,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
