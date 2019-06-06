@@ -1,12 +1,12 @@
 private _ft = server getVariable ["OT_fastTravelType",1];
 private _diff = server getVariable ["OT_difficulty",1];
 private _ftrules = server getVariable ["OT_fastTravelRules",_diff];
-if(!OT_adminMode && _ft > 1) exitWith {hint "Fast Travel is disabled"};
+if(!OT_adminMode && _ft > 1) exitWith {hint "Viaje rapido deshabilitado"};
 
-if !(captive player) exitWith {hint "You cannot fast travel while wanted"};
-if !("ItemMap" in assignedItems player) exitWith {hint "You need a map to fast travel"};
+if !(captive player) exitWith {hint "No puedes viajar si estas en busca y captura"};
+if !("ItemMap" in assignedItems player) exitWith {hint "Necesitas un mapa"};
 
-if(_ftrules > 0 && !((primaryWeapon player) isEqualTo "" && (secondaryWeapon player) isEqualTo "" && (handgunWeapon player) isEqualTo "")) exitWith {hint "You cannot fast travel holding a weapon"};
+if(_ftrules > 0 && !((primaryWeapon player) isEqualTo "" && (secondaryWeapon player) isEqualTo "" && (handgunWeapon player) isEqualTo "")) exitWith {hint "No puedes viajar con armas a la vista"};
 
 _foundweapon = false;
 if((vehicle player) != player && _ftrules > 0) then {
@@ -14,14 +14,14 @@ if((vehicle player) != player && _ftrules > 0) then {
 		if(!((primaryWeapon _x) isEqualTo "" && (secondaryWeapon _x) isEqualTo "" && (handgunWeapon _x) isEqualTo "")) exitWith {_foundweapon = true};
 	}foreach(crew vehicle player);
 };
-if(_foundweapon) exitWith {hint "A passenger is holding a weapon"};
+if(_foundweapon) exitWith {hint "Un pasajero lleva un arma"};
 
 private _hasdrugs = false;
 {
 	if(_x in OT_allDrugs) exitWith {_hasdrugs = true};
 }foreach(items player);
 
-if(_hasdrugs) exitWith {"You cannot fast travel while carrying drugs" call OT_fnc_notifyMinor};
+if(_hasdrugs) exitWith {"No puedes viajar con drogas encima" call OT_fnc_notifyMinor};
 
 private _exit = false;
 if((vehicle player) != player) then {
@@ -29,10 +29,10 @@ if((vehicle player) != player) then {
 		if(_x in OT_allDrugs) exitWith {_hasdrugs = true};
 	}foreach(itemCargo vehicle player);
 
-	if(_hasdrugs && _ftrules > 0) exitWith {hint "No puedes viajar rapido mientras llevas drogas";_exit=true};
+	if(_hasdrugs && _ftrules > 0) exitWith {hint "No puedes viajar mientras llevas drogas";_exit=true};
 	if (driver (vehicle player) != player)  exitWith {hint "No eres el conductor de este vehiculo";_exit=true};
 	if({!captive _x && alive _x} count (crew vehicle player) != 0)  exitWith {hint "Hay gente en busca y captura en este vehiculo";_exit=true};
-	if(_ftrules > 1 && ((vehicle player) in (OT_allVehicleThreats + OT_allHeliThreats + OT_allPlaneThreats)))  exitWith {hint "No puedes viajar rapido en un vehiculo ofensivo";_exit=true};
+	if(_ftrules > 1 && ((vehicle player) in (OT_allVehicleThreats + OT_allHeliThreats + OT_allPlaneThreats)))  exitWith {hint "No puedes viajar rapido en un vehiculo armado";_exit=true};
 };
 if(_exit) exitWith {};
 
@@ -71,32 +71,32 @@ OT_FastTravel_MapSingleClickEHId = addMissionEventHandler ["MapSingleClick", {
 		if (!OT_adminMode && !(_pos inArea _region)) then {
 			if !([_region,_pos] call OT_fnc_regionIsConnected) then {
 				_valid = false;
-				hint "You cannot fast travel between islands unless there is a bridge or your destination is a controlled airfield";
+				hint "No puedes viajar si no hay un puente o aeropuerto controlado, usa el ferry o navega";
 				openMap false;
 			};
 		};
 	};
 	if(!_valid) exitWith {};
 	if(_pos distance player < 150) exitWith {
-		hint "You cannot fast travel less than 150m. Just walk!";
+		hint "No puedes viajar rapido menos de 150m. camina puto vago";
 		openMap false;
 	};
 
 	if(OT_adminMode) then {_handled = true};
 
 	if !(_handled) then {
-		hint "You must click near a friendly base/camp or a building you own";
+		hint "Debes hacer click en una propiedad tuya o un campamento aliado";
 		openMap false;
 	}else{
 		private _ft = server getVariable ["OT_fastTravelType",1];
 		if(_handled && _ft isEqualTo 1 && !OT_adminMode) then {
-			private _cost = 0;
+			private _cost = 2000;
 			if((vehicle player) isEqualTo player) then {
 				_cost = ceil((player distance _pos) / 50);
 			}else{
 				_cost = ceil((player distance _pos) / 20);
 			};
-			if((player getVariable ["money",0]) < _cost) exitWith {_exit = true;hint format ["You need $%1 to fast travel that distance",_cost]};
+			if((player getVariable ["money",0]) < _cost) exitWith {_exit = true;hint format ["Necesitas $%1 para hacer ese viaje",_cost]};
 			[-_cost] call OT_fnc_money;
 		};
 

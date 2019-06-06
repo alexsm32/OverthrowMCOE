@@ -138,7 +138,7 @@ class CfgWorlds
 		class Names
 		{
 			class RailwayDepot01 {
-				name = "Fábrica";
+				name = "Factory";
 			};
 		};
 	};

@@ -1,5 +1,5 @@
 private _data = _this call OT_fnc_getBusinessData;
-private _baseprice = 100000;
+private _baseprice = 300000;
 if(count _data isEqualTo 2) then {
     //turns nothing into money
     _baseprice = round(_baseprice * 1.5);
@@ -18,7 +18,7 @@ if(count _data isEqualTo 4) then {
             _baseprice = round(_baseprice * 2.4);
         };
         if((_data select 3) == "OT_Sugarcane") then {
-            _baseprice = round(_baseprice * 0.4);
+            _baseprice = round(_baseprice * 0.9);
         };
     };
 };

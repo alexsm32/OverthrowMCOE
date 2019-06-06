@@ -50,7 +50,7 @@ if((_b select 1) isEqualTo "Business") then {
                         clearItemCargoGlobal _veh;
                     };
                 }else{
-                    "The resistance cannot afford this" call OT_fnc_notifyMinor;
+                    "La resistencia no puede permitirse esto" call OT_fnc_notifyMinor;
                 };
             }else{
                 //Manage
