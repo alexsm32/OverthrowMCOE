@@ -6,7 +6,7 @@ if((count _cost) > 0 && !(_cls in _blueprints)) then {
     _blueprints pushBack _cls;
     server setVariable ["GEURblueprints",_blueprints,true];
     closeDialog 0;
-    "Item is now available for production" call OT_fnc_notifyMinor;
+    "Objeto disponible para produccion" call OT_fnc_notifyMinor;
 
     if(!(_cls isKindOf "Bag_Base") && _cls isKindOf "AllVehicles") then {
         private _veh = OT_factoryPos nearestObject _cls;
@@ -15,5 +15,5 @@ if((count _cost) > 0 && !(_cls in _blueprints)) then {
         player removeItem _cls;
     };
 }else{
-    "Cannot reverse-engineer this item, please contact Overthrow Devs on Discord" call OT_fnc_notifyMinor;
+    "No puedes hacer ingenieria inversa a este objeto... haber estudiao" call OT_fnc_notifyMinor;
 };

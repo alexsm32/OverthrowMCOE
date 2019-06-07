@@ -166,7 +166,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Escóndete de los helicópteros"; //--- ToDo: Localize;
+			tooltip = "Escondete de los helicopteros"; //--- ToDo: Localize;
 		};
 		class RscButton_1602: RscOverthrowButton
 		{
@@ -190,7 +190,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Crea un destino de viaje rápido"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje rapido"; //--- ToDo: Localize;
 		};
 		class RscButton_1604: RscOverthrowButton
 		{
@@ -202,7 +202,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Una caja de munición vacía"; //--- ToDo: Localize;
+			tooltip = "Una caja de municion vacia"; //--- ToDo: Localize;
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
@@ -214,7 +214,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Objetos varios (muy útiles)"; //--- ToDo: Localize;
+			tooltip = "Objetos varios (muy utiles)"; //--- ToDo: Localize;
 		};
 		class RscButton_1606: RscOverthrowButton
 		{
@@ -226,7 +226,7 @@ class OT_dialog_place
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.088 * safezoneH;
-			tooltip = "Crea un destino de viaje rápido y permite construir instalaciones militares ligeras"; //--- ToDo: Localize;
+			tooltip = "Crea un destino de viaje rapido y permite construir instalaciones militares ligeras"; //--- ToDo: Localize;
 		};
 		class RscButton_1607: RscOverthrowButton
 		{

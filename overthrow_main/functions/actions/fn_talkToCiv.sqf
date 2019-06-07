@@ -46,7 +46,7 @@ if !((_civ getvariable ["polgarrison",""]) isEqualTo "") then {_canRecruit = fal
 
 if (_canRecruit) then {
 	_options pushBack [
-		format["Recruit Civilian (-$%1)",_civprice],OT_fnc_recruitCiv
+		format["Reclutar civil (-$%1)",_civprice],OT_fnc_recruitCiv
 	];
 };
 
@@ -54,7 +54,7 @@ if (_canMission) then {
 	_factionName = _civ getvariable ["factionrepname",""];
 	_faction = _civ getvariable ["faction",""];
 	private _standing = server getVariable [format["standing%1",_faction],0];
-	_options pushback format["<t align='center' size='2'>%1</t><br/><br/><t align='center' size='0.8'>Current Standing: +%2",_factionName,_standing];
+	_options pushback format["<t align='center' size='2'>%1</t><br/><br/><t align='center' size='0.8'>Relacion actual: +%2",_factionName,_standing];
 
 	_options pushBack [format["Buy Gear"], {
 		private _civ = OT_interactingWith;
@@ -69,7 +69,7 @@ if (_canMission) then {
 		createDialog "OT_dialog_buy";
 		[OT_nation,_standing,_s,1.2] call OT_fnc_buyDialog;
 	}];
-	_options pushBack [format["Buy Blueprints"], {
+	_options pushBack [format["Comprar planos"], {
 		private _civ = OT_interactingWith;
 		_faction = _civ getvariable ["faction",""];
 		_factionName = _civ getvariable ["factionrepname",""];
@@ -94,7 +94,7 @@ if (_canMission) then {
 				if(_base > 60000) then {_req = 90};
 				if(_base > 100000) then {_req = 95};
 
-				_s pushback [_x,-1,_standing >= _req,format["+%1 standing to %2 required for this blueprint",_req,_factionName]];
+				_s pushback [_x,-1,_standing >= _req,format["+%1 relacion con %2 se requiere para este plano",_req,_factionName]];
 			};
 		}foreach(_gear);
 		createDialog "OT_dialog_buy";
@@ -142,15 +142,15 @@ if (_canTute) then {
 	_done = player getVariable ["OT_tutesDone",[]];
 	if !("NATO" in _done) then {
 		_options pushBack [
-			"So, about those NATO soldiers...",{
+			"Entonces, hablando de la OTAN....",{
 				private _civ = OT_interactingWith;
 				[
 					player,
 					_civ,
 					[
-						"So, about those NATO soldiers...",
-						"Yes! I will gladly pay you $250 to get them off my back",
-						"Alright I'll see what I can do"
+						"Entonces, hablando de la OTAN....",
+						"Si, te pagare si me los quitas de encima",
+						"Vamos a cazar yankees"
 					],
 					(OT_tutorialMissions select 0)
 				] call OT_fnc_doConversation;
@@ -159,15 +159,15 @@ if (_canTute) then {
 	};
 	/*if !("CRIM" in _done) then {
 		_options pushBack [
-			"So, about those gangs...",{
+			"Entonces.... lo de las bandas",{
 				private _civ = OT_interactingWith;
 				[
 					player,
 					_civ,
 					[
-						"So, about those gangs...",
-						"Sure, local businessmen usually pay quite well for them.",
-						"Alright I'll see what I can do"
+						"Entonces.... lo de las bandas",
+						"Si los haces desaparecer te pagaran algo",
+						"Bien, veamos que puede hacerse"
 					],
 					(OT_tutorialMissions select 1)
 				] call OT_fnc_doConversation;
@@ -176,16 +176,16 @@ if (_canTute) then {
 	};*/
 	if !("Drugs" in _done) then {
 		_options pushBack [
-			"You sell Ganja right?",{
+			"Vendes hierba verdad?",{
 				private _civ = OT_interactingWith;
 				[
 					player,
 					_civ,
 					[
-						"You sell Ganja right?",
-						"I sure do, wanna blaze it?",
-						"Not right now, I need some cash first",
-						"Oh OK, sell it to the civilians then"
+						"Vendes hierba verdad?",
+						"Si, claro... quieres ponerte hasta las cejas eh?. Tienes pinta de fumetilla",
+						"No tio... necesito pasta",
+						"Ah.. vale..... pues vendesela a la gente por ahi"
 					],
 					(OT_tutorialMissions select 1)
 				] call OT_fnc_doConversation;
@@ -194,15 +194,15 @@ if (_canTute) then {
 	};
 	if !("Economy" in _done) then {
 		_options pushBack [
-			"So how can I make money legally?",{
+			"Como puedo hacer dinero legalmente?",{
 				private _civ = OT_interactingWith;
 				[
 					player,
 					_civ,
 					[
-						"How can I make some legal money?",
-						"Legal money? Where's the fun in that. I guess you could try selling to stores or leasing houses.",
-						"Thanks."
+						"Como puedo hacer dinero legalmente?",
+						"Legalmente?... esto es Tanoa... en fin... puedes comprar casas y alquilarlas o vender lo que encuentres en las tiendas",
+						"Gracias."
 					],
 					(OT_tutorialMissions select 1)
 				] call OT_fnc_doConversation;
@@ -234,13 +234,13 @@ if (_canBuyBoats) then {
 	];
 	_options pushBack [
 		"Ferry Service",{
-			"Where do you want to go?" call OT_fnc_notifyMinor;
+			"A donde quieres ir?" call OT_fnc_notifyMinor;
 			_ferryoptions = [];
 			{
 				private _p = markerPos(_x);
 				private _t = _p call OT_fnc_nearestTown;
 				private _dist = (player distance _p);
-				private _cost = floor(_dist * 0.005);
+				private _cost = floor(_dist * 0.1);
 				private _go = {
 					_this spawn {
 						private _destpos = _this;
@@ -248,13 +248,13 @@ if (_canBuyBoats) then {
 						private _desttown = _destpos call OT_fnc_nearestTown;
 						private _pos = (getpos player) findEmptyPosition [10,100,OT_vehType_ferry];
 						if (count _pos isEqualTo 0) exitWith {
-							"Not enough space, please clear an area nearby" call OT_fnc_notifyMinor;
+							"No hay sitio, haz gueco cerca" call OT_fnc_notifyMinor;
 						};
-						private _cost = floor((player distance _destpos) * 0.005);
+						private _cost = floor((player distance _destpos) * 0.1);
 						player setVariable ["OT_ferryCost",_cost,false];
 						_money = player getVariable ["money",0];
 						if(_money < _cost) then {
-							"You cannot afford that!" call OT_fnc_notifyMinor
+							"No puedes pagarte esto!. Sabes nadar?" call OT_fnc_notifyMinor
 						}else{
 							[-_cost] call OT_fnc_money;
 							_veh = OT_vehType_ferry createVehicle _pos;
@@ -276,10 +276,10 @@ if (_canBuyBoats) then {
 							private _driver = driver _veh;
 							player moveInCargo _veh;
 
-							_driver globalchat format["Departing for %1 in 10 seconds",_desttown];
+							_driver globalchat format["Salida hacia %1 en 10 segundos",_desttown];
 
 							sleep 5;
-							_driver globalchat format["Departing for %1 in 5 seconds",_desttown];
+							_driver globalchat format["Salida hacia %1 en 5 segundos",_desttown];
 							sleep 5;
 
 							private _g = group (driver _veh);
@@ -292,7 +292,7 @@ if (_canBuyBoats) then {
 								_unit setVariable ["OT_ferryDestination",[],false];
 							}];
 
-							systemChat format["Departing for %1, press Y to skip (-$%2)",_desttown,_cost];
+							systemChat format["Saliendo hacia %1, presiona Y para ir rapido(-$%2)",_desttown,_cost];
 
 							waitUntil {
 								!alive player
@@ -303,12 +303,12 @@ if (_canBuyBoats) then {
 							};
 
 							if(vehicle player isEqualTo _veh && alive _driver) then {
-								_driver globalchat format["We've arrived in %1, enjoy your stay",_desttown];
+								_driver globalchat format["Hemos llegado a %1, Disfruta de la visita",_desttown];
 							};
 							sleep 15;
 							if(vehicle player isEqualTo _veh && alive _driver) then {
 								moveOut player;
-								_driver globalchat "Alright, bye";
+								_driver globalchat "vale, gracias";
 							};
 							if(random 100 > 90) then {
 								[player] spawn OT_fnc_NATOsearch;
@@ -339,19 +339,19 @@ if (_canBuyBoats) then {
 
 if (_canBuyVehicles) then {
 	_options pushBack [
-		"Buy Vehicles",OT_fnc_buyVehicleDialog
+		"Comprar vehiculos",OT_fnc_buyVehicleDialog
 	];
 };
 
 if (_canBuyGuns) then {
 	_options pushBack [
-		"Buy",OT_fnc_gunDealerDialog
+		"Comprar armas",OT_fnc_gunDealerDialog
 	];
 };
 
 if (_canSell) then {
 	_options pushBack [
-		"Sell",{
+		"Vender",{
 			private _civ = OT_interactingWith;
 			private _town = (getpos player) call OT_fnc_nearestTown;
 			private _standing = [_town] call OT_fnc_support;
@@ -376,7 +376,7 @@ if (_canSellDrugs) then {
 		if(((items player) find _x) > -1 && !(_civ getVariable["OT_askedDrugs",false])) then {
 
 			_drugname = _x call OT_fnc_weaponGetName;
-			_options pushBack [format ["Sell %1",_drugname],{
+			_options pushBack [format ["Vender %1",_drugname],{
 				OT_drugSelling = _this;
 				_drugcls = _this;
 				_drugname = _drugcls call OT_fnc_weaponGetName;
@@ -395,12 +395,12 @@ if (_canSellDrugs) then {
 
 				player globalchat (
 					format [selectRandom [
-							"Would you like to buy some %1?",
-							"Wanna buy some %1?",
-							"Hey, want some %1?",
-							"You wanna buy some %1?",
+							"Quieres un poco de %1?",
+							"Pss, yonki necesitas %1?",
+							"Hey, la mejor mierda de tanoa, quieres %1?",
+							"te vendo %1?",
 							"Pssst! %1?",
-							"Hey you looking for any %1?"
+							"Estas buscando %1?"
 						],
 						_drugname
 					]);
@@ -411,7 +411,7 @@ if (_canSellDrugs) then {
 						[player] remoteExec ["OT_fnc_NATOsearch",2,false];
 					}else{
 						if((random 100) > 68) then {
-							[_civ,player,["How much?",format["$%1",_price],"OK"],
+							[_civ,player,["Cuanto?",format["$%1",_price],"venga tio, que tengo un monazoooooo"],
 							{
 								private _drugSell = _this select 0;
 								[
@@ -443,7 +443,7 @@ if (_canSellDrugs) then {
 							[
 								_civ,
 								player,
-								[format["OK I'll give you $%1 for each",_price],"OK"],
+								[format["OK te doy $%1 por bolsa",_price],"OK"],
 								{
 									[([OT_nation,OT_drugSelling] call OT_fnc_getDrugPrice) * OT_drugQty] call OT_fnc_money;
 									for "_t" from 1 to OT_drugQty do {
@@ -454,9 +454,9 @@ if (_canSellDrugs) then {
 							] call OT_fnc_doConversation;
 							[_town,-OT_drugQty] call OT_fnc_stability;
 						}else{
-							[_civ,player,["No, go away!"],{OT_interactingWith setVariable ["OT_Talking",false,true];player setCaptive false;}] call OT_fnc_doConversation;
+							[_civ,player,["No,la droga es mala, somos muchos y hay muy poca"],{OT_interactingWith setVariable ["OT_Talking",false,true];player setCaptive false;}] call OT_fnc_doConversation;
 							if(player call OT_fnc_unitSeenCRIM) then {
-								hint "You are dealing on enemy turf";
+								hint "Estas vendiendo en territorio enemigo";
 								player setCaptive false;
 							};
 						};
@@ -467,6 +467,6 @@ if (_canSellDrugs) then {
 	}foreach(OT_allDrugs);
 };
 
-_options pushBack ["Cancel",{}];
+_options pushBack ["Cancelar",{}];
 
 _options call OT_fnc_playerDecision;

@@ -14,7 +14,7 @@ if(_garrison == -1) then {
 
 	_builder = name player;
 	{
-		[_x,format["New Police Station: %1",_town],format["%1 built a new police station %2",_builder,_town]] call BIS_fnc_createLogRecord;
+		[_x,format["Nueva comisaria: %1",_town],format["%1 construida nueva comisaria %2",_builder,_town]] call BIS_fnc_createLogRecord;
 	}foreach([] call CBA_fnc_players);
 
 	server setVariable [format['police%1',_town],2,true];

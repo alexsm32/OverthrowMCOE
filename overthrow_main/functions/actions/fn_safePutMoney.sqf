@@ -10,4 +10,4 @@ OT_inputHandler = {
 	};
 };
 
-["How much to put in this safe?",player getvariable ["money",100]] call OT_fnc_inputDialog;
+["Cuanto quieres meter en la caja fuerte?",player getvariable ["money",100]] call OT_fnc_inputDialog;

@@ -11,4 +11,4 @@ OT_inputHandler = {
 	};	
 };
 
-["Name this loadout",""] call OT_fnc_inputDialog;
+["Nombra esta configuracion de carga",""] call OT_fnc_inputDialog;

@@ -218,7 +218,7 @@ class OT_dialog_garrison
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
-			text = "+1 Fusilero Automático"; //--- ToDo: Localize;
+			text = "+1 Fusilero Automatico"; //--- ToDo: Localize;
 			x = 0.438125 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -258,7 +258,7 @@ class OT_dialog_garrison
 		class RscButton_1605: RscOverthrowButton
 		{
 			idc = 1605;
-			text = "+1 Anti-Aéreo"; //--- ToDo: Localize;
+			text = "+1 Anti-Aereo"; //--- ToDo: Localize;
 			x = 0.438125 * safezoneW + safezoneX;
 			y = 0.379 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -441,7 +441,7 @@ class OT_dialog_logistics
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Set Waypoint"; //--- ToDo: Localize;
+			text = "Establecer waypoint"; //--- ToDo: Localize;
 			x = 0.840312 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;

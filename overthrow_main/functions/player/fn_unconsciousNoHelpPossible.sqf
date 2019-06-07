@@ -1,3 +1,3 @@
 params ["_unit"];
 
-"You are unconscious. You can either wait for assistance or respawn through the ESC menu." call OT_fnc_notifyMinor;
+"Estas inconsciente, puedes esperar a que te curen o hacer respawn pulsando ESC." call OT_fnc_notifyMinor;

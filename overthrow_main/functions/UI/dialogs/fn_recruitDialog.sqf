@@ -1,7 +1,7 @@
 private _b = player call OT_fnc_nearestRealEstate;
 if(typename _b != "ARRAY") exitWith {};
 private _building = (_b select 0);
-if(damage _building isEqualTo 1) exitWith {"Must repair before you can recruit" call OT_fnc_notifyMinor};
+if(damage _building isEqualTo 1) exitWith {"Debes reparar para poder reclutar" call OT_fnc_notifyMinor};
 
 disableSerialization;
 
@@ -14,10 +14,10 @@ if(typeof _building isEqualTo OT_barracks) then {
 	}
 };
 if ((typeof _building == OT_barracks) && isNil "_base") exitWith {};
-if ((typeof _building == OT_barracks) && !_good) exitWith {"This barracks is under NATO control" call OT_fnc_notifyMinor};
+if ((typeof _building == OT_barracks) && !_good) exitWith {"Este cuartel esta bajo control de la OTAN" call OT_fnc_notifyMinor};
 
 createDialog "OT_dialog_recruit";
-ctrlSetText [1600,"Recruit"];
+ctrlSetText [1600,"Reclutar"];
 lbClear 1500;
 if (typeof _building isEqualTo OT_barracks) then {
 	{

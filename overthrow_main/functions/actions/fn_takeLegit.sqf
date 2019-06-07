@@ -2,7 +2,7 @@ _veh = vehicle player;
 
 if(_veh isEqualTo player) exitWith {};
 
-format["Taking legal inventory from vehicle"] call OT_fnc_notifyMinor;
+format["Cogiendo objetos legales del vehiculo"] call OT_fnc_notifyMinor;
 
 [5,false] call OT_fnc_progressBar;
 sleep 5;
@@ -25,4 +25,4 @@ sleep 5;
 	};
 }foreach(_veh call OT_fnc_unitStock);
 
-"Inventory Transfer done" call OT_fnc_notifyMinor;
+"Transferencia de inventario realizada" call OT_fnc_notifyMinor;

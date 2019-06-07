@@ -372,7 +372,7 @@ player addEventHandler ["InventoryOpened", {
 		&&
 		{ !((_veh call OT_fnc_getOwner) isEqualTo getplayeruid player) }
 	) exitWith {
-		format["This inventory has been locked by %1",server getVariable ("name"+(_veh call OT_fnc_getOwner))] call OT_fnc_notifyMinor;
+		format["El inventario ha sido cerrado por %1",server getVariable ("name"+(_veh call OT_fnc_getOwner))] call OT_fnc_notifyMinor;
 		true
 	};
 	false
@@ -402,7 +402,7 @@ player addEventHandler ["GetInMan",{
 				private _isgen = call OT_fnc_playerIsGeneral;
 				if(!_isgen && (_veh getVariable ["OT_locked",false])) then {
 					moveOut player;
-					format["This vehicle has been locked by %1",server getVariable "name"+(_veh call OT_fnc_getOwner)] call OT_fnc_notifyMinor;
+					format["Este vehiculo ha sido cerrado por %1",server getVariable "name"+(_veh call OT_fnc_getOwner)] call OT_fnc_notifyMinor;
 				};
 			};
 		};

@@ -13,7 +13,7 @@ if((player getVariable ["money",0]) < _total) exitWith {
 	OT_taking = false;
 };
 if ((!(_veh isKindOf "Truck_F")) && (!(_veh canAdd [_cls,_num]))) exitWith {
-	hint "This vehicle cannot fit that, use a truck for more storage";
+	hint "Este vehiculo es pequeño, busca algo mas grande";
 	OT_taking = false;
 };
 

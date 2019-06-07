@@ -31,13 +31,13 @@ if(typeof _this isEqualTo OT_item_Map) then {
 
 };
 if(typeof _this isEqualTo OT_item_Storage) then {
-	_this addAction ["Open Arsenal (This Ammobox)", {[_this select 0,player] call OT_fnc_openArsenal},nil,0,false,true,"","!(call OT_fnc_playerIsAtWarehouse)"];
-	_this addAction ["Open Arsenal (Warehouse)", {["WAREHOUSE",player,_this select 0] call OT_fnc_openArsenal},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
-	_this addAction ["Take From Warehouse", {
+	_this addAction ["Abrir Arsenal (Esta caja)", {[_this select 0,player] call OT_fnc_openArsenal},nil,0,false,true,"","!(call OT_fnc_playerIsAtWarehouse)"];
+	_this addAction ["Abrir Arsenal (Almacen)", {["WAREHOUSE",player,_this select 0] call OT_fnc_openArsenal},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
+	_this addAction ["Coger del almacen", {
 		private _iswarehouse = call OT_fnc_playerIsAtWarehouse;
 
 		if !(_iswarehouse) exitWith {
-			"No warehouse within range or needs repair" call OT_fnc_notifyMinor;
+			"No hay un almacen cerca o necesita reparaciones" call OT_fnc_notifyMinor;
 		};
 
 		OT_warehouseTarget = _this select 0;
@@ -45,31 +45,31 @@ if(typeof _this isEqualTo OT_item_Storage) then {
 		createDialog "OT_dialog_warehouse";
 		[] call OT_fnc_warehouseDialog;
 	},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
-	_this addAction ["Store In Warehouse", {
+	_this addAction ["Guardar en el almacen", {
 		private _iswarehouse = call OT_fnc_playerIsAtWarehouse;
 		if !(_iswarehouse) exitWith {
-			"No warehouse within range or needs repair" call OT_fnc_notifyMinor;
+			"No hay un almacen cerca o necesita reparaciones" call OT_fnc_notifyMinor;
 		};
 		OT_warehouseTarget = _this select 0;
 		[] spawn OT_fnc_transferTo;
 	},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
-	_this addAction ["Dump Everything", {[player,_this select 0] call OT_fnc_dumpStuff},nil,0,false,true,"",""];
-	_this addAction ["Dump Everything into Warehouse", {[player] call OT_fnc_dumpIntoWarehouse},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
+	_this addAction ["Vaciar todo", {[player,_this select 0] call OT_fnc_dumpStuff},nil,0,false,true,"",""];
+	_this addAction ["Vaciar todo en el almacen", {[player] call OT_fnc_dumpIntoWarehouse},nil,0,false,true,"","call OT_fnc_playerIsAtWarehouse"];
 	if(_this call OT_fnc_playerIsOwner) then {
 		_this addAction ["Lock", {
 			(_this select 0) setVariable ["OT_locked",true,true];
-			"Ammobox locked" call OT_fnc_notifyMinor;
+			"Caja cerrada" call OT_fnc_notifyMinor;
 		},nil,0,false,true,"","!(_target getVariable ['OT_locked',false])"];
 		_this addAction ["Unlock", {
 			(_this select 0) setVariable ["OT_locked",false,true];
-			"Ammobox unlocked" call OT_fnc_notifyMinor;
+			"Caja abierta" call OT_fnc_notifyMinor;
 		},nil,0,false,true,"","(_target getVariable ['OT_locked',false])"];
 	};
 };
 if(typeof _this isEqualTo OT_item_Safe) then {
-	_this addAction ["Put Money", OT_fnc_safePutMoney,nil,0,false,true,"",""];
-	_this addAction ["Take Money", OT_fnc_safeTakeMoney,nil,0,false,true,"",""];
-	_this addAction ["Set Password", OT_fnc_safeSetPassword,nil,0,false,true,"","(_target getVariable ['owner','']) isEqualTo getplayeruid _this"];
+	_this addAction ["Mete dinero", OT_fnc_safePutMoney,nil,0,false,true,"",""];
+	_this addAction ["Coge dinero", OT_fnc_safeTakeMoney,nil,0,false,true,"",""];
+	_this addAction ["Establece PIN", OT_fnc_safeSetPassword,nil,0,false,true,"","(_target getVariable ['owner','']) isEqualTo getplayeruid _this"];
 };
 
 if(typeof _this isEqualTo "Land_Cargo_House_V4_F") then {

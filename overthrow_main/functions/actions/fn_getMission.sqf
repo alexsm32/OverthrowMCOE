@@ -2,7 +2,7 @@ params ["_faction","_factionName"];
 
 private _haveMission = player getVariable [format["MissionData%1",_faction],[]];
 if(count _haveMission > 0) exitWith {
-    "You already have an active mission for this faction" call OT_fnc_notifyMinor;
+    "Ya hay una mision activa para esta faccion" call OT_fnc_notifyMinor;
 };
 
 private _standing = server getvariable [format["standing%1",_faction],0];
@@ -37,13 +37,13 @@ private _difficulty = _data param [7, 1];
 private _rewardStanding = round((((100 - _standing) / 50) * _difficulty) * 100) / 100;
 if(_rewardStanding < 0.1) then {_rewardStanding = 0.1}; //minimum standing 0.1
 private _rewardMoney = round(_standing * 20);
-if(_rewardMoney < 250) then {_rewardMoney = 250}; //minimum reward 250
+if(_rewardMoney < 1500) then {_rewardMoney = 1500}; //minimum reward 1500
 _rewardMoney = _rewardMoney * _difficulty;
 OT_currentMissionRewards = [_rewardStanding,_rewardMoney];
 
 private _txt = _data select 0;
 private _description = format[
-    "<t size='0.9' align='center'>%5<br/><br/></t><t size='0.65'>%1<br/><br/></t><t size='0.7' align='center'>Reward: $%2 | Standing (%3): +%4</t>",
+    "<t size='0.9' align='center'>%5<br/><br/></t><t size='0.65'>%1<br/><br/></t><t size='0.7' align='center'>Recompensa: $%2 | Relacion (%3): +%4</t>",
     _txt select 1,
     _rewardMoney,
     _factionName,
@@ -73,7 +73,7 @@ _options pushback ["Accept",{
                 _rewardStanding = _rewards select 0;
                 _standing = server getvariable [format["standing%1",_faction],0];
                 server setvariable [format["standing%1",_faction],_standing+_rewardStanding,true];
-                format["%1 completed a mission (+%2 %3)",name player,_rewardStanding,_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
+                format["%1 completo una mision (+%2 %3)",name player,_rewardStanding,_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
             };
             OT_currentMissionData = nil;
         },

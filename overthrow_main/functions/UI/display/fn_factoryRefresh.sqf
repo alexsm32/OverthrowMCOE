@@ -2,12 +2,12 @@ disableSerialization;
 
 private _currentCls = server getVariable ["GEURproducing",""];
 
-private _text = "<t size='0.8' align='center'>Factory is not currently produce anything. Add to the queue above or Reverse-Engineer nearby items to gain blueprints.</t><br/>";
+private _text = "<t size='0.8' align='center'>La fabrica no esta produciendo nada. Elige objetos para fabricar o haz ingenieria inversa sobre objetos cercanos</t><br/>";
 private _currentPic = "";
 private _currentName = "";
 
 if(_currentCls != "") then {
-	_text = format["<t size='0.8' align='center'>Currently Producing</t><br/><t size='1.1' align='center'>%1</t><br/><br/>",_currentCls call OT_fnc_anythingGetName];
+	_text = format["<t size='0.8' align='center'>Actualmente produciendo</t><br/><t size='1.1' align='center'>%1</t><br/><br/>",_currentCls call OT_fnc_anythingGetName];
 	if(_currentCls isKindOf "AllVehicles") then {
 		_currentName = _currentCls call OT_fnc_vehicleGetName;
 		_currentPic = _currentCls call OT_fnc_vehicleGetPic;
@@ -60,19 +60,19 @@ if(_currentCls != "") then {
 			_numtoproduce = round (1 / _plastic);
 			_plastic = 1;
 		};
-		_text = _text + format["<t size='0.65' align='center'>Input: $%1 + ",round((_base * _numtoproduce) * 0.8)];
+		_text = _text + format["<t size='0.65' align='center'>Material necesario: $%1 + ",round((_base * _numtoproduce) * 0.8)];
 		if(_wood > 0) then {
-			_text = _text + format["%1 x wood ",_wood];
+			_text = _text + format["%1 x madera ",_wood];
 		};
 		if(_steel > 0) then {
-			_text = _text + format["%1 x steel ",_steel];
+			_text = _text + format["%1 x acero ",_steel];
 		};
 		if(_plastic > 0) then {
-			_text = _text + format["%1 x plastic",_plastic];
+			_text = _text + format["%1 x plastico",_plastic];
 		};
 		_text = _text + "<br/>";
-		_text = _text + format["Time: %1 of %2 mins<br/>",_timespent,_timetoproduce];
-		_text = _text + format["Output: %1 x %2<br/></t>",_numtoproduce,_currentName];
+		_text = _text + format["Tiempo: %1 of %2 mins<br/>",_timespent,_timetoproduce];
+		_text = _text + format["Produce: %1 x %2<br/></t>",_numtoproduce,_currentName];
 	};
 };
 
@@ -158,19 +158,19 @@ if(count _cost > 0) then {
         _numtoproduce = round (1 / _plastic);
         _plastic = 1;
     };
-    _recipe = format["<t size='0.65' align='center'>Input: $%1 + ",round((_base * _numtoproduce) * 0.6)];
+    _recipe = format["<t size='0.65' align='center'>Material necesario: $%1 + ",round((_base * _numtoproduce) * 0.6)];
     if(_wood > 0) then {
-        _recipe = _recipe + format["%1 x wood ",_wood];
+        _recipe = _recipe + format["%1 x madera ",_wood];
     };
     if(_steel > 0) then {
-        _recipe = _recipe + format["%1 x steel ",_steel];
+        _recipe = _recipe + format["%1 x acero ",_steel];
     };
     if(_plastic > 0) then {
-        _recipe = _recipe + format["%1 x plastic",_plastic];
+        _recipe = _recipe + format["%1 x plastico",_plastic];
     };
     _recipe = _recipe + "<br/>";
     _recipe = _recipe + format["Time: %1 mins<br/>",_timetoproduce];
-    _recipe = _recipe + format["Output: %1 x %2<br/></t>",_numtoproduce,_cls call OT_fnc_anythingGetName];
+    _recipe = _recipe + format["Produce: %1 x %2<br/></t>",_numtoproduce,_cls call OT_fnc_anythingGetName];
 };
 
 ((findDisplay 8000) displayCtrl 1100) ctrlSetStructuredText parseText format["

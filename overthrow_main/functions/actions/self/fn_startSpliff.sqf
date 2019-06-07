@@ -6,7 +6,7 @@ private _hasGanja = false;
 {
     if(_x isEqualTo "OT_Ganja") exitWith {_hasGanja = true};
 }foreach(items player);
-if !(_hasGanja) exitWith {"You don't have enough weed to smoke a spliff" call OT_fnc_notifyMinor};
+if !(_hasGanja) exitWith {"No tienes hierba para hacerte un peta" call OT_fnc_notifyMinor};
 
 if(player call OT_fnc_unitSeenNATO) then {
     player setcaptive false;

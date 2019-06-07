@@ -31,7 +31,7 @@ if((typeof _building) in OT_allRepairableRuins) exitWith {
 			_veh setPosATL _pos;
 			[_veh,getPlayerUID player] call OT_fnc_setOwner;
 		}else{
-			format["You need $%1 to repair this building",[_price, 1, 0, true] call CBA_fnc_formatNumber];
+			format["Necesitas $%1 para reparar este edificio",[_price, 1, 0, true] call CBA_fnc_formatNumber];
 		};
 	};
 };
@@ -48,22 +48,22 @@ if(typeof _building isEqualTo OT_warehouse) exitWith {
 			owners setVariable ["damagedBuildings",_damaged,true];
 		}
 	}else{
-		format["You need $%1 to repair this warehouse",[_price, 1, 0, true] call CBA_fnc_formatNumber];
+		format["Necesitas $%1 para reparar este almacen",[_price, 1, 0, true] call CBA_fnc_formatNumber];
 	};
 };
 
-if !(captive player) exitWith {"You cannot set home while wanted" call OT_fnc_notifyMinor};
+if !(captive player) exitWith {"No puedes mudarte mientras estes en busca y captura" call OT_fnc_notifyMinor};
 private _handled = false;
 private _owner = _building call OT_fnc_getOwner;
 if(!isNil "_owner") then {
 	if ((typeof _building) in OT_allBuyableBuildings && _owner isEqualTo getplayerUID player) exitWith {
 		_handled = true;
 		player setVariable ["home",getpos _building,true];
-		"This is now your home" call OT_fnc_notifyMinor;
+		"Este es tu nuevo hogar" call OT_fnc_notifyMinor;
 	};
 };
 
 
 if !(_handled) then {
-	"You don't own any buildings nearby" call OT_fnc_notifyMinor;
+	"No posees ningun edificio cerca" call OT_fnc_notifyMinor;
 };

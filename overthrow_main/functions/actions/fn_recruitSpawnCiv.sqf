@@ -1,7 +1,7 @@
 if !(captive player) exitWith {"You cannot recruit while wanted" call OT_fnc_notifyMinor};
 
 if(({side _x isEqualTo west || side _x isEqualTo east} count ((getpos player) nearEntities 50)) > 0) exitWith {
-	"You cannot recruit with enemies nearby" call OT_fnc_notifyMinor;
+	"No puedes reclutar con enemigos cerca" call OT_fnc_notifyMinor;
 };
 
 private _price = [OT_nation,"CIV",100] call OT_fnc_getPrice;

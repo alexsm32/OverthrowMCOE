@@ -25,11 +25,11 @@ if(_veh isEqualTo player) then {
 	};
 };
 if(_veh isEqualTo player) exitWith {
-	"No warehouse within range" call OT_fnc_notifyMinor;
+	"No hay almacen en alcance" call OT_fnc_notifyMinor;
 };
 
 while {_count < _num} do {
-	if ((!(_veh isKindOf "Truck_F")) && (!(_veh isKindOf OT_item_Storage)) && (!(_veh canAdd _cls))) exitWith {hint "This vehicle is full, use a truck for more storage"; closeDialog 0; _num = _count};
+	if ((!(_veh isKindOf "Truck_F")) && (!(_veh isKindOf OT_item_Storage)) && (!(_veh canAdd _cls))) exitWith {hint "este vehiculo esta lleno, usa un camion"; closeDialog 0; _num = _count};
 	[_cls, _veh] call {
 		params ["_cls", "_veh"];
 		if(_cls isKindOf ["Rifle",configFile >> "CfgWeapons"]) exitWith {

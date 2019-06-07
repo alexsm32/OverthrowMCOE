@@ -16,7 +16,7 @@ if(_b isEqualType []) then {
 };
 
 if(_notvehicle && _objects isEqualTo []) exitWith {
-	"No warehouse within range" call OT_fnc_notifyMinor;
+	"No hay un almacen cerca" call OT_fnc_notifyMinor;
 };
 
 [vehicle player, (_objects select 0)] call OT_fnc_transferHelper;

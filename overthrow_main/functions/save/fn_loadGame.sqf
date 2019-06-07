@@ -3,11 +3,11 @@ params [
 ];
 
 //get all server data
-"Loading persistent save" remoteExec['OT_fnc_notifyStart',0,false];
+"Cargando guardado persistente" remoteExec['OT_fnc_notifyStart',0,false];
 
 if (_data isEqualType "" && {_data isEqualTo ""}) then {
 	[] remoteExec ['OT_fnc_newGame',2];
-	"No save found, starting new game" remoteExec ["hint",0,false];
+	"No se ha encontrado un juego guardado. Iniciando nuevo juego" remoteExec ["hint",0,false];
 };
 
 private _cc = 0;
@@ -453,4 +453,4 @@ private _built = (allMissionObjects "Static");
 }foreach(players_NS getvariable ["OT_allPlayers",[]]);
 sleep 2; //let the variables propagate
 server setVariable ["StartupType","LOAD",true];
-hint "Persistent Save Loaded";
+hint "Guardado persistente cargado";

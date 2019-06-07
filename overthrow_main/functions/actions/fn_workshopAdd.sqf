@@ -3,10 +3,10 @@ private _cls = lbData [1500,_idx];
 private _price = lbValue [1500,_idx];
 
 private _money = player getVariable ["money",0];
-if(_money < _price) exitWith {"You cannot afford that!" call OT_fnc_notifyMinor};
+if(_money < _price) exitWith {"No puedes pagar esto!" call OT_fnc_notifyMinor};
 
 private _veh = cursorTarget;
-if(_veh getVariable ["OT_attachedClass",""] != "") exitWith {hint "This vehicle already has a weapon attached"};
+if(_veh getVariable ["OT_attachedClass",""] != "") exitWith {hint "Este vehiculo ya lleva un arma montada"};
 
 closeDialog 0;
 if(!alive _veh) exitWith {};

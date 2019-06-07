@@ -34,7 +34,7 @@ class OT_dialog_start
 			idc = 1601;
 			action = "closeDialog 0;createDialog ""OT_dialog_newgame"";call OT_fnc_newGameDialog;";
 
-			text = "New Game"; //--- ToDo: Localize;
+			text = "Juego Nuevo"; //--- ToDo: Localize;
 			x = 0.448438 * safezoneW + safezoneX;
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
@@ -143,9 +143,9 @@ class OT_dialog_vehicle
 		{
 			idc = 1600;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel;";
-			tooltip = "Fast travels this vehicle and it's occupants"; //--- ToDo: Localize;
+			tooltip = "Viaje rapido con vehiculo y sus ocupantes"; //--- ToDo: Localize;
 
-			text = "Viaje Rápido"; //--- ToDo: Localize;
+			text = "Viaje Rapido"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.126 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
@@ -183,7 +183,7 @@ class OT_dialog_vehicle
 			y = 0.478 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "transfiere el contenido del contenedor más cercano a este vehículo"; //--- ToDo: Localize;
+			tooltip = "transfiere el contenido del contenedor más cercano a este vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_transferFrom;";
 		};
 		class RscButton_1602: RscOverthrowButton
@@ -194,7 +194,7 @@ class OT_dialog_vehicle
 			y = 0.390 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Transfiere el contenido de este vehículo al contenedor más cercano"; //--- ToDo: Localize;
+			tooltip = "Transfiere el contenido de este vehiculo al contenedor más cercano"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_transferTo;";
 		};
 		class RscButton_1603: RscOverthrowButton
@@ -205,7 +205,7 @@ class OT_dialog_vehicle
 			y = 0.566 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Transfiere los objetos legales (vendibles) del contenedor más cercano a este vehículo"; //--- ToDo: Localize;
+			tooltip = "Transfiere los objetos legales (vendibles) del contenedor más cercano a este vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_transferLegit;";
 		};
 		class RscButton_1604: RscOverthrowButton
@@ -216,18 +216,18 @@ class OT_dialog_vehicle
 			y = 0.654 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Coge los objetos legales (vendibles) de este vehículo a tu inventario"; //--- ToDo: Localize;
+			tooltip = "Coge los objetos legales (vendibles) de este vehiculo a tu inventario"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_takeLegit;";
 		};
 		class RscButton_1605: RscOverthrowButton
 		{
 			idc = 1605;
-			text = "Cerrar vehículo"; //--- ToDo: Localize;
+			text = "Cerrar vehiculo"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.742 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Cierra el vehículo para que solo tu puedas conducirlo o acceder al inventario"; //--- ToDo: Localize;
+			tooltip = "Cierra el vehiculo para que solo tu puedas conducirlo o acceder al inventario"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] call OT_fnc_lockVehicle;";
 		};
 		class RscButton_1612: RscOverthrowButton
@@ -276,23 +276,23 @@ class OT_dialog_vehiclewarehouse
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Viaje rápido"; //--- ToDo: Localize;
+			text = "Viaje rapido"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel;";
-			tooltip = "Realiza un viaje rápido de este vehículo y sus ocupantes"; //--- ToDo: Localize;
+			tooltip = "Realiza un viaje rapido de este vehiculo y sus ocupantes"; //--- ToDo: Localize;
 		};
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
-			text = "Coger desde"; //--- ToDo: Localize;
+			text = "Coger del almacen"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.654 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Coger del almacén"; //--- ToDo: Localize;
+			tooltip = "Coger del almacen"; //--- ToDo: Localize;
 			action = "closeDialog 0;createDialog ""OT_dialog_warehouse"";[] call OT_fnc_warehouseDialog;";
 		};
 		class RscButton_1602: RscOverthrowButton
@@ -303,7 +303,7 @@ class OT_dialog_vehiclewarehouse
 			y = 0.478 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Almacena el contenido del vehículo en el almacén"; //--- ToDo: Localize;
+			tooltip = "Almacena el contenido del vehiculo en el almacen"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_storeAll;";
 		};
 		class RscButton_1603: RscOverthrowButton
@@ -314,7 +314,7 @@ class OT_dialog_vehiclewarehouse
 			y = 0.566 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Coge los objetos legales del almacén"; //--- ToDo: Localize;
+			tooltip = "Coge los objetos legales del almacen"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_transferLegit;";
 		};
 		class RscButton_1612: RscOverthrowButton
@@ -363,13 +363,13 @@ class OT_dialog_vehicleport
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Viaje rápido"; //--- ToDo: Localize;
+			text = "Viaje rapido"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel;";
-			tooltip = "Realiza un viaje rápido de este vehículo y sus ocupantes"; //--- ToDo: Localize;
+			tooltip = "Realiza un viaje rapido de este vehiculo y sus ocupantes"; //--- ToDo: Localize;
 		};
 		class RscButton_1601: RscOverthrowButton
 		{
@@ -379,7 +379,7 @@ class OT_dialog_vehicleport
 			y = 0.654 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Importa mercancia del mercado global"; //--- ToDo: Localize;
+			tooltip = "Importa mercancias de fuera de Tanoa"; //--- ToDo: Localize;
 			action = "closeDialog 0;createDialog ""OT_dialog_import"";[] call OT_fnc_importDialog;";
 		};
 		class RscButton_1602: RscOverthrowButton
@@ -390,7 +390,7 @@ class OT_dialog_vehicleport
 			y = 0.566 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Exporta el contenido del vehículo"; //--- ToDo: Localize;
+			tooltip = "Exporta el contenido del vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_exportAll;";
 		};
 		class RscButton_1612: RscOverthrowButton
@@ -439,13 +439,13 @@ class OT_dialog_vehiclehardware
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Viaje rápido"; //--- ToDo: Localize;
+			text = "Viaje rapido"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel;";
-			tooltip = "Realiza un viaje rápido de este vehículo y sus ocupantes"; //--- ToDo: Localize;
+			tooltip = "Realiza un viaje rapido de este vehiculo y sus ocupantes"; //--- ToDo: Localize;
 		};
 		class RscButton_1601: RscOverthrowButton
 		{
@@ -515,13 +515,13 @@ class OT_dialog_vehiclestore
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Viaje Rápido "; //--- ToDo: Localize;
+			text = "Viaje rapido "; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.39 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel;";
-			tooltip = "Realiza un viaje rápido de este vehículo y sus ocupantes"; //--- ToDo: Localize;
+			tooltip = "Realiza un viaje rapido de este vehiculo y sus ocupantes"; //--- ToDo: Localize;
 		};
 		class RscButton_1601: RscOverthrowButton
 		{
@@ -590,12 +590,12 @@ class OT_dialog_command
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
-			text = "Open Arsenal"; //--- ToDo: Localize;
+			text = "Abrir arsenal"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.236 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Commands first unit selected to walk to and open the closest ammobox arsenal, uses warehouse if ammobox is at a warehouse"; //--- ToDo: Localize;
+			tooltip = "Manda a la primera unidad IA seleccionada al arsenal. Si la caja esta en un almacen se usa el contenido del almacen "; //--- ToDo: Localize;
 			action = "closeDialog 0;[] call OT_fnc_orderOpenArsenal;";
 		};
 		class RscButton_1601: RscOverthrowButton
@@ -606,7 +606,7 @@ class OT_dialog_command
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Manda a la IA seleccionada a lootear y meter el contenido en este vehículo"; //--- ToDo: Localize;
+			tooltip = "Manda a la IA seleccionada a lootear y meter el contenido en este vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_orderLoot;";
 		};
 		class RscButton_1602: RscOverthrowButton
@@ -617,7 +617,7 @@ class OT_dialog_command
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Manda a la IA sellecionada a abrir el inventario más cercano"; //--- ToDo: Localize;
+			tooltip = "Manda a la IA sellecionada a abrir el inventario mas cercano"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] spawn OT_fnc_orderOpenInventory;";
 		};
 		class RscButton_1603: RscOverthrowButton
@@ -677,12 +677,12 @@ class OT_dialog_squad
 		class RscButton_1601: RscOverthrowButton
 		{
 			idc = 1601;
-			text = "Asignar vehículo"; //--- ToDo: Localize;
+			text = "Asignar vehiculo"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.324 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Assigna el vehículo al que estás mirando a una escuadra IA"; //--- ToDo: Localize;
+			tooltip = "Asigna el vehiculo al que estás mirando a una escuadra IA"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] call OT_fnc_squadAssignVehicle;";
 		};
 		class RscButton_1602: RscOverthrowButton
@@ -693,7 +693,7 @@ class OT_dialog_squad
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Ordena a una escuadra IA entrar en un vehículo"; //--- ToDo: Localize;
+			tooltip = "Ordena a una escuadra IA entrar en un vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] call OT_fnc_squadGetIn;";
 		};
 		class RscButton_1603: RscOverthrowButton
@@ -710,12 +710,12 @@ class OT_dialog_squad
 		class RscButton_1604: RscOverthrowButton
 		{
 			idc = 1604;
-			text = "Entra en mi vehículo"; //--- ToDo: Localize;
+			text = "Entra en mi vehiculo"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.588 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Ordena a una escuadra entrar en tu vehículo"; //--- ToDo: Localize;
+			tooltip = "Ordena a una escuadra entrar en tu vehiculo"; //--- ToDo: Localize;
 			action = "closeDialog 0;[] call OT_fnc_squadGetInMyVehicle;";
 		};
 		class RscButton_1612: RscOverthrowButton
@@ -783,7 +783,7 @@ class OT_dialog_options
 			idc = 1601;
 			action = "OT_spawnCivPercentage = OT_spawnCivPercentage - 0.01; if(OT_spawnCivPercentage < 0) then {OT_spawnCivPercentage = 0};publicVariable 'OT_spawnCivPercentage';hint format['Civilian spawn now at %1%2',OT_spawnCivPercentage*100,'%'];";
 
-			text = "Civ % --"; //--- ToDo: Localize;
+			text = "- civiles"; //--- ToDo: Localize;
 			x = 0.386562 * safezoneW + safezoneX;
 			y = 0.511 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
@@ -795,7 +795,7 @@ class OT_dialog_options
 			idc = 1602;
 			action = "OT_spawnCivPercentage = OT_spawnCivPercentage + 0.01; if(OT_spawnCivPercentage < 0) then {OT_spawnCivPercentage = 0};publicVariable 'OT_spawnCivPercentage';hint format['Civilian spawn now at %1%2',OT_spawnCivPercentage*100,'%'];";
 
-			text = "Civ % ++"; //--- ToDo: Localize;
+			text = "+ civiles"; //--- ToDo: Localize;
 			x = 0.515469 * safezoneW + safezoneX;
 			y = 0.511 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
@@ -807,7 +807,7 @@ class OT_dialog_options
 			idc = 1603;
 			action = "call OT_fnc_decreaseTax";
 
-			text = "Impuestos % --"; //--- ToDo: Localize;
+			text = "Bajar impuestos"; //--- ToDo: Localize;
 			x = 0.386562 * safezoneW + safezoneX;
 			y = 0.61 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
@@ -819,7 +819,7 @@ class OT_dialog_options
 			idc = 1604;
 			action = "call OT_fnc_increaseTax";
 
-			text = "Impuestos % ++"; //--- ToDo: Localize;
+			text = "Subir impuestos"; //--- ToDo: Localize;
 			x = 0.515469 * safezoneW + safezoneX;
 			y = 0.61 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
@@ -835,7 +835,7 @@ class OT_dialog_options
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.118594 * safezoneW;
 			h = 0.077 * safezoneH;
-			tooltip = "Eliminar definitivamente los cadaveres, restos, vehículos inútiles, etc"; //--- ToDo: Localize;
+			tooltip = "Eliminar definitivamente los cadaveres, restos, vehiculos inútiles, etc"; //--- ToDo: Localize;
 		};
 		class RscButton_1606: RscOverthrowButton
 		{
@@ -938,7 +938,7 @@ class OT_dialog_upload
 		class CancelButton: RscOverthrowStructuredText
 		{
 			idc = -1;
-			text = "<t align='center' font='PuristaBold' color='#FFFFFF'>CERRAR MENÚ</t>"; //--- ToDo: Localize;
+			text = "<t align='center' font='PuristaBold' color='#FFFFFF'>CERRAR MENU</t>"; //--- ToDo: Localize;
 			onMouseButtonClick = "playSound ""click""; closeDialog 0;";
 			x = 0.298906 * safezoneW + safezoneX;
 			y = 0.731 * safezoneH + safezoneY;
@@ -991,7 +991,7 @@ class OT_dialog_main
 			idc = 1699;
 			action = "closeDialog 0;[] spawn OT_fnc_mapInfoDialog";
 
-			text = "Situación del mapa (Inteligencia)"; //--- ToDo: Localize;
+			text = "Situacion del mapa (Inteligencia)"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.247 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
@@ -1023,7 +1023,7 @@ class OT_dialog_main
 			idc = 1600;
 			action = "closeDialog 0;[] spawn OT_fnc_fastTravel";
 
-			text = "Viaje rápido"; //--- ToDo: Localize;
+			text = "Viaje rapido"; //--- ToDo: Localize;
 			x = 0.005 * safezoneW + safezoneX;
 			y = 0.423 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
@@ -1120,7 +1120,7 @@ class OT_dialog_main
 			idc = 1620;
 			action = "closeDialog 0;[] spawn OT_fnc_manageArea";
 
-			text = "Adquisición"; //--- ToDo: Localize;
+			text = "Adquisicion"; //--- ToDo: Localize;
 			x = 0.881562 * safezoneW + safezoneX;
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -1131,7 +1131,7 @@ class OT_dialog_main
 			idc = 1621;
 			action = "closeDialog 0;[] call OT_fnc_garrisonDialog";
 
-			text = "Guarnición"; //--- ToDo: Localize;
+			text = "Guarnicion"; //--- ToDo: Localize;
 			x = 0.943438 * safezoneW + safezoneX;
 			y = 0.412 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -1165,7 +1165,7 @@ class OT_dialog_main
 			idc = 1630;
 			action = "closeDialog 0;[] call OT_fnc_logisticsDialog";
 
-			text = "Vehicles"; //--- ToDo: Localize;
+			text = "Vehiculos"; //--- ToDo: Localize;
 			x = 0.881562 * safezoneW + safezoneX;
 			y = 0.247 * safezoneH + safezoneY;
 			w = 0.113437 * safezoneW;
@@ -1267,7 +1267,7 @@ class OT_dialog_char
 		class RscButton_1600: RscOverthrowButton
 		{
 			idc = 1600;
-			text = "Increase Level (-10 Influence)"; //--- ToDo: Localize;
+			text = "subir nivel (-10 de influencia)"; //--- ToDo: Localize;
 			x = 0.273125 * safezoneW + safezoneX;
 			y = 0.423 * safezoneH + safezoneY;
 			w = 0.149531 * safezoneW;
@@ -1372,7 +1372,7 @@ class OT_dialog_tute
 		{
 			idc = 1100;
 
-			text = "¿Quieres un tuturial rápido? (te daremos cosas gratis)"; //--- ToDo: Localize;
+			text = "¿Quieres un tuturial rapido? (te daremos cosas gratis)"; //--- ToDo: Localize;
 			x = 0.340156 * safezoneW + safezoneX;
 			y = 0.346 * safezoneH + safezoneY;
 			w = 0.324844 * safezoneW;
@@ -1505,7 +1505,7 @@ class OT_dialog_newgame
         class RscButton_1600: RscOverthrowButton
         {
             idc = 1600;
-            text = "Fácil"; //--- ToDo: Localize;
+            text = "Facil"; //--- ToDo: Localize;
             x = 0.329844 * safezoneW + safezoneX;
             y = 0.313 * safezoneH + safezoneY;
             w = 0.0876563 * safezoneW;
@@ -1528,7 +1528,7 @@ class OT_dialog_newgame
         class RscButton_1602: RscOverthrowButton
         {
             idc = 1602;
-            text = "Difícil"; //--- ToDo: Localize;
+            text = "Dificil"; //--- ToDo: Localize;
             x = 0.577344 * safezoneW + safezoneX;
             y = 0.313 * safezoneH + safezoneY;
             w = 0.0876563 * safezoneW;
@@ -1549,7 +1549,7 @@ class OT_dialog_newgame
         class RscStructuredText_1102: RscOverthrowStructuredText
         {
             idc = 1102;
-            text = "<t size=""1.5"">Viaje Rápido</t>"; //--- ToDo: Localize;
+            text = "<t size=""1.5"">Viaje rapido</t>"; //--- ToDo: Localize;
             x = 0.329844 * safezoneW + safezoneX;
             y = 0.423 * safezoneH + safezoneY;
             w = 0.159844 * safezoneW;
@@ -1603,7 +1603,7 @@ class OT_dialog_newgame
         class RscButton_1607: RscOverthrowButton
         {
             idc = 1607;
-            text = "Open"; //--- ToDo: Localize;
+            text = "Abierto"; //--- ToDo: Localize;
             x = 0.329844 * safezoneW + safezoneX;
             y = 0.621 * safezoneH + safezoneY;
             w = 0.0876563 * safezoneW;
@@ -1614,7 +1614,7 @@ class OT_dialog_newgame
         class RscButton_1608: RscOverthrowButton
         {
             idc = 1608;
-            text = "No Weapons"; //--- ToDo: Localize;
+            text = "Sin armas"; //--- ToDo: Localize;
             x = 0.453594 * safezoneW + safezoneX;
             y = 0.621 * safezoneH + safezoneY;
             w = 0.0876563 * safezoneW;
@@ -1626,7 +1626,7 @@ class OT_dialog_newgame
         class RscButton_1609: RscOverthrowButton
         {
             idc = 1609;
-            text = "Restricted"; //--- ToDo: Localize;
+            text = "Restringido"; //--- ToDo: Localize;
             x = 0.577344 * safezoneW + safezoneX;
             y = 0.621 * safezoneH + safezoneY;
             w = 0.0876563 * safezoneW;

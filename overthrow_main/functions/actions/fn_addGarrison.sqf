@@ -14,7 +14,7 @@ if(
     &&
     _charge
 ) exitWith {
-    "You cannot garrison with enemies nearby" call OT_fnc_notifyMinor;
+    "No puedes guarnicionar con enemigos cerca" call OT_fnc_notifyMinor;
 };
 
 private _group = spawner getVariable [format["resgarrison%1",_code],grpNull];
@@ -34,7 +34,7 @@ if(_create isEqualType 1) then {
     private _money = player getVariable ["money",0];
     private _cost = _soldier select 0;
     if(_money < _cost && _charge) exitWith {
-        format ["You need $%1",_cost] call OT_fnc_notifyMinor;
+        format ["necesitas $%1",_cost] call OT_fnc_notifyMinor;
     };
     if(_charge) then {
         [-_cost] call OT_fnc_money;
@@ -146,7 +146,7 @@ if(_create isEqualType 1) then {
 
         if(_charge) then {
             private _money = player getVariable ["money",0];
-            if(_money < _cost) exitWith {_doit = false;format ["You need $%1",_cost] call OT_fnc_notifyMinor};
+            if(_money < _cost) exitWith {_doit = false;format ["Necesitas $%1",_cost] call OT_fnc_notifyMinor};
             [-_cost] call OT_fnc_money;
             _garrison = server getVariable [format["resgarrison%1",_code],[]];
             _garrison pushback [_create,[]];

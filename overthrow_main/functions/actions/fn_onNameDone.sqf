@@ -4,7 +4,7 @@ if(_name != "") then {
 
     private _base = (player nearObjects [OT_flag_IND,50]) select 0;
 
-    [_base, ["Set As Home", {player setVariable ["home",getpos (_this select 0),true];"This FOB is now your home" call OT_fnc_notifyMinor},nil,0,false,true]] remoteExec ["addAction",0,_base];
+    [_base, ["Mudarme aqui", {player setVariable ["home",getpos (_this select 0),true];"esta FOB es ahora tu hogar" call OT_fnc_notifyMinor},nil,0,false,true]] remoteExec ["addAction",0,_base];
 
     private _bases = server getVariable ["bases",[]];
     _bases pushback [getpos _base,_name,getplayeruid player];
@@ -21,8 +21,8 @@ if(_name != "") then {
     {
         [
             _x,
-            format["New Base: %1",_name],
-            format["%1 created a new base for resistance efforts %2",_builder,(getpos _base) call BIS_fnc_locationDescription]
+            format["Nueva Base: %1",_name],
+            format["%1 creo una nueva base para la resistencia %2",_builder,(getpos _base) call BIS_fnc_locationDescription]
         ] call BIS_fnc_createLogRecord;
     }foreach([] call CBA_fnc_players);
 };

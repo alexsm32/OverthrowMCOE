@@ -9,4 +9,4 @@ OT_inputHandler = {
 	};
 };
 
-["How much to take from resistance?",1000] call OT_fnc_inputDialog;
+["Cuanto quieres coger de la caja de la resistencia?",1000] call OT_fnc_inputDialog;

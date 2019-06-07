@@ -2,7 +2,7 @@ private ["_town","_cls","_cost","_baseprice","_stability"];
 
 _town = _this select 0;
 _cls = _this select 1;
-_price = 0;
+_price = 10;
 
 _cost = cost getVariable _cls;
 _baseprice = _cost select 0;

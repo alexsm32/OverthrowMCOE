@@ -15,7 +15,7 @@ if(count _def > 0) then {
 
     _container = getpos player nearestObject OT_item_Storage;
     if !(isNull _container) then {
-        if(_container distance player > 20) exitWith {"You need to be within 20m of an ammobox to craft" call OT_fnc_notifyMinor};
+        if(_container distance player > 20) exitWith {"Necesitas estar a menos de 20m. de un ammobox para fabricar" call OT_fnc_notifyMinor};
         _stock = _container call OT_fnc_unitStock;
 
         _itemName = "";
@@ -47,7 +47,7 @@ if(count _def > 0) then {
                 };
             }foreach(_stock);
 
-            if !(_good) exitWith {_err = true;"Required ingredients not in closest ammobox" call OT_fnc_notifyMinor};
+            if !(_good) exitWith {_err = true;"Los materiales necesarios no estan en el ammobox cercano" call OT_fnc_notifyMinor};
         }foreach(_recipe);
 
         if !(_err) then {
@@ -67,7 +67,7 @@ if(count _def > 0) then {
             _container addItemCargoGlobal [_cls, _qty];
 
             playSound "3DEN_notificationDefault";
-            format["%1 x %2 added to closest ammobox",_qty,_itemName] call OT_fnc_notifyMinor;
+            format["%1 x %2 colocado en el ammobox mas cercano",_qty,_itemName] call OT_fnc_notifyMinor;
         };
     };
 };

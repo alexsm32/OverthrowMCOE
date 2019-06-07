@@ -6,8 +6,8 @@ OT_inputHandler = {
 	if(_val > 0) then {
 		[_val] call OT_fnc_resistanceFunds;
         [-_val] call OT_fnc_money;
-        format ["%1 donated $%2 to the resistance",name player,[_val, 1, 0, true] call CBA_fnc_formatNumber] remoteExec ["OT_fnc_notifyMinor",0,false];
+        format ["%1 ha donado $%2 a la Resistencia",name player,[_val, 1, 0, true] call CBA_fnc_formatNumber] remoteExec ["OT_fnc_notifyMinor",0,false];
 	};
 };
 
-["How much to donate to resistance?",player getVariable ["money",100]] spawn OT_fnc_inputDialog;
+["Cuanto quieres donar a la resistencia?",player getVariable ["money",100]] spawn OT_fnc_inputDialog;

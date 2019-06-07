@@ -20,7 +20,7 @@ _this spawn {
 		disableUserInput false;
 		//Fail safe for user input disabled.
 	};
-	format["Transferring inventory to %1...",_toname] call OT_fnc_notifyMinor;
+	format["Transfiriendo inventario a %1...",_toname] call OT_fnc_notifyMinor;
 	[5,false] call OT_fnc_progressBar;
 	private _end = time + 5;
 
@@ -96,11 +96,11 @@ _this spawn {
 					};
 				};
 			};
-			if(_full) exitWith {hint "The vehicle is full, use a truck or ammobox for more storage"};
+			if(_full) exitWith {hint "El vehiculo esta lleno. usa un camion o una caja"};
 		}foreach(_target call OT_fnc_unitStock);
 	};
 
 	waitUntil {time > _end};
 	disableUserInput false;
-	"Inventory Transfer done" call OT_fnc_notifyMinor;
+	"Transferencia de objetos completada" call OT_fnc_notifyMinor;
 };

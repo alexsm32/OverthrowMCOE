@@ -45,7 +45,7 @@ if(count _def > 0) then {
     _textctrl ctrlSetStructuredText parseText format["
     	<t align='center' size='1.1'>%1 x %2</t><br/>
         <t align='center' size='0.7'>%3</t><br/><br/>
-        <t align='center' size='0.8'>Recipe:</t><br/>
+        <t align='center' size='0.8'>Receta:</t><br/>
         <t align='center' size='0.7'>%4</t><br/>
     ",_qty,_itemName,_desc,_recipeText];
 

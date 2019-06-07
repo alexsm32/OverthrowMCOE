@@ -8,7 +8,7 @@ private _objects = [];
 }foreach(player nearEntities [["Car","ReammoBox_F","Air","Ship"],20]);
 
 if(_objects isEqualTo []) exitWith {
-	"Cannot find any containers or other vehicles within 20m of this vehicle" call OT_fnc_notifyMinor;
+	"No hay otros vehiculos o contenedores a menos de 20m de este vehiculo" call OT_fnc_notifyMinor;
 };
 private _sorted = [_objects,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
 private _target = _sorted select 0;
@@ -19,7 +19,7 @@ if(_veh call OT_fnc_unitSeen) then {
 			_x setCaptive false;
 		}foreach(crew _veh);
 		[_veh] call OT_fnc_revealToNATO;
-		hint "You were caught stealing!";
+		hint "Te han pillao robando! correeeeee!";
 	};
 };
 
@@ -38,6 +38,6 @@ if(count _objects isEqualTo 1) then {
 			[_x, vehicle player]
 		];
 	}foreach(_objects);
-	"Transfer from which container?" call OT_fnc_notifyBig;
+	"De que contenedor quieres transferir?" call OT_fnc_notifyBig;
 	_options call OT_fnc_playerDecision;
 };

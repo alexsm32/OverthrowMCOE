@@ -4,8 +4,8 @@ private _range = 150;
 
 private _veh = vehicle _user;
 if(_veh == _user) exitWith {};
-if((driver _veh) != _user) exitWith {"Loot must be initiated by the driver of this vehicle" call OT_fnc_notifyMinor};
-if((typeof _veh) != "OT_I_Truck_recovery") exitWith {"This command is only available when using a Recovery truck" call OT_fnc_notifyMinor};
+if((driver _veh) != _user) exitWith {"El looteo debe hacerlo el conductor del vehiculo" call OT_fnc_notifyMinor};
+if((typeof _veh) != "OT_I_Truck_recovery") exitWith {"Esta orden solo funciona desde el recovery truck" call OT_fnc_notifyMinor};
 
 if(isPlayer _user) then {
     disableUserInput true;
@@ -14,10 +14,10 @@ if(isPlayer _user) then {
         disableUserInput false;
         //Fail safe for user input disabled.
     };
-    format["Looting all bodies within %1m",_range] call OT_fnc_notifyMinor;
+    format["Looteando los cuerpos en un radio de %1m",_range] call OT_fnc_notifyMinor;
     [15,false] call OT_fnc_progressBar;
 }else {
-    _user globalchat "Looting bodies within 150m using Recovery vehicle";
+    _user globalchat "Looteando cuerpos con un camion de recuperacion";
 };
 
 private _end = time + 15;
@@ -54,7 +54,7 @@ private _count = 0;
 
 if(isPlayer _user) then {
     disableUserInput false;
-    format["Looted %1 bodies into this truck",_count] call OT_fnc_notifyMinor;
+    format["looteados %1 cuerpos en este camion",_count] call OT_fnc_notifyMinor;
 }else {
-    _user globalchat format["All done! Looted %1 bodies",_count];
+    _user globalchat format["Terminado! Looteados %1 cuerpos",_count];
 };

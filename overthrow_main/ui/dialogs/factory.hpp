@@ -34,7 +34,7 @@ class OT_dialog_factoryold
         class RscStructuredText_1100: RscOverthrowStructuredText
         {
             idc = 1100;
-            text = "<t size='1.5' align='center'>Fábrica</t><br/><t size='0.8' align='center'>Actualmente Produciendo</t>"; //--- ToDo: Localize;
+            text = "<t size='1.5' align='center'>Fabrica</t><br/><t size='0.8' align='center'>Actualmente Produciendo</t>"; //--- ToDo: Localize;
             x = 0.29375 * safezoneW + safezoneX;
             y = 0.225 * safezoneH + safezoneY;
             w = 0.4125 * safezoneW;
@@ -54,7 +54,7 @@ class OT_dialog_factoryold
         class RscStructuredText_1101: RscOverthrowStructuredText
         {
             idc = 1101;
-            text = "<t size='0.8' align='center'>Cambiar Producción</t>"; //--- ToDo: Localize;
+            text = "<t size='0.8' align='center'>Cambiar Produccion</t>"; //--- ToDo: Localize;
             x = 0.29375 * safezoneW + safezoneX;
             y = 0.533 * safezoneH + safezoneY;
             w = 0.4125 * safezoneW;
@@ -105,7 +105,7 @@ class OT_dialog_factoryold
         class RscButton_1602: RscOverthrowButton
         {
             idc = 1602;
-            text = "Ingeniería inversa"; //--- ToDo: Localize;
+            text = "Ingenieria inversa"; //--- ToDo: Localize;
             x = 0.448438 * safezoneW + safezoneX;
             y = 0.72 * safezoneH + safezoneY;
             w = 0.103125 * safezoneW;
@@ -160,7 +160,7 @@ class OT_dialog_factory
 		class RscStructuredText_1104: RscOverthrowStructuredText
 		{
 			idc = 1104;
-			text = "<t align=""center"" size=""1.8"">Fábrica</t>"; //--- ToDo: Localize;
+			text = "<t align=""center"" size=""1.8"">Fabrica</t>"; //--- ToDo: Localize;
 			x = 0.381406 * safezoneW + safezoneX;
 			y = 0.104 * safezoneH + safezoneY;
 			w = 0.232031 * safezoneW;
@@ -170,7 +170,7 @@ class OT_dialog_factory
 		class RscButton_1608: RscOverthrowButton
 		{
 			idc = 1608;
-			text = "Ingeniería Inversa"; //--- ToDo: Localize;
+			text = "Ingenieria Inversa"; //--- ToDo: Localize;
 			x = 0.432969 * safezoneW + safezoneX;
 			y = 0.797 * safezoneH + safezoneY;
 			w = 0.128906 * safezoneW;
@@ -236,7 +236,7 @@ class OT_dialog_factory
 		class RscStructuredText_1101: RscOverthrowStructuredText
 		{
 			idc = 1101;
-			text = "<t size=""0.9"">Cola de construcción</t>"; //--- ToDo: Localize;
+			text = "<t size=""0.9"">Cola de construccion</t>"; //--- ToDo: Localize;
 			x = 0.438125 * safezoneW + safezoneX;
 			y = 0.291 * safezoneH + safezoneY;
 			w = 0.113437 * safezoneW;
@@ -334,7 +334,7 @@ class OT_dialog_reverse
 			idc = 1600;
 			action = "[] call OT_fnc_reverseEngineer;";
 
-			text = "Ingeniería Inversa"; //--- ToDo: Localize;
+			text = "Ingenieria Inversa"; //--- ToDo: Localize;
 			x = 0.613437 * safezoneW + safezoneX;
 			y = 0.786 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;

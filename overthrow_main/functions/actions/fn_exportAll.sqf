@@ -8,7 +8,7 @@ private _doillegal = false;
 if(_town in (server getVariable ["NATOabandoned",[]])) then {
 	_doillegal = true;
 }else{
-	hint format ["Only legal items may be exported while NATO controls %1",_town];
+	hint format ["Solo puedes exportar bienes legales mientras la ITAN controle %1",_town];
 };
 
 "Exporting inventory" call OT_fnc_notifyMinor;

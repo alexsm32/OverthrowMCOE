@@ -46,9 +46,9 @@ if(_price > -1) then {
             }foreach(_bought);
 
             if(_text isEqualTo "") then {
-                _text = "All items required for this unit are available in the warehouse";
+                _text = "Todo lo necesario para este vehiculo esta en el almacen";
             }else{
-                _text = format["These items are not in the warehouse and must be purchased:<br/>%1",_text];
+                _text = format["Estos objetos no estan en el almacen por lo que debes obtenerlos de otra forma:<br/>%1",_text];
             };
 
     		[
@@ -63,7 +63,7 @@ if(_price > -1) then {
 				getText(configFile >> "cfgVehicles" >> _cls >> "editorPreview"),
 				[
 					getText(configFile >> "cfgVehicles" >> _cls >> "Library" >> "libTextDesc"),
-					"Gets you from A to B, not guaranteed to stay upright."
+					"Te lleva de A a B con cierto riesgo de volcar"
 				] select (_cls == "C_Quadbike_01_F"),
 				_cls call OT_fnc_vehicleGetName
 			]
@@ -89,7 +89,7 @@ if(_price > -1) then {
 
 			[
 				nil,
-    			"Will recruit this squad into your High-Command bar, accessible with ctrl-space.",
+    			"Recluta a esta escuadra, accesible en tu barra de alto mando CTRL+Espacio.",
 				_cls,
 				_price
 			]
@@ -102,7 +102,7 @@ if(_price > -1) then {
 }else{
     ctrlEnable [1600,false];
     _desc = _cls;
-    _txt = "Not Available";
+    _txt = "No Disponible";
     _price = "";
 };
 if(!isNil "_pic" && { !(_pic isEqualTo "") }) then {
@@ -112,7 +112,7 @@ if(!isNil "_pic" && { !(_pic isEqualTo "") }) then {
 if(_cls in OT_allExplosives) then {
     _cost = cost getVariable _cls;
     _chems = server getVariable ["reschems",0];
-    _desc = format["Required: %1 x chemicals (%2 available)<br/>%3",_cost select 3,_chems,_desc];
+    _desc = format["Requerido: %1 x quimicos (%2 disponible)<br/>%3",_cost select 3,_chems,_desc];
 };
 
 _textctrl = (findDisplay 8000) displayCtrl 1100;

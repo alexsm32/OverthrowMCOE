@@ -50,7 +50,7 @@ if((isPlayer _unit) && isNil "OT_ACEunconsciousChangedEHId") then {
 		if(isMultiplayer && count(call CBA_fnc_players) > 1) then {
 			[
 			  format[
-			    "%1 has fallen unconscious and is waiting for assistance at GRIDREF: %2",
+			    "%1 esta herido e inconsciente y precisa ayuda en GRIDREF: %2",
 			    name player,
 			    mapGridPosition player
 			  ]
@@ -67,7 +67,7 @@ if((isPlayer _unit) && isNil "OT_ACEunconsciousChangedEHId") then {
 				&& { !(_unit isEqualTo _x) }
 				&& { _havepi || {("ACE_epinephrine" in (items _x))} }
 			) then {
-				systemChat format ["%1: On my way to help you", name _x];
+				systemChat format ["%1: Intentare ayudarte", name _x];
 				_unit setVariable ["OT_informedMedics",(_unit getVariable ["OT_informedMedics",0])+1];
 				[_x,_unit] call OT_fnc_orderRevivePlayer;
 			};

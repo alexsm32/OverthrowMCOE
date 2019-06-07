@@ -1,11 +1,11 @@
 private _obname = _this;
 if (_obname in (server getVariable ["NATOabandoned",[]])) exitWith {};
-if !(captive player) exitWith {hint "Cannot capture while wanted"};
+if !(captive player) exitWith {hint "No puedes capturar la bandera, estas en busca y captura"};
 
 private _resources = server getVariable ["NATOresources",2000];
 private _countered = (server getVariable ["NATOattacking",""]) != "";
 
-if (_countered) exitWith {hint "There is already a battle in progress or scheduled"};
+if (_countered) exitWith {hint "Ya hay una batalla en progreso o programada"};
 private _popControl = call OT_fnc_getControlledPopulation;
 
 private _cost = 350;

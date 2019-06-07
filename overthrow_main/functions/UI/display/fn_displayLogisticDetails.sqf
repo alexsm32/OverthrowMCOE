@@ -8,7 +8,7 @@ private _name = _cls call OT_fnc_vehicleGetName;
 private _pic = getText(configFile >> "cfgVehicles" >> _cls >> "editorPreview");
 
 private _owner = players_NS getVariable ("name"+(_veh call OT_fnc_getOwner));
-if(isNil "_owner") then {_owner = "Someone"};
+if(isNil "_owner") then {_owner = "Desconocido"};
 
 if(!isNil "_pic" && { !(_pic isEqualTo "") }) then {
 	ctrlSetText [1200,_pic];
@@ -76,42 +76,42 @@ private _gunOut = false;
 } forEach ("true" configClasses (configfile >> "CfgVehicles" >> _cls >> "HitPoints"));
 
 if !(_cls isKindOf "StaticWeapon") then {
-    _txt = format["%1Fuel: %2%3<br/>",_txt,_fuel,"%"];
-    _txt = format["%1Load: %2kg<br/>",_txt,_loadKg];
+    _txt = format["%1Gasolina: %2%3<br/>",_txt,_fuel,"%"];
+    _txt = format["%1Carga: %2kg<br/>",_txt,_loadKg];
     if(_hasWheels) then {
         if(_wheelsNeeded isEqualTo 0) then {
-            _txt = format["%1All wheels OK<br/>",_txt];
+            _txt = format["%1todas las ruedas OK<br/>",_txt];
         }else{
-            _txt = format["%1Need %2 wheels<br/>",_txt,_wheelsNeeded];
+            _txt = format["%1Necesita %2 ruedas<br/>",_txt,_wheelsNeeded];
         };
     };
 
     if(_hasTracks) then {
         if(_tracksNeeded isEqualTo 0) then {
-            _txt = format["%1All tracks OK<br/>",_txt];
+            _txt = format["%1Todas las orugas OK<br/>",_txt];
         }else{
-            _txt = format["%1Need %2 tracks<br/>",_txt,_tracksNeeded];
+            _txt = format["%1necesita %2 orugas<br/>",_txt,_tracksNeeded];
         };
     };
 
     if(_engineOut) then {
-        _txt = format["%1Engine disabled<br/>",_txt];
+        _txt = format["%1Motor averiado<br/>",_txt];
     };
 
     if(_fuelTankOut) then {
-        _txt = format["%1Fuel tank ruptured<br/>",_txt];
+        _txt = format["%1Deposito perforado<br/>",_txt];
     };
 
     if(_rotorOutV) then {
-        _txt = format["%1Main rotor disabled<br/>",_txt];
+        _txt = format["%1Rotor principal averiado<br/>",_txt];
     };
     if(_rotorOutH) then {
-        _txt = format["%1Tail rotor disabled<br/>",_txt];
+        _txt = format["%1Rotor de cola averiado<br/>",_txt];
     };
 };
 
 if(_gunOut) then {
-    _txt = format["%1Gun disabled<br/>",_txt];
+    _txt = format["%1Arma averiada<br/>",_txt];
 };
 
 private _totalAmmo = 0;
@@ -125,10 +125,10 @@ private _ammotxt = "";
 }foreach(magazinesAmmo _veh);
 
 if(_totalAmmo > 0) then {
-    _txt = format["%1<br/>Ammo:<br/>%2",_txt,_ammotxt];
+    _txt = format["%1<br/>Municion:<br/>%2",_txt,_ammotxt];
 }else{
     if(_hasAmmo) then {
-        _txt = format["%1<br/>Out Of Ammo<br/>",_txt];
+        _txt = format["%1<br/>Sin Municion<br/>",_txt];
     };
 };
 
@@ -136,6 +136,6 @@ _textctrl = (findDisplay 8000) displayCtrl 1100;
 
 _textctrl ctrlSetStructuredText parseText format["
 	<t align='center' size='1.2'>%1</t><br/>
-	<t align='center' size='1'>Owner: %2</t><br/>
+	<t align='center' size='1'>Propietario: %2</t><br/>
 	<t align='left' size='0.7'>%3</t>
 ",_name,_owner,_txt];

@@ -9,10 +9,10 @@ if(_price isEqualTo -1) exitWith {};
 
 private _chems = server getVariable ["reschems",0];
 private _cost = cost getVariable [_cls,[0,0,0,0]];
-if(_cls in OT_allExplosives && _chems < (_cost select 3)) exitWith {format["You need %1 chemicals",_cost select 3] call OT_fnc_notifyMinor};
+if(_cls in OT_allExplosives && _chems < (_cost select 3)) exitWith {format["Necesitas %1 quimicos",_cost select 3] call OT_fnc_notifyMinor};
 
 private _money = player getVariable "money";
-if(_money < _price) exitWith {"You cannot afford that!" call OT_fnc_notifyMinor};
+if(_money < _price) exitWith {"No puedes pagarlo!" call OT_fnc_notifyMinor};
 
 //If faction dealer, increase standing
 private _civ = OT_interactingWith;
@@ -32,7 +32,7 @@ if(!isNil "_civ") then {
 
 if(_cls == "Set_HMG") exitWith {
 	private _pos = (getpos player) findEmptyPosition [5,100,"C_Quadbike_01_F"];
-	if (count _pos == 0) exitWith {"Not enough space, please clear an area nearby" call OT_fnc_notifyMinor};
+	if (count _pos == 0) exitWith {"No hay sitio, haz hueco" call OT_fnc_notifyMinor};
 
 	player setVariable ["money",_money-_price,true];
 	private _veh = "C_Quadbike_01_F" createVehicle _pos;
@@ -45,7 +45,7 @@ if(_cls == "Set_HMG") exitWith {
 	_veh addBackpackCargoGlobal ["I_HMG_01_support_high_F", 1];
 
 	player reveal _veh;
-	format["You bought a Quad Bike w/ HMG for $%1",_price] call OT_fnc_notifyMinor;
+	format["Has comprado un quad con HMG for $%1",_price] call OT_fnc_notifyMinor;
 	playSound "3DEN_notificationDefault";
 };
 if(OT_interactingWith getVariable ["factionrep",false] && ((_cls isKindOf "Land") || (_cls isKindOf "Air"))) exitWith {
@@ -54,7 +54,7 @@ if(OT_interactingWith getVariable ["factionrep",false] && ((_cls isKindOf "Land"
 		_blueprints pushback _cls;
 		server setVariable ["GEURblueprints",_blueprints,true];
 		_factionName = OT_interactingWith getVariable ["factionrepname",""];
-		format["%1 has bought %2 blueprint from %3",name player,_cls call OT_fnc_vehicleGetName,_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
+		format["%1 ha comprado %2 los planos de %3",name player,_cls call OT_fnc_vehicleGetName,_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
 		closeDialog 0;
 	};
 };
@@ -66,7 +66,7 @@ if(_cls in OT_allSquads) exitWith {
 };
 if(_cls == OT_item_UAV) exitWith {
 	private _pos = (getpos player) findEmptyPosition [5,100,_cls];
-	if (count _pos == 0) exitWith {"Not enough space, please clear an area nearby" call OT_fnc_notifyMinor};
+	if (count _pos == 0) exitWith {"No hay suficiente sitio, despeja la zona" call OT_fnc_notifyMinor};
 
 	player setVariable ["money",_money-_price,true];
 
@@ -90,13 +90,13 @@ if(_cls == OT_item_UAV) exitWith {
 	player connectTerminalToUAV _veh;
 
 	player reveal _veh;
-	format["You bought a Quadcopter",_cls call OT_fnc_vehicleGetName] call OT_fnc_notifyMinor;
+	format["Has comprado un UAV",_cls call OT_fnc_vehicleGetName] call OT_fnc_notifyMinor;
 	playSound "3DEN_notificationDefault";
-	hint "To use a UAV, scroll your mouse wheel to 'Open UAV Terminal' then right click your green quadcopter on the ground and 'Connect terminal to UAV'";
+	hint "Para pilotar el dron usa la terminal UAV";
 };
 if(_cls in OT_allVehicles) exitWith {
 	private _pos = (getpos player) findEmptyPosition [5,100,_cls];
-	if (count _pos == 0) exitWith {"Not enough space, please clear an area nearby" call OT_fnc_notifyMinor};
+	if (count _pos == 0) exitWith {"No hay sitio, despeja la zona" call OT_fnc_notifyMinor};
 
 	player setVariable ["money",_money-_price,true];
 	private _veh = _cls createVehicle _pos;
@@ -112,12 +112,12 @@ if(_cls in OT_allVehicles) exitWith {
 	};
 
 	player reveal _veh;
-	format["You bought a %1 for $%2",_cls call OT_fnc_vehicleGetName,_price] call OT_fnc_notifyMinor;
+	format["Has comprado %1 for $%2",_cls call OT_fnc_vehicleGetName,_price] call OT_fnc_notifyMinor;
 	playSound "3DEN_notificationDefault";
 };
 if(_cls isKindOf "Ship") exitWith {
 	private _pos = (getpos player) findEmptyPosition [5,100,_cls];
-	if (count _pos == 0) exitWith {"Not enough space, please clear an area nearby" call OT_fnc_notifyMinor};
+	if (count _pos == 0) exitWith {"No hay sitio, despeja la zona" call OT_fnc_notifyMinor};
 
 	player setVariable ["money",_money-_price,true];
 	private _veh = _cls createVehicle _pos;
@@ -128,7 +128,7 @@ if(_cls isKindOf "Ship") exitWith {
 	clearItemCargoGlobal _veh;
 
 	player reveal _veh;
-	format["You bought a %1",_cls call OT_fnc_vehicleGetName] call OT_fnc_notifyMinor;
+	format["Has comprado %1",_cls call OT_fnc_vehicleGetName] call OT_fnc_notifyMinor;
 	playSound "3DEN_notificationDefault";
 };
 if(_cls in OT_allClothing) exitWith {
@@ -139,7 +139,7 @@ if(_cls in OT_allClothing) exitWith {
 	}else{
 		if((backpack player != "") && (player canAdd _cls)) then {
 			player addItemToBackpack _cls;
-			"Clothing added to your backpack" call OT_fnc_notifyMinor;
+			"Compra colocada en tu mochila" call OT_fnc_notifyMinor;
 		}else{
 			player forceAddUniform _cls;
 		};
@@ -152,7 +152,7 @@ if(_cls == "V_RebreatherIA") exitWith {
 
 	if((backpack player != "") && (player canAdd _cls)) then {
 		player addItemToBackpack _cls;
-		"Rebreather added to your backpack" call OT_fnc_notifyMinor;
+		"Respirador colocado en tu mochila" call OT_fnc_notifyMinor;
 	}else{
 		player addVest _cls;
 	};
@@ -193,19 +193,19 @@ private _b = player getVariable ["OT_shopTarget","Self"];
 if(_b != "Vehicle") then {
 	if(_cls isKindOf "Bag_Base") then {
 		if(backpack player != "") then {
-			"You already have a backpack" call OT_fnc_notifyMinor;
+			"Ya tienes una mochila" call OT_fnc_notifyMinor;
 			_handled = false;
 		};
 	}else{
 		if !(player canAdd [_cls,1]) then {
-			"There is not enough room in your inventory" call OT_fnc_notifyMinor;
+			"No tienes sitio en tu inventario" call OT_fnc_notifyMinor;
 			_handled = false;
 		};
 	};
 }else{
 	_veh = vehicle player;
 	if ((!(_veh isKindOf "Truck_F")) && (!(_veh canAdd [_cls,1]))) then {
-		"This vehicle is full, use a truck for more storage" call OT_fnc_notifyMinor;
+		"El vehículo esta lleno. Planteate comprar un camion" call OT_fnc_notifyMinor;
 		_handled = false;
 	};
 };

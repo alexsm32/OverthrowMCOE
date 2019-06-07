@@ -16,7 +16,7 @@ if(damage _building isEqualTo 1) exitWith {
 			owners setVariable ["damagedBuildings",_damaged,true];
 		}
 	}else{
-		format["You need $%1",[_price, 1, 0, true] call CBA_fnc_formatNumber];
+		format["Necesitas $%1",[_price, 1, 0, true] call CBA_fnc_formatNumber];
 	};
 };
 if(typeof _building == OT_policeStation) exitWith {[] call OT_fnc_policeDialog};
@@ -34,7 +34,7 @@ if(typename _b != "ARRAY") exitWith {
 	};
 };
 
-if !(captive player) exitWith {"You cannot lease buildings while wanted" call OT_fnc_notifyMinor};
+if !(captive player) exitWith {"No puedes alquilar mientras estes en busca y captura" call OT_fnc_notifyMinor};
 
 
 _handled = false;
@@ -49,7 +49,7 @@ if(typename _b isEqualTo "ARRAY") then {
 		_owner = _building call OT_fnc_getOwner;
 		if(_owner isEqualTo getplayeruid player) then {
 			_home = player getVariable "home";
-			if((_home distance _building) < 5) exitWith {"You cannot lease your home" call OT_fnc_notifyMinor;_err = true};
+			if((_home distance _building) < 5) exitWith {"No puedes alquilar tu propia casa" call OT_fnc_notifyMinor;_err = true};
 			_handled = true;
 		};
 	};
@@ -68,5 +68,5 @@ if(_handled) then {
 	_mrkid = format["bdg-%1",_building];
 	_mrkid setMarkerAlphaLocal 0.3;
 	playSound "3DEN_notificationDefault";
-	"Building leased" call OT_fnc_notifyMinor;
+	"Edificio alquilado" call OT_fnc_notifyMinor;
 };

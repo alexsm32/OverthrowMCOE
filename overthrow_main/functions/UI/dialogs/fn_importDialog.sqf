@@ -4,7 +4,7 @@ _items = OT_Resources + OT_allItems + OT_allBackpacks + ["V_RebreatherIA"];
 if(_town in (server getVariable ["NATOabandoned",[]]) || OT_adminMode) then {
 	_items = OT_Resources + OT_allItems + OT_allBackpacks + ["V_RebreatherIA"] + OT_allWeapons + OT_allMagazines + OT_allAttachments + OT_allStaticBackpacks + OT_allOptics + OT_allVests + OT_allHelmets + OT_allClothing;
 }else{
-	hint format ["Only legal items may be imported while NATO controls %1",_town];
+	hint format ["Solo puedes importar objetos legales mientras la OTAN controle %1",_town];
 };
 
 private _cursel = lbCurSel 1500;

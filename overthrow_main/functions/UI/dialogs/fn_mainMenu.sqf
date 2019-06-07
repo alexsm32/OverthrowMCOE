@@ -15,15 +15,15 @@ private _buildingtextctrl = (findDisplay 8001) displayCtrl 1102;
 
 private _town = (getposATL player) call OT_fnc_nearestTown;
 
-private _weather = "Clear";
+private _weather = "Soleado";
 if(overcast > 0.4) then {
-	_weather = "Cloudy";
+	_weather = "Nublado";
 };
 if(rain > 0.1) then {
-	_weather = "Rain";
+	_weather = "Lluvia";
 };
 if(rain > 0.9) then {
-	_weather = "Storm";
+	_weather = "Tormenta";
 };
 
 private _ctrl = (findDisplay 8001) displayCtrl 1100;
@@ -34,7 +34,7 @@ private _extra = "";
 
 if(isMultiplayer && { ((getplayeruid player) in (server getVariable ["generals",[]])) }) then {
 	_extra = format[
-		"<t align='left' size='0.65'>Resistance Funds: $%1 (Tax Rate %2%3)</t>",
+		"<t align='left' size='0.65'>Caja de la Resistencia: $%1 (impuestos %2%3)</t>",
 		[server getVariable ["money",0], 1, 0, true] call CBA_fnc_formatNumber,
 		server getVariable ["taxrate",0],
 		"%"
@@ -43,10 +43,10 @@ if(isMultiplayer && { ((getplayeruid player) in (server getVariable ["generals",
 
 _ctrl ctrlSetStructuredText parseText format[
 	"
-		<t align='left' size='0.65'>Resistance Support: %1 (%2%3) %4 (%5%6)</t><br/>
-		<t align='left' size='0.65'>Influence: %7</t><br/>
-		<t align='left' size='0.65'>Weather: %8 (Forecast: %9)</t><br/>
-		<t align='left' size='0.65'>Fuel Price: $%10/L</t><br/>
+		<t align='left' size='0.65'>Apoyo a la resistencia: %1 (%2%3) %4 (%5%6)</t><br/>
+		<t align='left' size='0.65'>Influencia: %7</t><br/>
+		<t align='left' size='0.65'>Clima: %8 (Pronostico: %9)</t><br/>
+		<t align='left' size='0.65'>Precio Gasolina: $%10/L</t><br/>
 		%11
 	",
 	_town, ["","+"] select (_standing > -1), _standing, OT_nation, ["","+"] select (_rep > -1), _rep,
@@ -92,12 +92,12 @@ if(typename _b isEqualTo "ARRAY") then {
 
 		if(typeof _building isEqualTo OT_warehouse) exitWith {
 			ctrlEnable [1609,true];
-			ctrlSetText [1609,"Procurement"];
+			ctrlSetText [1609,"Compra vehiculos"];
 
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"Vender"];
 			ctrlEnable [1608,false];
 
-			ctrlSetText [1610,"Repair"];
+			ctrlSetText [1610,"Reparar"];
 			if((damage _building) isEqualTo 1) then {
 				ctrlEnable [1610,true];
 			}else{
@@ -105,9 +105,9 @@ if(typename _b isEqualTo "ARRAY") then {
 			};
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Warehouse</t><br/>
-				<t align='left' size='0.65'>Owned by %1</t><br/>
-				<t align='left' size='0.65'>Damage: %2%3</t>
+				<t align='left' size='0.8'>Almacen</t><br/>
+				<t align='left' size='0.65'>Propiedad de %1</t><br/>
+				<t align='left' size='0.65'>Estado: %2%3</t>
 			",_ownername,round((damage _building) * 100),"%"];
 		};
 
@@ -115,22 +115,22 @@ if(typename _b isEqualTo "ARRAY") then {
 			_leased = player getVariable ["leased",[]];
 			_id = [_building] call OT_fnc_getBuildID;
 			if(_id in _leased) then {
-				_ownername = format["%1 (Leased)",_ownername];
+				_ownername = format["%1 (alquilado)",_ownername];
 			};
 
 			if(typeof _building isEqualTo OT_item_Tent) exitWith {
-				ctrlSetText [1608,"Sell"];
+				ctrlSetText [1608,"Vender"];
 				ctrlEnable [1608,false];
 				ctrlEnable [1609,false];
 				ctrlEnable [1610,false];
 
 				_buildingTxt = format["
-					<t align='left' size='0.8'>Camp</t><br/>
-					<t align='left' size='0.65'>Owned by %1</t>
+					<t align='left' size='0.8'>Campamento</t><br/>
+					<t align='left' size='0.65'>Propiedad de %1</t>
 				",_ownername];
 			};
 
-			ctrlSetText [1608,format["Sell ($%1)",[_sell, 1, 0, true] call CBA_fnc_formatNumber]];
+			ctrlSetText [1608,format["Vender ($%1)",[_sell, 1, 0, true] call CBA_fnc_formatNumber]];
 
 			if(_id in _leased) then {
 				ctrlEnable [1609,false];
@@ -141,9 +141,9 @@ if(typename _b isEqualTo "ARRAY") then {
 			};
 			_buildingTxt = format["
 				<t align='left' size='0.8'>%1</t><br/>
-				<t align='left' size='0.65'>Owned by %2</t><br/>
-				<t align='left' size='0.65'>Lease Value: $%3/6hrs</t><br/>
-				<t align='left' size='0.65'>Damage: %4%5</t>
+				<t align='left' size='0.65'>Propiedad de %2</t><br/>
+				<t align='left' size='0.65'>Beneficio de alquiler: $%3/6hrs</t><br/>
+				<t align='left' size='0.65'>Estado: %4%5</t>
 			",_name,_ownername,[_lease, 1, 0, true] call CBA_fnc_formatNumber,round((damage _building) * 100),"%"];
 
 		}else{
@@ -158,56 +158,56 @@ if(typename _b isEqualTo "ARRAY") then {
 			};
 			_buildingTxt = format["
 				<t align='left' size='0.8'>%1</t><br/>
-				<t align='left' size='0.65'>Owned by %2</t><br/>
-				<t align='left' size='0.65'>Damage: %3%4</t>
+				<t align='left' size='0.65'>Propiedad de %2</t><br/>
+				<t align='left' size='0.65'>Estado: %3%4</t>
 			",_name,_ownername,round((damage _building) * 100),"%"];
 		};
 		if(typeof _building isEqualTo OT_barracks) then {
 			_owner = _building call OT_fnc_getOwner;
 			_ownername = players_NS getVariable format["name%1",_owner];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"vender"];
 			ctrlEnable [1608,false];
 			ctrlEnable [1609,true];
-			ctrlSetText [1609,"Recruit"];
+			ctrlSetText [1609,"Reclutar"];
 			//ctrlEnable [1609,false];
 			//ctrlEnable [1610,false];
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Barracks</t><br/>
-				<t align='left' size='0.65'>Built by %1</t><br/>
-				<t align='left' size='0.65'>Damage: %2%3</t>
+				<t align='left' size='0.8'>Cuartel</t><br/>
+				<t align='left' size='0.65'>Construido por %1</t><br/>
+				<t align='left' size='0.65'>Estado: %2%3</t>
 			",_ownername,round((damage _building) * 100),"%"];
 		};
 		if(typeof _building isEqualTo OT_trainingCamp) then {
 			_owner = _building call OT_fnc_getOwner;
 			_ownername = players_NS getVariable format["name%1",_owner];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"vender"];
 			ctrlEnable [1608,false];
 			ctrlEnable [1609,true];
-			ctrlSetText [1609,"Recruit"];
+			ctrlSetText [1609,"Reclutar"];
 			//ctrlEnable [1609,false];
 			ctrlEnable [1610,false];
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Training Camp</t><br/>
-				<t align='left' size='0.65'>Built by %1</t><br/>
-				<t align='left' size='0.65'>Damage: %2%3</t>
+				<t align='left' size='0.8'>Campo de entrenamiento</t><br/>
+				<t align='left' size='0.65'>Construido por %1</t><br/>
+				<t align='left' size='0.65'>Estado: %2%3</t>
 			",_ownername,round((damage _building) * 100),"%"];
 		};
 
 		if(typeof _building isEqualTo OT_refugeeCamp) then {
 			_owner = _building call OT_fnc_getOwner;
 			_ownername = players_NS getVariable format["name%1",_owner];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"Vender"];
 			ctrlEnable [1608,false];
 			ctrlEnable [1609,true];
-			ctrlSetText [1609,"Recruit"];
+			ctrlSetText [1609,"Reclutar"];
 			ctrlEnable [1610,false];
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Refugee Camp</t><br/>
-				<t align='left' size='0.65'>Built by %1</t><br/>
-				<t align='left' size='0.65'>Damage: %2%3</t>
+				<t align='left' size='0.8'>Campo de refugiados</t><br/>
+				<t align='left' size='0.65'>Construido por %1</t><br/>
+				<t align='left' size='0.65'>Estado: %2%3</t>
 			",_ownername,round((damage _building) * 100),"%"];
 		};
 
@@ -218,23 +218,23 @@ if(typename _b isEqualTo "ARRAY") then {
 			}foreach(server getvariable ["bases",[]]);
 
 			_ownername = players_NS getVariable format["name%1",_base select 2];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"Vender"];
 			ctrlEnable [1608,true];
-			ctrlSetText [1608,"Garrison"];
+			ctrlSetText [1608,"Guarnicion"];
 			ctrlEnable [1609,false];
 			//ctrlEnable [1609,false];
 			ctrlEnable [1610,false];
 
 			_buildingTxt = format["
 				<t align='left' size='0.8'>%1</t><br/>
-				<t align='left' size='0.65'>Founded by %2</t>
+				<t align='left' size='0.65'>Fundado por %2</t>
 			",_base select 1,_ownername];
 		};
 
 		if(damage _building isEqualTo 1) then {
 			if((_owner isEqualTo getplayerUID player) || (call OT_fnc_playerIsGeneral)) then {
 				ctrlEnable [1608,false]; //Not allowed to sell
-				ctrlSetText [1609,"Repair"]; //Replace lease/manage with repair
+				ctrlSetText [1609,"Reparar"]; //Replace lease/manage with repair
 				ctrlEnable [1609,true];
 				ctrlEnable [1610,false];
 			};
@@ -243,7 +243,7 @@ if(typename _b isEqualTo "ARRAY") then {
 		if((typeof _building) in OT_allRepairableRuins) then {
 			ctrlEnable [1608,false];
 			ctrlEnable [1609,false];
-			ctrlSetText [1610,"Repair"];
+			ctrlSetText [1610,"Reparar"];
 			ctrlEnable [1610,true];
 
 			_buildingTxt = "<t align='left' size='0.8'>Ruins</t><br/>";
@@ -253,23 +253,23 @@ if(typename _b isEqualTo "ARRAY") then {
 				ctrlEnable [1609,false];
 				ctrlEnable [1610,false];
 			}else{
-				ctrlSetText [1608,format["Buy ($%1)",[_price, 1, 0, true] call CBA_fnc_formatNumber]];
+				ctrlSetText [1608,format["Comprar ($%1)",[_price, 1, 0, true] call CBA_fnc_formatNumber]];
 				ctrlEnable [1609,false];
 				ctrlEnable [1610,false];
 
 				_buildingTxt = format["
 					<t align='left' size='0.8'>%1</t><br/>
-					<t align='left' size='0.65'>Lease Value: $%2/6hrs</t>
+					<t align='left' size='0.65'>Beneficio de alquiler: $%2/6hrs</t>
 				",_name,[_lease, 1, 0, true] call CBA_fnc_formatNumber];
 
 				if(typeof _building isEqualTo OT_barracks) then {
-					ctrlSetText [1608,"Sell"];
+					ctrlSetText [1608,"Vender"];
 					ctrlEnable [1608,false];
 					ctrlEnable [1609,false];
 					ctrlEnable [1610,false];
 
 					_buildingTxt = format["
-						<t align='left' size='0.8'>Barracks</t><br/>
+						<t align='left' size='0.8'>Cuartel</t><br/>
 					",_ownername];
 				};
 			};
@@ -280,15 +280,15 @@ if(typename _b isEqualTo "ARRAY") then {
 		_owner = _building call OT_fnc_getOwner;
 		if(!isNil "_owner") then {
 			_ownername = players_NS getVariable format["name%1",_owner];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"Vender"];
 			ctrlEnable [1608,false];
-			ctrlSetText [1609,"Manage"];
+			ctrlSetText [1609,"Gestionar"];
 			ctrlEnable [1609,true];
 			//ctrlEnable [1610,false];
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Police Station</t><br/>
-				<t align='left' size='0.65'>Built by %1</t>
+				<t align='left' size='0.8'>Comisaria</t><br/>
+				<t align='left' size='0.65'>Construido por %1</t>
 			",_ownername];
 		};
 	};
@@ -297,14 +297,14 @@ if(typename _b isEqualTo "ARRAY") then {
 		_owner = _building call OT_fnc_getOwner;
 		if(!isNil "_owner") then {
 			_ownername = players_NS getVariable format["name%1",_owner];
-			ctrlSetText [1608,"Sell"];
+			ctrlSetText [1608,"Vender"];
 			ctrlEnable [1608,false];
 			ctrlEnable [1609,false];
 			//ctrlEnable [1610,false];
 
 			_buildingTxt = format["
-				<t align='left' size='0.8'>Workshop</t><br/>
-				<t align='left' size='0.65'>Built by %1</t>
+				<t align='left' size='0.8'>Taller</t><br/>
+				<t align='left' size='0.65'>Construido por %1</t>
 			",_ownername];
 		};
 	};
@@ -314,7 +314,7 @@ if(typename _b isEqualTo "ARRAY") then {
 		ctrlEnable [1610,false];
 		ctrlEnable [1608,false];
 		_lease = 0;
-		ctrlSetText [1608,"Buy"];
+		ctrlSetText [1608,"Comprar"];
 		_buildingTxt = format["
 			<t align='left' size='0.8'>%1</t>
 		",_name];
@@ -332,14 +332,14 @@ if(_obpos distance player < 250) then {
 	if(_obname in (server getVariable ["NATOabandoned",[]])) then {
 		_areaText = format["
 			<t align='left' size='0.8'>%1</t><br/>
-			<t align='left' size='0.65'>Under resistance control</t>
+			<t align='left' size='0.65'>Bajo control de la Resistencia</t>
 		",_obname];
 		ctrlEnable [1620,true];
 		ctrlEnable [1621,true];
 	}else{
 		_areaText = format["
 			<t align='left' size='0.8'>%1</t><br/>
-			<t align='left' size='0.65'>Under NATO control</t>
+			<t align='left' size='0.65'>Bajo control de la OTAN</t>
 		",_obname];
 		ctrlEnable [1620,false];
 		ctrlEnable [1621,false];
@@ -355,8 +355,8 @@ if(_obpos distance player < 250) then {
 				ctrlSetText [1201,"\A3\ui_f\data\map\markers\flags\Tanoa_ca.paa"];
 				_areaText = format["
 					<t align='left' size='0.8'>%1</t><br/>
-					<t align='left' size='0.65'>Operational</t><br/>
-					<t align='left' size='0.65'>(see resistance screen)</t><br/>
+					<t align='left' size='0.65'>En funcionamiento</t><br/>
+					<t align='left' size='0.65'>Mira en LA RESISTENCIA</t><br/>
 				",_obname];
 				ctrlEnable [1620,false];
 				ctrlEnable [1621,false];
@@ -365,10 +365,10 @@ if(_obpos distance player < 250) then {
 				ctrlSetText [1201,"\overthrow_main\ui\closed.paa"];
 				_areaText = format["
 					<t align='left' size='0.8'>%1</t><br/>
-					<t align='left' size='0.65'>Out Of Operation</t><br/>
+					<t align='left' size='0.65'>Fuera de servicio</t><br/>
 					<t align='left' size='0.65'>$%2</t>
 				",_obname,[_price, 1, 0, true] call CBA_fnc_formatNumber];
-				ctrlSetText [1620,"Buy"];
+				ctrlSetText [1620,"Comprar"];
 				ctrlEnable [1621,false];
 				if (call OT_fnc_playerIsGeneral) then {
 					ctrlEnable [1620,true];
@@ -383,19 +383,19 @@ if(_obpos distance player < 250) then {
 			if(_obname in (server getVariable ["GEURowned",[]])) then {
 				_areaText = format["
 					<t align='left' size='0.8'>%1</t><br/>
-					<t align='left' size='0.65'>Operational</t>
+					<t align='left' size='0.65'>En funcionamiento</t>
 				",_obname];
 				ctrlEnable [1620,true];
-				ctrlSetText [1620,"Manage"];
+				ctrlSetText [1620,"Gestionar"];
 				ctrlEnable [1621,false];
 			}else{
 				_price = _obname call OT_fnc_getBusinessPrice;
 				_areaText = format["
 					<t align='left' size='0.8'>%1</t><br/>
-					<t align='left' size='0.65'>Out Of Operation</t><br/>
+					<t align='left' size='0.65'>Fuera de servicio><br/>
 					<t align='left' size='0.65'>$%2</t>
 				",_obname,[_price, 1, 0, true] call CBA_fnc_formatNumber];
-				ctrlSetText [1620,"Buy"];
+				ctrlSetText [1620,"Comprar"];
 				ctrlEnable [1621,false];
 				if (call OT_fnc_playerIsGeneral) then {
 					ctrlEnable [1620,true];

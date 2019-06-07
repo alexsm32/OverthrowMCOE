@@ -4,4 +4,4 @@ OT_inputHandler = {
 	OT_context setVariable ["password",_val,true];
 };
 
-["Set password (blank to remove)",""] call OT_fnc_inputDialog;
+["Establece PIN (deja en blanco para quitarlo)",""] call OT_fnc_inputDialog;

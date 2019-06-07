@@ -1,4 +1,4 @@
-if !(captive player) exitWith {"You cannot place objects while wanted" call OT_fnc_notifyMinor};
+if !(captive player) exitWith {"No puedes colocar cosas cuando estes en busca y captura" call OT_fnc_notifyMinor};
 
 private _typecls = _this;
 
@@ -9,7 +9,7 @@ private _typecls = _this;
 			[0,3.5,1.1],
 			[OT_item_Tent],
 			40,
-			"Creates a fast travel destination for all friendlies. Only one allowed per player, will remove any existing camps."
+			"Crea un destino de viaje rapido para todos los jugadores. Solo uno por jugador, si construyes otro el anterior desaparecera"
 		]
 	};
 	if(_typecls == "Base") exitWith {
@@ -17,7 +17,7 @@ private _typecls = _this;
 			[0,6,4],
 			[OT_flag_IND],
 			250,
-			"Creates a fast travel destination for all friendlies and enables build mode for basic military structures"
+			"Crea un destino de viaje rapido para todos los jugadores y permite la construccion de edificios militares"
 		]
 	};
 	if(_typecls == "Ammobox") exitWith {
@@ -25,7 +25,7 @@ private _typecls = _this;
 			nil,
 			[OT_item_Storage],
 			60,
-			"Another empty ammobox to fill with items you have acquired through.. various means."
+			"Una caja de municion vacia para llenarla con lo que te encuentres por ahi"
 		]
 	};
 	if(_typecls == "Whiteboard") exitWith {
@@ -33,7 +33,7 @@ private _typecls = _this;
 			nil,
 			[OT_item_Map],
 			20,
-			"Plan out your next assault in the middle of the jungle."
+			"Un mapa para planificar tu proximo ataque. NO USES LA OPCION DORMIR sin hablar con el resto de jugadores"
 		]
 	};
 	{
@@ -60,16 +60,16 @@ modeCancelled = false;
 
 //Price check (on aisle 3)
 private _money = player getVariable "money";
-if(_cost > _money) exitWith {format["You cannot afford that, you need $%1",_cost] call OT_fnc_notifyMinor};
+if(_cost > _money) exitWith {format["No puedes pagar esto, necesitas $%1",_cost] call OT_fnc_notifyMinor};
 
 if !([getpos player,_typecls] call OT_fnc_canPlace) exitWith {
 	if(_typecls == "Camp") exitWith {
-		"Camps cannot be near another building" call OT_fnc_notifyMinor;
+		"Los campamentos no pueden estar junto a otro edificio" call OT_fnc_notifyMinor;
 	};
 	if(_typecls == "Base") exitWith {
-		"Bases cannot be too close to a town, NATO installation or existing base" call OT_fnc_notifyMinor;
+		"Las bases no pueden estar tan cerca de pueblos o bases de la OTAN" call OT_fnc_notifyMinor;
 	};
-	"You must be near a base or owned structure" call OT_fnc_notifyMinor
+	"Debes estar cerca de una base o edificio de tu propiedad" call OT_fnc_notifyMinor
 };
 
 if(isNil "modeValue") then {
@@ -84,7 +84,7 @@ if(isNil "modeRotation") then {
 
 if(_cost > 0) then {
 	[format [
-		"<t size='1.1' color='#eeeeee'>%1</t><br/><t size='0.8' color='#bbbbbb'>$%2</t><br/><t size='0.4' color='#bbbbbb'>%3</t><br/><br/><t size='0.5' color='#bbbbbb'>Q,E = Rotate<br/>Space = Change Type<br/>Enter = Done<br/>Shift = Rotate faster/Place multiple<br/>Esc = Cancel</t>",
+		"<t size='1.1' color='#eeeeee'>%1</t><br/><t size='0.8' color='#bbbbbb'>$%2</t><br/><t size='0.4' color='#bbbbbb'>%3</t><br/><br/><t size='0.5' color='#bbbbbb'>Q,E = Rotar<br/>Spacio = Cambiar objeto<br/>Enter = hecho<br/>Shift = Rotar rapido/Colocar varios<br/>Esc = Cancelar</t>",
 		_typecls,
 		[_cost, 1, 0, true] call CBA_fnc_formatNumber,
 		_description
@@ -242,24 +242,24 @@ if(_cost > 0) then {
 				_builder = name player;
 				{
 					_desc = (getpos modeTarget) call BIS_fnc_locationDescription;
-					[_x,format["New Camp %1",_desc],format["%1 placed a camp %2",_builder,_desc]] call BIS_fnc_createLogRecord;
+					[_x,format["Nuevo campamento %1",_desc],format["%1 coloco un campamento %2",_builder,_desc]] call BIS_fnc_createLogRecord;
 				}foreach([] call CBA_fnc_players);
 			};
 		}else{
 			detach modeTarget;
 			deleteVehicle modeTarget;
 			_typecls call {
-				if(_this == "Camp") exitWith {"Camps cannot be near a structure you already own" call OT_fnc_notifyMinor;};
-				if(_this == "Base") exitWith {"Bases cannot be near a town, NATO installation or existing base" call OT_fnc_notifyMinor;};
-				"You must be near a base or owned building" call OT_fnc_notifyMinor;
+				if(_this == "Camp") exitWith {"No puedes poner un campamento junto a una de tus propiedades" call OT_fnc_notifyMinor;};
+				if(_this == "Base") exitWith {"Las bases no pueden estar cerca de pueblos, instalaciones de la OTAN u otras bases" call OT_fnc_notifyMinor;};
+				"Debes estar cerca de un edificio de tu propiedad" call OT_fnc_notifyMinor;
 			};
 		};
 	};
 }else{
 	if(_typecls != "Camp" && _typecls != "Base") then {
-		"To place this item you must be near a base or a building that you own" call OT_fnc_notifyMinor;
+		"para colocar este objeto debes estar cerca de una de tus propiedades" call OT_fnc_notifyMinor;
 	}else{
-		"You cannot place a camp/base near a building you own. Bases must also be built away from towns." call OT_fnc_notifyMinor;
+		"No puedes colocar un campamento tan cerca de un pueblo o una base." call OT_fnc_notifyMinor;
 	};
 };
 

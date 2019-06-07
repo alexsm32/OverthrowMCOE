@@ -130,7 +130,7 @@ class OT_dialog_recruit
 			idc = 1600;
 			action = "[] call OT_fnc_buy";
 
-			text = "Recruit"; //--- ToDo: Localize;
+			text = "Reclutar"; //--- ToDo: Localize;
 			x = 0.840312 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0515625 * safezoneW;
@@ -142,7 +142,7 @@ class OT_dialog_recruit
 			idc = 1601;
 			action = "[] call OT_fnc_editLoadout";
 
-			text = "Edit"; //--- ToDo: Localize;
+			text = "Editar"; //--- ToDo: Localize;
 			x = 0.778437 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.0567187 * safezoneW;
@@ -287,7 +287,7 @@ class OT_dialog_workshop
 			idc = 1600;
 			action = "[] call OT_fnc_workshopAdd;";
 
-			text = "Añadir"; //--- ToDo: Localize;
+			text = "Agregar"; //--- ToDo: Localize;
 			x = 0.752656 * safezoneW + safezoneX;
 			y = 0.676 * safezoneH + safezoneY;
 			w = 0.139219 * safezoneW;

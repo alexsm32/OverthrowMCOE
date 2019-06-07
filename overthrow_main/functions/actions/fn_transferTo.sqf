@@ -19,7 +19,7 @@ if(!_notvehicle) then {
 
 
 if(!_notvehicle  && _objects isEqualTo []) exitWith {
-	"Cannot find any containers or other vehicles within 20m of this vehicle" call OT_fnc_notifyMinor;
+	"No hay vehiculos o contenedores a menos de 20m. " call OT_fnc_notifyMinor;
 };
 
 if(count _objects isEqualTo 1) then {
@@ -37,6 +37,6 @@ if(count _objects isEqualTo 1) then {
 			[vehicle player, _x]
 		];
 	}foreach(_objects);
-	"Transfer to which container?" call OT_fnc_notifyBig;
+	"A donde quieres transferir la carga?" call OT_fnc_notifyBig;
 	_options call OT_fnc_playerDecision;
 };

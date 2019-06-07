@@ -67,7 +67,7 @@ if !(captive _unit) then {
 			_unit setCaptive false;
 			[_unit] call OT_fnc_revealToNATO;
 			if(isPlayer _unit) then {
-				"A gang has seen the static weapon" call OT_fnc_notifyMinor;
+				"Una banda ha visto el arma estatica" call OT_fnc_notifyMinor;
 			};
 		};
 
@@ -83,7 +83,7 @@ if !(captive _unit) then {
 		// carrying a weapon .. illegal
 		if (_unit call OT_fnc_hasWeaponEquipped) exitWith {
 			if(isPlayer _unit) then {
-				"A gang has seen your weapon" call OT_fnc_notifyMinor;
+				"Una banda te ha visto con un arma" call OT_fnc_notifyMinor;
 			};
 			_unit setCaptive false;
 			[_unit] call OT_fnc_revealToNATO;
@@ -93,7 +93,7 @@ if !(captive _unit) then {
 		if(_unit call OT_fnc_detectedByReputation) exitWith {
 			_unit setCaptive false;
 			if(isPlayer _unit) then {
-				"A gang has recognized you" call OT_fnc_notifyMinor;
+				"Una banda te ha reconocido...joder eres famoso" call OT_fnc_notifyMinor;
 			};
 			[_unit] call OT_fnc_revealToCRIM;
 		};
@@ -104,14 +104,14 @@ if !(captive _unit) then {
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
 				if(isPlayer _unit) then {
-					"NATO has seen your spliff!" call OT_fnc_notifyMinor;
+					"La poli te ha visto fumandote un peta!" call OT_fnc_notifyMinor;
 				};
 			};
 			if(_unit call OT_fnc_carriesStaticWeapon) exitWith {
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
 				if(isPlayer _unit) then {
-					"NATO has seen the static weapon" call OT_fnc_notifyMinor;
+					"La OTAN ha visto un arma estatica" call OT_fnc_notifyMinor;
 				};
 			};
 			if(!(_vehicle isEqualTo _unit) && { _unit call OT_fnc_illegalInCar }) exitWith {
@@ -131,14 +131,14 @@ if !(captive _unit) then {
 			};
 			if ((headgear _unit in OT_illegalHeadgear) || { (vest _unit in OT_illegalVests) }) exitWith {
 				if(isPlayer _unit) then {
-					"You are wearing Gendarmerie gear" call OT_fnc_notifyMinor;
+					"Estas llevando ropa de la policia...y eso es ilegal" call OT_fnc_notifyMinor;
 				};
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
 			};
 			if !(hmd _unit isEqualTo "") exitWith {
 				if(isPlayer _unit) then {
-					"NATO has spotted your NV Goggles" call OT_fnc_notifyMinor;
+					"La OTAN ha visto tus gafas de vision nocturna" call OT_fnc_notifyMinor;
 				};
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
@@ -154,7 +154,7 @@ if !(captive _unit) then {
 				};
 				if((_obpos distance _unitpos) < _dist) exitWith {
 					if(isPlayer _unit) then {
-						"You are in a restricted area" call OT_fnc_notifyMinor;
+						"ESTAS EN UNA ZONA RESTRINGIDA...estas loco?" call OT_fnc_notifyMinor;
 					};
 					_unit setCaptive false;
 					[_unit] call OT_fnc_revealToNATO;

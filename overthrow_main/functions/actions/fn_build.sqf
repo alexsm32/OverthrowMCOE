@@ -1,4 +1,4 @@
-if !(captive player) exitWith {"You cannot build while wanted" call OT_fnc_notifyMinor};
+if !(captive player) exitWith {"No puedes construir mientras estes en busca y captura" call OT_fnc_notifyMinor};
 _base = (getpos player) call OT_fnc_nearestBase;
 _closest = "";
 _isbase = false;
@@ -42,13 +42,13 @@ if(!_isBase) then {
 
 if ((!_isbase) && !(_closest in (server getVariable ["NATOabandoned",[]]))) exitWith {
 	if(_isobj) then {
-		format ["NATO does not allow construction this close to %1.",_closest] call OT_fnc_notifyMinor;
+		format ["La OTAN no permite contruir esto cerca de %1.",_closest] call OT_fnc_notifyMinor;
 	}else{
-		format ["NATO is currently not allowing any construction in %1",_closest] call OT_fnc_notifyMinor;
+		format ["La OTAN no permite construir en %1",_closest] call OT_fnc_notifyMinor;
 	};
 };
 
-if((player distance _center) > modeMax) exitWith {format ["You need to be within %1m of the %2.",modeMax,_buildlocation] call OT_fnc_notifyMinor};
+if((player distance _center) > modeMax) exitWith {format ["Necesitas estar a una distancia de %1m del %2.",modeMax,_buildlocation] call OT_fnc_notifyMinor};
 
 openMap false;
 _playerpos = (getpos player);
@@ -265,7 +265,7 @@ buildOnMouseUp = {
 		if(!isNull modeTarget && canBuildHere) then {
 			_money = player getVariable "money";
 			if(_money < modePrice) then {
-				"You cannot afford that" call OT_fnc_notifyMinor;
+				"No puedes pagar esto" call OT_fnc_notifyMinor;
 			}else{
 				_created = objNULL;
 				playSound "3DEN_notificationDefault";
@@ -301,7 +301,7 @@ buildOnMouseUp = {
 			};
 		};
 		if(!canBuildHere) then {
-			"You cannot build that there" call OT_fnc_notifyMinor;
+			"No puedes contruir en esta posicion" call OT_fnc_notifyMinor;
 		};
 	};
 };
@@ -382,7 +382,7 @@ build = {
 
 	[
 		format [
-			"<t size='1.1' color='#eeeeee'>%1</t><br/><t size='0.8' color='#bbbbbb'>$%2</t><br/><t size='0.4' color='#bbbbbb'>%3</t><br/><br/><t size='0.5' color='#bbbbbb'>Q,E = Rotate (Shift for smaller)<br/>Space = Change Type<br/>Left Click = Build It<br/>Right Click = Move Camera<br/>Mouse Wheel = Zoom<br/>Shift = Build multiple</t>",
+			"<t size='1.1' color='#eeeeee'>%1</t><br/><t size='0.8' color='#bbbbbb'>$%2</t><br/><t size='0.4' color='#bbbbbb'>%3</t><br/><br/><t size='0.5' color='#bbbbbb'>Q,E = Rotar (Shift para lento)<br/>Space = Cambiar tipo<br/>Click Izdo. = Construyelo<br/>Click Dcho. = Mover camara<br/>Rueda raton = Zoom<br/>Shift = construir varios</t>",
 			_name,
 			[modePrice, 1, 0, true] call CBA_fnc_formatNumber,
 			_description

@@ -10,7 +10,7 @@ private _data = [];
 		if(_x isEqualTo "home" && !(_v isEqualType [])) then {
 			_owned = (_player getVariable "owned");
 			if(count _owned isEqualTo 0) then {
-				diag_log format["Warning: Player %1 owns no buildings to be set as home",name _player];
+				diag_log format["Atencion: El jugador %1 no tiene una casa para convertirla en su hogar",name _player];
 				//fallback to current pos
 				_v = getpos _player;
 			}else{

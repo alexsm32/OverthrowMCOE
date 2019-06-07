@@ -5,7 +5,7 @@ private _title = "Kill NATO";
 private _difficulty = 0.7 + (_numtokill/5);
 
 //Build a mission description
-private _description = format["Nada satisface mas a la resistencia que matar pitufos. Mata %1 NATO en cualquier sitio sin morir.",_numtokill];
+private _description = format["Nada satisface mas a la resistencia que matar pitufos. Mata %1 miembros de la OTAN en cualquier sitio sin morir.",_numtokill];
 private _params = [0,_numtokill];
 
 //The data below is what is returned to the gun dealer/faction rep, _markerPos is where to put the mission marker, the code in {} brackets is the actual mission code, only run if the player accepts

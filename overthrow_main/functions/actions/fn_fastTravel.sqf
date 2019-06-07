@@ -92,9 +92,9 @@ OT_FastTravel_MapSingleClickEHId = addMissionEventHandler ["MapSingleClick", {
 		if(_handled && _ft isEqualTo 1 && !OT_adminMode) then {
 			private _cost = 2000;
 			if((vehicle player) isEqualTo player) then {
-				_cost = ceil((player distance _pos) / 50);
+				_cost = ceil((player distance _pos) / 5);
 			}else{
-				_cost = ceil((player distance _pos) / 20);
+				_cost = ceil((player distance _pos) / 2);
 			};
 			if((player getVariable ["money",0]) < _cost) exitWith {_exit = true;hint format ["Necesitas $%1 para hacer ese viaje",_cost]};
 			[-_cost] call OT_fnc_money;
@@ -154,5 +154,5 @@ OT_FastTravel_MapEHId = addMissionEventHandler ["Map", {
 	};
 }];
 
-"Click near a friendly base/camp or a building you own" call OT_fnc_notifyMinor;
+"Haz click en tu destino.Debe ser una de tus propiedades o una base o campamento aliado" call OT_fnc_notifyMinor;
 openMap true;

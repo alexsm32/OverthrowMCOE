@@ -16,13 +16,13 @@ if(_password isEqualTo "") exitWith {
 		};
 	};
 
-	[format["How much to take? ($%1 Total)",[_in, 1, 0, true] call CBA_fnc_formatNumber],100] call OT_fnc_inputDialog;
+	[format["cuanto quieres coger (Total $%1 )",[_in, 1, 0, true] call CBA_fnc_formatNumber],100] call OT_fnc_inputDialog;
 };
 
 OT_inputHandler = {
 	private _password = OT_context getVariable ["password",""];
 	private _pw = ctrlText 1400;
-	if(_pw != _password) exitWith {"Wrong password" call OT_fnc_notifyMinor};
+	if(_pw != _password) exitWith {"PIN INCORRECTO" call OT_fnc_notifyMinor};
 	private _in = OT_context getVariable ["money",0];
 
 	OT_inputHandler = {
@@ -36,7 +36,7 @@ OT_inputHandler = {
 		};
 	};
 
-	[format["How much to take? ($%1 Total)",[_in, 1, 0, true] call CBA_fnc_formatNumber],100] call OT_fnc_inputDialog;
+	[format["Cuanto quieres coger? (Total $%1 )",[_in, 1, 0, true] call CBA_fnc_formatNumber],100] call OT_fnc_inputDialog;
 };
 
-["Please enter password",""] call OT_fnc_inputDialog;
+["Introduce tu PIN",""] call OT_fnc_inputDialog;
