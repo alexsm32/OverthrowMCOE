@@ -19,6 +19,17 @@ _unit addEventHandler ["Take", {
 			};
 		};
 	};
+
+	//Looting NATO supply cache
+	private _supplycache = _container getVariable ["NATOsupply",false];
+	if(_supplycache isEqualType "") then {
+		if (_me call OT_fnc_unitSeenNATO) then {
+			_me setCaptive false;
+			[_me] call OT_fnc_revealToNATO;
+		};
+		//Make sure box doesnt spawn at this base again (this session)
+		spawner setVariable [format["NATOsupply%1",_supplycache],false,true];
+	};
 }];
 
 _unit addEventHandler ["Fired", {
@@ -50,7 +61,7 @@ if((isPlayer _unit) && isNil "OT_ACEunconsciousChangedEHId") then {
 		if(isMultiplayer && count(call CBA_fnc_players) > 1) then {
 			[
 			  format[
-			    "%1 esta herido e inconsciente y precisa ayuda en GRIDREF: %2",
+			    "%1 has fallen unconscious and is waiting for assistance at GRIDREF: %2",
 			    name player,
 			    mapGridPosition player
 			  ]
@@ -67,7 +78,7 @@ if((isPlayer _unit) && isNil "OT_ACEunconsciousChangedEHId") then {
 				&& { !(_unit isEqualTo _x) }
 				&& { _havepi || {("ACE_epinephrine" in (items _x))} }
 			) then {
-				systemChat format ["%1: Intentare ayudarte", name _x];
+				systemChat format ["%1: On my way to help you", name _x];
 				_unit setVariable ["OT_informedMedics",(_unit getVariable ["OT_informedMedics",0])+1];
 				[_x,_unit] call OT_fnc_orderRevivePlayer;
 			};
