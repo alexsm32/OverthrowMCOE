@@ -840,7 +840,7 @@ class OT_dialog_options
 		class RscButton_1606: RscOverthrowButton
 		{
 			idc = 1606;
-			action = "[[0,0],""setFog"",TRUE,FALSE] spawn BIS_fnc_MP";
+			action = "[0,0] remoteExecCall ['setFog',0,false]";
 
 			text = "Limpiar Niebla"; //--- ToDo: Localize;
 			x = 0.515469 * safezoneW + safezoneX;
@@ -1372,7 +1372,7 @@ class OT_dialog_tute
 		{
 			idc = 1100;
 
-			text = "¿Quieres un tuturial rapido? (te daremos cosas gratis)"; //--- ToDo: Localize;
+			text = "Quieres un tuturial rapido? (te daremos cosas gratis)"; //--- ToDo: Localize;
 			x = 0.340156 * safezoneW + safezoneX;
 			y = 0.346 * safezoneH + safezoneY;
 			w = 0.324844 * safezoneW;

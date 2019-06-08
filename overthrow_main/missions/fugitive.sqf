@@ -27,8 +27,8 @@ private _params = [_faction,_destination,_destinationName,_jobid];
 private _markerPos = _destination; //randomize the marker position a bit
 
 //Build a mission description and title
-private _description = format["Un traidor de %1 ha huido y se esconde en %2 bajo la proteccion de la OTAN. %1 pagaria gustoso una buena suma a quien lo haga, digamos....desaparecer. <br/><br/>Recompensa: +20 (%1), $2500",_factionName,_destinationName];
-private _title = format["%1 Traidor en %2",_factionName,_destinationName];
+private _description = format["A traitor of %1 has fled here and is hiding in %2 under NATO protection. %1 will pay handsomely and be very grateful if you could just.. make them disappear. <br/><br/>Reward: +20 (%1), $2500",_factionName,_destinationName];
+private _title = format["%1 Traitor in %2",_factionName,_destinationName];
 
 //This next number multiplies the reward
 private _difficulty = 1.8;
@@ -81,6 +81,9 @@ private _difficulty = 1.8;
             _civ setRank "SERGEANT";
             _civ setBehaviour "SAFE";
             _civ setVariable ["VCOM_NOPATHING_Unit",true,false];
+            [_civ,"HQ"] call OT_fnc_initMilitary;
+            _civ disableAI "PATH";
+            _civ addEventHandler ["FiredNear", {params ["_unit"];_unit enableAI "PATH"}];
 
             _count = _count + 1;
         };
@@ -108,7 +111,7 @@ private _difficulty = 1.8;
         if(_alerted and !_alreadyAlerted) then {
             _civ enableAI "MOVE";
             private _factionName = server getvariable format["factionname%1",_faction];
-            format ["Mensaje de %1: El Traidor ha sido avisado.",_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
+            format ["Incoming message from %1: Traitor has been alerted.",_factionName] remoteExec ["OT_fnc_notifyMinor",0,false];
             private _wp = group _civ addWaypoint [[[[_destination,500]]] call BIS_fnc_randomPos,0];
             _wp setWaypointSpeed "FULL";
             _wp setWaypointCombatMode "COMBAT";

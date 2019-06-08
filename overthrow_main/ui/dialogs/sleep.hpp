@@ -38,7 +38,7 @@ class OT_sleep_dialog {
       style = 0x02;
       font = "PuristaBold";
       sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-    	text = "¿Cuanto tiempo quieres dormir?"; //--- ToDo: Localize;
+    	text = "CUANTO QUIERES DORMIR?(afecta a TODOS los jugadores)"; //--- ToDo: Localize;
     	x = 0.386562 * safezoneW + safezoneX;
     	y = 0.456 * safezoneH + safezoneY;
     	w = 0.237187 * safezoneW;
@@ -59,12 +59,12 @@ class OT_sleep_dialog {
     {
     	idc = -1;
       fade = 1;
-    	text = "DORMIR"; //--- ToDo: Localize;
+    	text = "SLEEP"; //--- ToDo: Localize;
     	x = 0.494844 * safezoneW + safezoneX;
     	y = 0.533 * safezoneH + safezoneY;
     	w = 0.134062 * safezoneW;
     	h = 0.033 * safezoneH;
-      onButtonClick = "[] remoteExec [""OT_fnc_startSleeping"",[0,-2] select isDedicated,false]; [] spawn {uisleep 8; OT_sleepTime remoteExec [""skipTime"",2]; }";
+      onButtonClick = "[] remoteExec [""OT_fnc_startSleeping"",[0,-2] select isDedicated,false]; [] spawn {uiSleep 8; OT_sleepTime remoteExec [""skipTime"",2]; }";
       colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])",1};
     };
     class SelectedTime: RscText
@@ -72,7 +72,7 @@ class OT_sleep_dialog {
     	idc = 10;
       fade = 1;
       style = 0x02;
-    	text = "X Hora(s)"; //--- ToDo: Localize;
+    	text = "X Hour(s)"; //--- ToDo: Localize;
     	x = 0.386563 * safezoneW + safezoneX;
     	y = 0.533 * safezoneH + safezoneY;
     	w = 0.0928125 * safezoneW;
