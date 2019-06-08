@@ -1,21 +1,19 @@
 params ["_frompos","_ao","_attackpos","_byair",["_delay",0]];
 if (_delay > 0) then {sleep _delay};
-private _vehtype = OT_NATO_Vehicle_Transport call BIS_fnc_selectRandom;
+private _vehtype = OT_NATO_Vehicle_Transport_Light;
 if(_byair) then {
-	_vehtype = OT_NATO_Vehicle_AirTransport call BIS_fnc_selectRandom;
+	_vehtype = OT_NATO_Vehicle_AirTransport select 0;
 };
 private _squadtype = OT_NATO_GroundForces call BIS_fnc_SelectRandom;
 private _spawnpos = _frompos;
-private _group1 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
+private _group1 = createGroup west;
 _group1 deleteGroupWhenEmpty true;
-private _group2 = "";
-private _tgroup = false;
-if !(_byair) then {
-	sleep 0.3;
-	_squadtype = OT_NATO_GroundForces call BIS_fnc_SelectRandom;
-	_group2 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
-	_group2 deleteGroupWhenEmpty true;
+
+for "_i" from 1 to 4 do {
+	private _p = _frompos findEmptyPosition [15,100,_vehtype];
+	private _civ = _group1 createUnit [selectRandom OT_NATO_Units_LevelOne,_p,[],0,"NONE"];
 };
+
 sleep 0.5;
 private _allunits = [];
 private _veh = false;
@@ -42,10 +40,9 @@ if !(_pos isEqualType []) then {
 	};
 	_dir = [_frompos,_ao] call BIS_fnc_dirTo;
 };
-_pos set [2,1];
-_veh = createVehicle [_vehtype, [0,0,1000+random 1000], [], 0, "CAN_COLLIDE"];
+_pos set [2,0];
+_veh = _vehtype createVehicle _pos;
 _veh setDir (_dir);
-_veh setPosATL _pos;
 _veh setVariable ["garrison","HQ",false];
 clearWeaponCargoGlobal _veh;
 clearMagazineCargoGlobal _veh;
@@ -86,24 +83,6 @@ _tgroup deleteGroupWhenEmpty true;
 } forEach allCurators;
 
 spawner setVariable ["NATOattackforce",(spawner getVariable ["NATOattackforce",[]])+[_group1],false];
-
-if !(_byair) then {
-	{
-		if(typename _tgroup isEqualTo "GROUP") then {
-			_x moveInCargo _veh;
-		};
-		[_x] joinSilent _group2;
-		_x setVariable ["VCOM_NOPATHING_Unit",true,false];
-		_allunits pushback _x;
-		_x setVariable ["garrison","HQ",false];
-		[_x] call OT_fnc_initMilitary;
-
-	}foreach(units _group2);
-	{
-		_x addCuratorEditableObjects [units _group2,true];
-	} forEach allCurators;
-	spawner setVariable ["NATOattackforce",(spawner getVariable ["NATOattackforce",[]])+[_group2],false];
-};
 
 sleep 5;
 if(_byair && _tgroup isEqualType grpNull) then {
@@ -167,13 +146,6 @@ _wp = _group1 addWaypoint [_attackpos,100];
 _wp setWaypointType "SAD";
 _wp setWaypointBehaviour "COMBAT";
 _wp setWaypointSpeed "FULL";
-
-if !(_byair) then {
-	_wp = _group2 addWaypoint [_attackpos,100];
-	_wp setWaypointType "SAD";
-	_wp setWaypointBehaviour "COMBAT";
-	_wp setWaypointSpeed "FULL";
-};
 
 if(typename _tgroup isEqualTo "GROUP") then {
 
