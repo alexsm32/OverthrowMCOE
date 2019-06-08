@@ -1,6 +1,8 @@
 private _target = vehicle player;
 private _notvehicle = false;
-if(_target isEqualTo player) exitWith {};
+if(_target isEqualTo player) then {
+	_target = OT_warehouseTarget;
+};
 
 if(isNull _target || isNil "_target") exitWith {};
 
@@ -16,7 +18,7 @@ if(_b isEqualType []) then {
 };
 
 if(_notvehicle && _objects isEqualTo []) exitWith {
-	"No hay un almacen cerca" call OT_fnc_notifyMinor;
+	"No warehouse within range" call OT_fnc_notifyMinor;
 };
 
-[vehicle player, (_objects select 0)] call OT_fnc_transferHelper;
+[_target, (_objects select 0)] call OT_fnc_transferHelper;
