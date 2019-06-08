@@ -14,7 +14,7 @@ if(!dialog) then {
 			if (player getVariable ["OT_tute_trigger",false]) then {
 				player setVariable ["OT_tute_trigger",false,true];
 				[] spawn {
-					hint format["Tomate tu tiempo para explorar el menu principal, Cuando acabes mira el mapa (%1 tecla)","ShowMap" call OT_fnc_getAssignedKey];
+					hint format["Take some time to explore the main menu, when you're finished open the map (%1 key)","ShowMap" call OT_fnc_getAssignedKey];
 
 					private _acekey = "Left Windows (default)";
 					private _acebind = ["ACE3 Common","ace_interact_menu_InteractKey"] call CBA_fnc_getKeybind;
@@ -26,32 +26,32 @@ if(!dialog) then {
 					[
 						format [
 							"<t align='center'><t size='0.6' color='#ffffff'>Main Menu</t><br/><br/>
-							<t size='0.5' color='#ffffff'>Desde este menu puedes ejecutar acciones basicas como reclutar civiles o viajar a tus propiedes, bases y campamentos aliados. Como puedes ver abajo a la derecha, esta casa te pertenece,así que puedes viajar rapido hasta aqui,siempre que no estes en busca y captura, lleves drogas encima o armas a la vista.<br/><br/>
-							Para continuar, sal de este menu (Esc) y abre el mapa (%1 tecla)</t>",
+							<t size='0.5' color='#ffffff'>From here you can perform basic actions such as recruiting civilians or fast travelling to buildings you own, friendly bases and camps that you place. As you can see on the bottom right, this shack is owned by you, so you can therefore fast travel back here when you need to, but not while wanted.<br/><br/>
+							To continue, close this menu (Esc) and open the map (%1 key)</t>",
 							"ShowMap" call OT_fnc_getAssignedKey
 						], 0, 0.2, 120, 1, 0, 2] call OT_fnc_dynamicText;
 
-					waitUntil {uisleep 1; visibleMap};
+					waitUntil {uiSleep 1; visibleMap};
 
 					hint format[
-						"Manten el boton derecho del raton para moverte por el mapa, zoom con la rueda del raton. cuando termines sal del mapa pulsando ESC.",
+						"Holding RMB will pan the map, zoom with the scrollwheel. When you are finished exploring the map, close it with the Esc key.",
 						"Action" call OT_fnc_getAssignedKey
 					];
 					sleep 3;
 					[format [
 						"<t align='left'><t size='0.7' color='#000000'>Stability</t><br/>
-						<t size='0.6' color='#000000'>Las zonas amarilals indican pueblos con estabilidad baja. Los iconos azules indican instalaciones conocidad de la OTAN.</t><br/><br/>
+						<t size='0.6' color='#000000'>Yellow areas indicate towns where stability is lowest.Blue icons indicate known NATO installations.</t><br/><br/>
 						<t size='0.5' color='#101010'>%3</t>",
 						OT_tutorial_backstoryText
 					], -0.5, 0.5, 240, 1, 0, 2] call OT_fnc_dynamicText;
 
-					waitUntil {uisleep 1; !visibleMap};
+					waitUntil {uiSleep 1; !visibleMap};
 					hint "";
 					sleep 3;
 
 					[format [
 						"<t align='center'><t size='0.6' color='#ffffff'>Interaction</t><br/>
-						<t size='0.5' color='#ffffff'>Algunos objetos,incluyendo los que hay en tu casa,disponen de acciones que puedes hacer con ellos.Prueba moviendote al ammobox e interactua manteniendo la tecla (%1). mueve el ratón a 'Abrir' y suelta la tecla de interaccion.</t><br/><br/>",
+						<t size='0.5' color='#ffffff'>Some objects, including most of the ones in your shack, have actions that you can perform on them directly. Try it out by moving towards the ammo crate and using your Interact key (%1). Move the mouse over 'Open' and then release the key to perform that action.</t><br/><br/>",
 						_acekey
 					], 0, 0.2, 20, 1, 0, 2] call OT_fnc_dynamicText;
 
@@ -59,22 +59,22 @@ if(!dialog) then {
 					_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 					[player,getpos _gundealer,"Gun Dealer"] call OT_fnc_givePlayerWaypoint;
 					sleep 3;
-					hint "Vete y habla con tu traficante de armas local. Vete a la marca del mapa. No te preocupes ya que no llevas nada ilegal (no uses la vision nocturna).";
+					hint "Go and speak to the local gun dealer. Head towards the marked location, you have nothing to worry about as long as you are not carrying/wearing any illegal items.";
 
-					waitUntil {uisleep 1; (player distance2d getPosASL _gundealer) < 5};
+					waitUntil {uiSleep 1; (player distance2d getPosASL _gundealer) < 5};
 
 
 					_lines = [
-						"Hola? Te conozco?",
-						format ["No. Me llamo %1 y he oido que tal vez puedas ayudarme",name player],
-						"Ah, si? Depende. En que puedo ayudarte?"
+						"Hello? Do I know you?",
+						format ["No you don't. My name is %1 and I heard that you might be able to help me",name player],
+						"Oh, really? Well that depends. With what?"
 					];
 
 					_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 					_done = {
 						_options = [
 							[
-								"Estoy harto de la OTAN. que podemos hacer?",
+								"I am sick of NATO pushing us around, what can I do about it?",
 								{
 									_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 									[
@@ -82,21 +82,21 @@ if(!dialog) then {
 										_gundealer,
 										[
 											(_this select 0),
-											"Ya veo. Seguro que no te gusto que disparasen a los manifestantes, tengo por aqui una pistola vieja.",
-											"Que cojones quieres que haga con esto?",
-											"Ni idea. Pero todos los tipos que han venido pro aqui quejandose de la OTAN querian una pistola y yo no hago preguntas.",
-											"Um.. gracias...supongo",
-											"Tranqui, cualquier cosa que hagas a mi me viene bien. Te pagare si te ocupas de ellos."
+											"I hear you. I bet it was even them who shot the protester... I tell you what, take this spare pistol I have laying around.",
+											"What am I supposed to do with this?",
+											"I don't know. But every other guy that's come in here recently that was angry with NATO wanted a gun, and I won't ask questions.",
+											"Um.. thanks I guess",
+											"No problem, anything you can do to help me stay under their radar is great, I'll pay you $250 if you can take care of them."
 										],
 										{
 											hint format[
-												"La pistola esta en tu bolsillo, puedes equiparla desde el inventario (%1 tecla) arrastrandola a tus manos. Pero.... ten cuidado, Si la OTAN te ve con un arma disparara, sin avisar, asi que mantenla escondida hata que....mmm... la necesites",
+												"The gun is in your pocket, you can equip it in your inventory (%1 key) by dragging it to your hands. But be careful, if NATO sees any weapons they will open fire on you, so best to keep it where it is until you uh... 'need' it",
 												"Gear" call OT_fnc_getAssignedKey
 											];
 											[{
 												playSound "3DEN_notificationDefault";
 												[] call (OT_tutorialMissions select 0);
-												hint "Has terminado el tutorial. Suerte!";
+												hint "You have completed the tutorial. Good luck on your future journey!";
 												player setVariable ["OT_tute_inProgress", false];
 											},0,10] call CBA_fnc_waitAndExecute;
 										}
@@ -108,7 +108,7 @@ if(!dialog) then {
 								}
 							],
 							[
-								format ["Hay mucho crimen en %1, y la OTAN y la Policia no hacen nada",OT_nation],
+								format ["There's too much crime in %1, and NATO isn't doing anything about it",OT_nation],
 								{
 									_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 									[
@@ -116,26 +116,26 @@ if(!dialog) then {
 										_gundealer,
 										[
 											(_this select 0),
-											"Tienes razon. ya que nos disparan por lo menos que nos protejan de las bandas",
-											"Pues si",
-											"Sabes?, tengo una pistola vieja por aqui.",
-											"Y que quieres que haga yo con esto?",
+											"I agree. I bet it was even them who shot the protester, they would much rather keep this nation in turmoil...",
+											"I know, right",
+											"I tell you what, take this spare pistol I have laying around.",
+											"What am I supposed to do with this?",
 											format[
-												"Los comerciantes locales pagan por hacer...desaparecer a miembros de bandas en %1, Vete y caza a algunos!",
+												"Local businessmen are always setting bounties on the gangs around %1, go and claim a few!",
 												OT_nation
 											],
-											"Vale... gracias",
-											"A mandar, ven si necesitas municion o cosas que no te ventan en tiendas..digamos....convencionales."
+											"Alright.. thanks",
+											"No problem, just come back if you need more ammunition or anything else the stores won't sell you."
 										],
 										{
 											hint format[
-												"La pistola esta en tu bolsillo, puedes equiparla desde el inventario (%1 tecla) arrastrandola a tus manos. Pero.... ten cuidado, Si la OTAN o una banda te ve con un arma,disparara sin avisar, asi que mantenla escondida hata que....mmm... la necesites",
+												"The gun is in your pocket, you can equip it in your inventory (%1 key) by dragging it to your hands. But be careful, if NATO sees any weapons they will open fire on you.",
 												"Gear" call OT_fnc_getAssignedKey
 											];
 											[{
 												playSound "3DEN_notificationDefault";
 												[] call (OT_tutorialMissions select 1);
-												hint "Has completado el tutorial. Suerte!";
+												hint "You have completed the tutorial. Good luck on your future journey!";
 												player setVariable ["OT_tute_inProgress", false];
 											},1,10] call CBA_fnc_waitAndExecute;
 										}
@@ -147,7 +147,7 @@ if(!dialog) then {
 								}
 							],
 							[
-								"Necesito pasta y no me importa infringir la ley",
+								"I want to make some cash, and I don't care about breaking the law",
 								{
 									_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 									[
@@ -155,21 +155,21 @@ if(!dialog) then {
 										_gundealer,
 										[
 											(_this select 0),
-											"Con todo lo que esta pasando...no se... toma esto",
-											"Hierba?,que hago yo con esto?",
-											"Vendesela a los civiles. Igual asi se calman",
-											"Um.. Gracias",
-											"Sin problema. Ven cuando quieras mas"
+											"Probably a good idea with everything that's happening. I tell you what, take this spare bud I have laying around.",
+											"What am I supposed to do with this?",
+											"Sell it to some of the civilians round here, maybe it will calm them down",
+											"Um.. thanks I guess",
+											"No problem, just come back if you need more, or anything else the stores won't sell you."
 										],
 										{
 											hint format[
-												"Las drogras estan en tu bolsillo, puedes verlo en el inventario (%1 tecla). tambien puedes fumartelo tu mismo para relajarte usando la interaccion ACE",
+												"The drugs are in your pocket, you can see it in your inventory (%1 key).",
 												"Gear" call OT_fnc_getAssignedKey
 											];
 											[{
 												playSound "3DEN_notificationDefault";
 												[] call (OT_tutorialMissions select 2);
-												hint "Has terminado el tutorial, suerte!";
+												hint "You have completed the tutorial. Good luck on your future journey!";
 												player setVariable ["OT_tute_inProgress", false];
 											},2,10] call CBA_fnc_waitAndExecute;
 										}
@@ -178,7 +178,7 @@ if(!dialog) then {
 								}
 							],
 							[
-								"Quiero hacer dinero legalmente",
+								"I want to make some cash, legally",
 								{
 									_gundealer = spawner getVariable format["gundealer%1",(getpos player) call OT_fnc_nearestTown];
 									[
@@ -186,18 +186,18 @@ if(!dialog) then {
 										_gundealer,
 										[
 											(_this select 0),
-											"En serio?.. esto es Tanoa muchacho... tal vez puedas desguazar algun vehiculo roto que te encuentres... pero no lo veo... busca un trabajo honrado como el mio",
-											"OK, Gracias",
-											"De nada hombre... nos vemos"
+											"Well I'm not really the guy to help you there, but there are usually some wrecked vehicles around town, maybe you can salvage some useful resources from them?",
+											"OK, thanks.",
+											"No problem! See you around."
 										],
 										{
-											hint format["Los vehiculos destrozados pueden ser desguazados con las herramientas,Deberias tener unas en tu casa. Las tiendas estan marcadas en el mapa con un icono que indica lo que compran/venden. Los pueblos mas pequeños y con menor estabilidad pagan mas por lo que vendas.",
+											hint format["Wrecked vehicles can be salvaged with a toolkit, there should be one in your ammo crate at home. Shops on your map are marked with a circle and icon representing what they buy/sell. Towns with lower stability and population will pay higher prices for all items.",
 												"Gear" call OT_fnc_getAssignedKey
 											];
 											[{
 												playSound "3DEN_notificationDefault";
 												[] call (OT_tutorialMissions select 3);
-												hint "Has acabado el turorial, suerte!";
+												hint "You have completed the tutorial. Good luck on your future journey!";
 												player setVariable ["OT_tute_inProgress", false];
 											},3,10] call CBA_fnc_waitAndExecute;
 										}
@@ -233,11 +233,11 @@ if(!dialog) then {
 
 					private _cost = player getVariable ["OT_ferryCost",0];
 					if((player getVariable ["money",0]) < _cost) exitWith {
-						"No puedes pagarte el viaje!" call OT_fnc_notifyMinor;
+						"You cannot afford that!" call OT_fnc_notifyMinor;
 						disableUserInput false;
 					};
 					[-_cost] call OT_fnc_money;
-					cutText [format["acelerando el viaje a %1",_town],"BLACK",2];
+					cutText [format["Skipping ferry to %1",_town],"BLACK",2];
 					player setVariable ["OT_ferryDestination",[],false];
 					[_ferry,_veh] spawn {
 						params ["_pos","_veh"];
