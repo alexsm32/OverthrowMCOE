@@ -3,11 +3,11 @@ params [
 ];
 
 //get all server data
-"Cargando guardado persistente" remoteExec['OT_fnc_notifyStart',0,false];
+"Loading persistent save" remoteExec['OT_fnc_notifyStart',0,false];
 
 if (_data isEqualType "" && {_data isEqualTo ""}) then {
 	[] remoteExec ['OT_fnc_newGame',2];
-	"No se ha encontrado un juego guardado. Iniciando nuevo juego" remoteExec ["hint",0,false];
+	"No save found, starting new game" remoteExec ["hint",0,false];
 };
 
 private _cc = 0;
@@ -26,7 +26,7 @@ private _cc = 0;
 	};
 }foreach(_data);
 
-sleep 0.2;
+sleep 0.3;
 
 //now do everything else
 {
@@ -150,7 +150,7 @@ sleep 0.2;
 					_name = _x select 5;
 				};
 				private _p = _pos;
-				_veh = createVehicle [_type, _p, [], 0, "CAN_COLLIDE"];
+				_veh = createVehicle [_type, [0,0,1000], [], 0, "CAN_COLLIDE"];
 				_veh enableDynamicSimulation true;
 				/*
 				if !(_simulation) then {
@@ -195,16 +195,16 @@ sleep 0.2;
 						};
 					};
 				};
-				_veh setPosATL _p;
-				if(_type isKindOf "Building") then {
-					_clu = createVehicle ["Land_ClutterCutter_large_F", _pos, [], 0, "CAN_COLLIDE"];
-					_clu enableDynamicSimulation true;
-				};
 				if(typename _dir isEqualTo "SCALAR") then {
 					//Pre 0.6.8 save, scalar direction
 					_veh setDir _dir;
 				}else{
 					_veh setVectorDirAndUp _dir;
+				};
+				_veh setPosATL _p;
+				if(_type isKindOf "Building") then {
+					_clu = createVehicle ["Land_ClutterCutter_large_F", _pos, [], 0, "CAN_COLLIDE"];
+					_clu enableDynamicSimulation true;
 				};
 
 				clearWeaponCargoGlobal _veh;
@@ -286,7 +286,7 @@ sleep 0.2;
 			};
 			if(_ccc isEqualTo 10) then {
 				_ccc = 0;
-				sleep 0.2;
+				sleep 0.3;
 			};
 		}foreach(_val);
 	};
@@ -335,10 +335,10 @@ sleep 0.2;
 	_cc = _cc + 1;
 	if(_cc isEqualTo 100) then {
 		_cc = 0;
-		sleep 0.2;
+		sleep 0.3;
 	};
 }foreach(_data);
-sleep 0.2;
+sleep 0.3;
 
 {
 	_pos = _x select 0;
@@ -453,4 +453,4 @@ private _built = (allMissionObjects "Static");
 }foreach(players_NS getvariable ["OT_allPlayers",[]]);
 sleep 2; //let the variables propagate
 server setVariable ["StartupType","LOAD",true];
-hint "Guardado persistente cargado";
+hint "Persistent Save Loaded";
