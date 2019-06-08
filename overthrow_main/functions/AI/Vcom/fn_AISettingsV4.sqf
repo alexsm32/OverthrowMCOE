@@ -56,18 +56,18 @@ VCM_DRIVERLIMIT = 4; // How many drivers should be calculated at each cycle
 
 //AI SKILL SETTINGS HERE!!!!!!!!!!!!
 //LOW DIFFICULTY
-//VCM_AIDIFA = [['aimingAccuracy',0.1],['aimingShake',0.20],['aimingSpeed',0.10],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
+//VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.20],['aimingSpeed',0.15],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
 
 //MEDIUM DIFFICULTY
-VCM_AIDIFA = [['aimingAccuracy',0.1],['aimingShake',0.2],['aimingSpeed',0.1],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',0.5],['spotDistance',0.85],['spotTime',0.6]];
+VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.2],['aimingSpeed',0.2],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',0.5],['spotDistance',0.85],['spotTime',0.6]];
 
 //HIGH DIFFICULTY
-//VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.2],['aimingSpeed',0.25],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
+//VCM_AIDIFA = [['aimingAccuracy',0.35],['aimingShake',0.4],['aimingSpeed',0.45],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
 
 //VCOM AI Skill Variables. Default values set to medium difficulty (old default)
 //AIMING ACCURACY
-VCM_AISKILL_AIMINGACCURACY_W = 0.09;
-VCM_AISKILL_AIMINGACCURACY_E = 0.09;
+VCM_AISKILL_AIMINGACCURACY_W = 0.15;
+VCM_AISKILL_AIMINGACCURACY_E = 0.15;
 VCM_AISKILL_AIMINGACCURACY_R = 0.25;
 
 //AIMING SHAKE
