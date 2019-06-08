@@ -17,7 +17,7 @@ private _items = [];
     };
 }foreach(allVariables warehouse);
 
-if((count _items) isEqualTo 0) exitWith {hint "Cannot edit loadout, no items in warehouse"};
+if((count _items) isEqualTo 0) exitWith {hint "No puedes editar el equipo, no hay equipo en el almacen"};
 
 //spawn a virtual dude
 private _start = (getpos player) findEmptyPosition [5,40,_cls];

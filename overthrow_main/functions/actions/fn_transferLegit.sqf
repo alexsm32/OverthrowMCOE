@@ -19,7 +19,7 @@ if(typename _b isEqualTo "ARRAY") then {
 }foreach(player nearEntities [["Car","ReammoBox_F","Air","Ship"],20]);
 
 if(_objects isEqualTo []) exitWith {
-	"No hay vehiculos o contenedores a menos de 20m. de este vehiculo" call OT_fnc_notifyMinor;
+	"Cannot find any containers or other vehicles within 20m of this vehicle" call OT_fnc_notifyMinor;
 };
 _sorted = [_objects,[],{_x distance player},"ASCEND"] call BIS_fnc_SortBy;
 _target = _sorted select 0;
@@ -30,11 +30,11 @@ _doTransfer = {
 	private _toname = (typeof _target) call OT_fnc_vehicleGetName;
 	private _iswarehouse = (_target isKindOf OT_warehouse);
 	if(_iswarehouse) then {_toname = "Warehouse"};
-	format["Transfiriendo objetos legales a %1",_toname] call OT_fnc_notifyMinor;
+	format["Transferring legal inventory from %1",_toname] call OT_fnc_notifyMinor;
 
 
 	[5,false] call OT_fnc_progressBar;
-	sleep 5;
+
 	_full = false;
 	if(_iswarehouse) then {
 		{
@@ -81,7 +81,7 @@ _doTransfer = {
 			if(_full) exitWith {};
 		}foreach(_target call OT_fnc_unitStock);
 	};
-	if(_full) then {hint "Este vehiculo esta lleno, usa un camion"};
+	if(_full) then {hint "This vehicle is full, use a truck for more storage"};
 	"Inventory Transfer done" call OT_fnc_notifyMinor;
 };
 
@@ -92,6 +92,6 @@ if(count _objects isEqualTo 1) then {
 	{
 		_options pushback [format["%1 (%2m)",(typeof _x) call OT_fnc_vehicleGetName,round (_x distance player)],_doTransfer,_x];
 	}foreach(_objects);
-	"De que contenedor quieres coger objetos legales?" call OT_fnc_notifyBig;
+	"Transfer legal items from which container?" call OT_fnc_notifyBig;
 	_options call OT_fnc_playerDecision;
 };
