@@ -18,21 +18,21 @@ _population = (_population / 1000);
 ([_type] call {
 	params ["_type"];
 	if (_type in OT_spawnHouses) exitWith {[]};
-	if(_type in OT_lowPopHouses) exitWith {[15000,8]};
-	if(_type in OT_mansions) exitWith {[150000,10]};
+	if(_type in OT_lowPopHouses) exitWith {[5000,8]};
+	if(_type in OT_mansions) exitWith {[50000,10]};
 	if(_type in OT_medPopHouses) exitWith {[22000,12,0.2]};
-	if(_type in OT_highPopHouses) exitWith {[45000,15,0.15]};
+	if(_type in OT_highPopHouses) exitWith {[55000,15,0.15]};
 	if(_type in OT_hugePopHouses) exitWith {[100000,40,0.06]};
 	if(_type == OT_warehouse) exitWith {[30000,0]};
 	[]
-}) params [["_baseprice",400],["_totaloccupants",4],["_multiplier",0.35]];
+}) params [["_baseprice", 400],["_totaloccupants",4],["_multiplier",0.35]];
 
 private _price = round(_baseprice + ((_baseprice * _stability * _population) * (1+OT_standardMarkup)));
 private _sell = round(_baseprice + (_baseprice * _stability * _population));
-private _lease = round((_stability * _population) * ((_baseprice * _multiplier) * _totaloccupants * 0.1));
+private _lease = round((_stability * _population) * ((_baseprice * _multiplier) * _totaloccupants * 0.3));
 if !(_town in (server getvariable ["NATOabandoned",[]])) then {_lease = round(_lease * 0.2)};
 private _diff = server getVariable ["OT_difficulty",1];
-if(_diff isEqualTo 0) then {_lease = round(_lease * 1.6)};
+if(_diff isEqualTo 0) then {_lease = round(_lease * 1.2)};
 if(_diff isEqualTo 2) then {_lease = round(_lease * 0.8)};
 if(_lease < 1) then {_lease = 1};
 [_price,_sell,_lease,_totaloccupants]
