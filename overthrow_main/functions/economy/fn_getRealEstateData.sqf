@@ -18,9 +18,9 @@ _population = (_population / 1000);
 ([_type] call {
 	params ["_type"];
 	if (_type in OT_spawnHouses) exitWith {[]};
-	if(_type in OT_lowPopHouses) exitWith {[5000,8]};
+	if(_type in OT_lowPopHouses) exitWith {[10000,8]};
 	if(_type in OT_mansions) exitWith {[50000,10]};
-	if(_type in OT_medPopHouses) exitWith {[22000,12,0.2]};
+	if(_type in OT_medPopHouses) exitWith {[25000,12,0.2]};
 	if(_type in OT_highPopHouses) exitWith {[55000,15,0.15]};
 	if(_type in OT_hugePopHouses) exitWith {[100000,40,0.06]};
 	if(_type == OT_warehouse) exitWith {[30000,0]};
