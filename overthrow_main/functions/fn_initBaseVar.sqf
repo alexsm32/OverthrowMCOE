@@ -205,6 +205,7 @@ OT_Recruitables = [
 ];
 
 OT_Squadables = [
+	["Sentry",["I_Soldier_SL_F","I_soldier_F"],"SEN"],
 	["Sniper Squad",["I_Sniper_F","I_Spotter_F"],"SNI"],
 	["Light AT Squad",["I_Soldier_SL_F","I_Soldier_LAT_F","I_Soldier_GL_F","I_Medic_F"],"LAT"],
 	["AT Squad",["I_Soldier_SL_F","I_Soldier_AT_F","I_Soldier_AAT_F","I_Medic_F"],"AT"],
