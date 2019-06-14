@@ -38,7 +38,7 @@ VCM_RAGDOLLCHC = 35; //CHANCE AI RAGDOLL
 VCM_AIHEALING = true; //Makes AI heal themselves
 VCM_FullSpeed = true; //Enforce full speedmode during combat (Does not reset after combat end)
 VCM_HEARINGDISTANCE = 800; //Distance AI hear unsuppressed gunshots.
-VCM_WARNDIST = 800; //How far AI can request help from other groups.
+VCM_WARNDIST = 1000; //How far AI can request help from other groups.
 VCM_WARNDELAY = 30; //How long the AI have to survive before they can call in for support. This activates once the AI enter combat.
 VCM_STATICARMT = 300; //How long AI stay on static weapons when initially arming them. This is just for AI WITHOUT static bags. They will stay for this duration when NO ENEMIES ARE SEEN, or their group gets FAR away.
 VCM_StealVeh = false; //Will the AI steal vehicles.
@@ -56,29 +56,29 @@ VCM_DRIVERLIMIT = 4; // How many drivers should be calculated at each cycle
 
 //AI SKILL SETTINGS HERE!!!!!!!!!!!!
 //LOW DIFFICULTY
-//VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.20],['aimingSpeed',0.15],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.65],['spotTime',0.85]];
+//VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.20],['aimingSpeed',0.15],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
 
 //MEDIUM DIFFICULTY
-VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.2],['aimingSpeed',0.2],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',0.5],['spotDistance',0.65],['spotTime',0.85]];
+VCM_AIDIFA = [['aimingAccuracy',0.15],['aimingShake',0.2],['aimingSpeed',0.2],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',0.5],['spotDistance',0.85],['spotTime',0.6]];
 
 //HIGH DIFFICULTY
-//VCM_AIDIFA = [['aimingAccuracy',0.25],['aimingShake',0.4],['aimingSpeed',0.35],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.65],['spotTime',0.85]];
+//VCM_AIDIFA = [['aimingAccuracy',0.35],['aimingShake',0.4],['aimingSpeed',0.45],['commanding',1],['courage',1],['endurance',1],['general',1],['reloadSpeed',1],['spotDistance',0.85],['spotTime',0.85]];
 
 //VCOM AI Skill Variables. Default values set to medium difficulty (old default)
 //AIMING ACCURACY
 VCM_AISKILL_AIMINGACCURACY_W = 0.15;
 VCM_AISKILL_AIMINGACCURACY_E = 0.15;
-VCM_AISKILL_AIMINGACCURACY_R = 0.20;
+VCM_AISKILL_AIMINGACCURACY_R = 0.25;
 
 //AIMING SHAKE
 VCM_AISKILL_AIMINGSHAKE_W = 0.2;
 VCM_AISKILL_AIMINGSHAKE_E = 0.2;
-VCM_AISKILL_AIMINGSHAKE_R = 0.2;
+VCM_AISKILL_AIMINGSHAKE_R = 0.1;
 
 //AIMING SPEED
 VCM_AISKILL_AIMINGSPEED_W = 0.2;
 VCM_AISKILL_AIMINGSPEED_E = 0.2;
-VCM_AISKILL_AIMINGSPEED_R = 0.2;
+VCM_AISKILL_AIMINGSPEED_R = 0.3;
 
 VCM_CLASSNAMESPECIFIC = false; //Do you want the AI to have classname specific skill settings?
 VCM_SIDESPECIFICSKILL = true; //Do you want the AI to have side specific skill settings? This overrides classname specific skills.

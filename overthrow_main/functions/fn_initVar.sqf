@@ -243,42 +243,13 @@ if (isServer) then {
 OT_boats = [
 	["C_Scooter_Transport_01_F",150,1,0,1],
 	["C_Boat_Civil_01_rescue_F",300,1,1,1],
-	["C_Boat_Civil_01_F",300,1,1,1],
 	["sab_boat",300,1,1,1],
-	["C_Boat_Transport_02_F",500,1,0,1]
-	["vvv_NewYacht",500,1,0,1]
+	["C_Boat_Transport_02_F",600,1,0,1]
 ];
-OT_vehicles = [
-["red_beetle_66_bahamablue",150,1,0,1],
-["red_beetle_66_pearlwhite",150,1,0,1],
-["red_beetle_66_seablue",150,1,0,1],
-["red_beetle_66_vwblue",150,1,0,1],
-["red_beetle_66_yukonyellow",150,1,0,1],
-["Skyline_Mercedes_300_SEL_01_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_02_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_03_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_04_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_05_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_06_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_07_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_08_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_09_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_10_F",150,1,0,1],
-["Skyline_Mercedes_300_SEL_11_F",150,1,0,1],
-["max_bike_w",150,1,0,1],
-["max_bike",150,1,0,1],
-["max_bike_b",150,1,0,1],
-];
-
-OT_helis = [
-["Sab_aeroc",250,1,0,1],
-["GNT_C185F",250,1,0,1],
-["GNT_C185",250,1,0,1],
-["sab_ultralight",250,1,0,1],
-];
-
+OT_vehicles = [];
+OT_helis = [];
 OT_allVehicles = [];
-OT_allBoats = ["B_Boat_Transport_01_F","sab_boat","vvv_NewYacht","GNT_C185F"];
+OT_allBoats = ["B_Boat_Transport_01_F","sab_boat"];
 OT_allWeapons = [];
 OT_allOptics = [];
 OT_allMagazines = [OT_ammo_50cal];
